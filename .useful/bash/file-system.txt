@@ -1,0 +1,41 @@
+# Find a file
+### print tag is optional
+find . -name LOSTFILE -print
+find DIR1 DIR2 -name LOSTFILE -print
+
+### Act on findings
+find DIRECTORY -name LOSTFILE -exec ACTION '{}' \;
+	## Where '{}' is the file you're acting on
+
+### If using wild cards incase in quotes
+find DIRECTORY -name 'LOSTFILE*' -print
+
+### Find within the last 3 days
+find DIRECTORY -mtime -3
+
+### FIND AND DELETE ALL THESE FILES
+find . -name ".svn" -exec rm -rf '{}' \;
+
+### EXAMPLES http://www.wagoneers.com/UNIX/FIND/find-usage.html
+
+### GREP AND IGNORE FOLDERS (DUMP TO FILE)
+grep -nR "affiliates/" Application/Branches/Controllers/ | grep -v '.svn' > t.txt
+
+### PRINT DIRECTORY TREE
+ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+
+### PRINT ONLY DIRECTORIES
+ls -p |grep "/"
+ls -l | grep '^d'
+ll * | grep '^d'
+find . -type d
+
+### Get size of directory (Human readable)
+du -sh .
+
+### Count files in directo(y|ies)
+find directory | wc -l
+find directory-1 directory-2 directory-3 | wc -l
+
+### Show directories in tree format
+ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'

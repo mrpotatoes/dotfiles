@@ -1,0 +1,10 @@
+http://ss64.com/osx/
+
+# Use these to change the bash prompt
+\w whole path
+\u user id
+\t time
+\d date
+\n newline
+\h hostname
+

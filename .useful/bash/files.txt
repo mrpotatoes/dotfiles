@@ -1,0 +1,28 @@
+# Counting
+-- Lines in a file or output
+wc -l FILE
+
+-- Words
+wc -w FILE
+
+# Head or tail of file
+-- Replace head with tail for the end-of-file
+-- Found out the head of the file
+head FILE
+
+-- Read first 20 lines of a file
+head -20 FILE
+
+-- View head of more than one file
+head file* | more
+
+--------------------------------------------------------------------------------------
+# Sorting files
+-- Sorts text in a file and outputs it to the screen.  Put it to a file instead
+sort FILE sorted.file.txt
+
+# Only output uniques (eliminate duplicates)
+sort FILE |  uniq > new.file.txt
+
+# Output files to two different areas
+use tee

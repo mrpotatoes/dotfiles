@@ -1,0 +1,1 @@
+drush upwd none --password="none"

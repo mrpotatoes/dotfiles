@@ -1,0 +1,1 @@
+drush -y sql-drop; $(drush sql-connect) < upgrade.sql; drush -y updatedb; drush cc all;

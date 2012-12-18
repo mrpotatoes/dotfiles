@@ -1,0 +1,39 @@
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;
+
+# COUNT SOMETHING
+-- http://www.java2s.com/Code/SQL/Select-Clause/UseCOUNTGROUPandHAVING.htm
+
+SELECT 		frid, 
+		count( related_frid ) AS related_count
+FROM 		etl_relationships_view
+GROUP 		BY frid
+HAVING 		related_count > 1
+LIMIT	 	0 , 30
+
+# ANOTHER:
+SELECT 		entity_id, 
+		count(related_entity_id) AS related_count,
+		relation_type_code
+FROM 		related_entity
+WHERE 		relation_type_code = 'RR/BRA' OR relation_type_code = 'RR/LIB' OR 
+		relation_type_code = 'RR/TMC' OR 
+		relation_type_code = 'TMC/RR' OR 
+		relation_type_code = 'BRA/RR'
+GROUP BY 	entity_id
+HAVING 		related_count > 1
+LIMIT		0 , 30
+
+# OUTPUT TO FILE
+SELECT * FROM EXAMPLE INTO OUTFILE '~/Desktop/example.txt'
+
+# UPDATE
+UPDATE data_fields SET is_aq='0' WHERE information_group='Service'
+
+SELECT 	entity_id, 
+		count(entity_id) AS entities
+FROM 		history
+GROUP BY 	entity_id
+HAVING 	entities > 1
+ORDER by	entities ASC 
+LIMIT		0 , 30

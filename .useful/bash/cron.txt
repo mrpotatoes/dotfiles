@@ -1,0 +1,52 @@
+### http://articles.techrepublic.com.com/5100-10878_11-5033424.html
+### http://www.mkssoftware.com/docs/man1/crontab.1.asp
+
+### FROM: http://www.adminschoice.com/docs/crontab.htm
+-- Also checkout:
+nice - Priority
+time - Timing
+bg - Running in the background
+fg - Running in the foreground
+
+-- Paths
+Paths need to be absolute.  If a script is being called by the cron it also needs to have absolute paths
+
+-- Time reference
+*   *   *   *   *  command to be executed
+-   -   -   -   -
+|   |   |   |   |
+|   |   |   |   +----- day of week (0 - 6) (Sunday=0)
+|   |   |   +------- month (1 - 12)
+|   |   +--------- day of month (1 - 31)
+|   +----------- hour (0 - 23)
++------------- min (0 - 59)
+
+
+-- To collect the cron execution execution log in a file :
+30 18  *    *   *    rm /home/someuser/tmp/* > /home/someuser/cronlogs/clean_tmp_dir.log
+
+-- Make the computer say hello at 11:12 PM
+12 23 * * * say hello
+
+-- Options
++---------+----------------------------------------------------------------------------------------+
+| Options |	Explanation									   |
++---------+----------------------------------------------------------------------------------------+
+| *	  |	Is treated as a wild card. Meaning any possible value. 				   |
++---------+----------------------------------------------------------------------------------------+
+| */5	  |	Is treated as every 5 minutes, hours, days, or months. Replacing the 5 		   |
+|	  |	with another numerical value will change this option.				   |
++---------+----------------------------------------------------------------------------------------+
+| 2,4,6   |	Treated as an OR, so if placed in the hours, this could mean at 2, 4, or 6 o-clock |
++---------+----------------------------------------------------------------------------------------+
+| 9-17	  |	Treats for any value between 9 and 17. So if placed in day of month this would be  |
+|	  |	days 9 through 17. Or if put in hours it would be between 9 and 5.		   |
++---------+----------------------------------------------------------------------------------------+
+
+
+
+
+
+
+
+

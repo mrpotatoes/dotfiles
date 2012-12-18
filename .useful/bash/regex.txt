@@ -1,0 +1,90 @@
+##################################### USING GREP ####################################
+--- http://www.robelle.com/smugbook/regexpr.html
+
+-- Color output
+grep --color TEXT FILE
+
+-- Normal usage
+grep TEXT FILE
+
+-- Number of lines on either side of found text string
+grep -5 TEXT FILE
+
+-- How many times text appears in a file
+grep -c TEXT FILE
+
+-- Which lines do NOT contain specified text
+grep -v TEXT FILE
+
+-- Text plus line number it shows up on
+grep -n TEXT FILE
+
+-- Case insensitivity 
+grep -i TEXT FILE
+
+#####################################################################################
+.		Placeholder for one or more characters or number:
+		grep .logan
+		grep ..ogan
+		grep .loga.
+*		Matches 0 or more instances of the preceding character
+^		Matches only instances of the string at the beginning of a line
+$		Matches only instances of the string at the end of a line
+\		Character escape
+[]		Matches any member of the set
+
+####################################### EXAMPLES #####################################
+.		grep .logan 		=> 
+		grep ..ogan 		=> 
+		grep .loga.		=> 
+
+--------------------------------------------------------------------------------------
+*		grep a*b FILE		=> b
+					=> ab
+					=> aaab
+		but not			=> acb
+
+--------------------------------------------------------------------------------------
+^		grep ^Some FILE		=> With the caret you specify that the search string 
+					   must appear at the beginning of a line. The example 
+					   would find a line beginning with "Some", bit not one
+					   beginning with "Read Some"
+--------------------------------------------------------------------------------------
+$		grep ach$ FILE		=> With grep ach$ saying you could find all lines in 
+					   the file sayings that end with "ach"
+
+--------------------------------------------------------------------------------------
+\		grep \* FILE		=> Searches for all instances of * in FILE.  The \ tells 
+					   UNIX to interpret the * literally as an astrisk character 
+					   rather than as a wild card.
+
+--------------------------------------------------------------------------------------
+[]		grep [32,64]-bit FILE	=> use the square brackets to enclose a set of options.  
+					   In this example ti will search FILE for all lines that 
+					   mention 32-bit and 64-bit in FILE
+
+--------------------------------------- OTHER EXAMPLES -------------------------------
+text[1234].html			=> All lines that start with text and ends that string with 1, 2, 3 or 4
+file[0-9].html			=> All lines that starts with file ends with .html and contains 0-9
+file[0-9].*			=> All lines that starts with file ends with 0-9.  
+^[A-Z]				=> Lines that start with a capital letter
+^[A-Z,a-z]			=> Lines start with a letter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
