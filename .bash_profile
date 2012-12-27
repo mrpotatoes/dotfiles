@@ -1,11 +1,9 @@
-# aliases
+# Aliases & Functions
 source $HOME/.bash_alias
+source $HOME/.bash_functions
 
-#andric was NOT here
-
-#ENVIROMENT VARIABLES
-#export PATH="./:/usr/local/bin:/usr/local/sbin:/Applications/Mamp/Library/bin:/Applications/Mamp/bin/php5/bin:/Applications/Developer/Maven/bin:/Applications/MAMP/bin/php/php5.2.17/bin:$PATH"
-export PATH="./:/usr/local/bin:/usr/local/sbin:/Applications/Mamp/Library/bin:/Applications/Developer/Maven/bin:/Applications/MAMP/bin/php/php5.2.17/bin:/Applications/Internet/Firefox.app/Contents/MacOS:$PATH"
+# ENVIROMENT VARIABLES
+export PATH="$JOINED_PATH:$PATH"
 
 export EDITOR=vim
 export JAVA_HOME="/Library/Java/Home/"
