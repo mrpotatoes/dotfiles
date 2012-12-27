@@ -2,6 +2,8 @@
 # ALIASES
 ############################################################
 
+#http://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
+
 # GENERAL ALIASES
 alias l="ls -aGl"
 alias lsd="ls -l | egrep '^d'"
