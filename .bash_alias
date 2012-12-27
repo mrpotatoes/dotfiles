@@ -18,7 +18,8 @@ alias empty_trash="rm -rf ~/.Trash/*"
 alias staget='ssh -A -qC avillanueva@dev.publicinteractive.com -L 3310:192.168.140.106:3306'
 alias am="o activity monitor"
 
-alias cloneprod="echo i8aDrupal | pbcopy;"
+# The -n removes the trailing newline.
+alias cloneprod="echo -n i8aDrupal | pbcopy;"
 # http://stackoverflow.com/questions/1753110/how-do-i-capture-bash-output-to-the-mac-os-x-clipboard
 alias cloneproduction="open /Users/avillanueva/Documents/NPR/clone.txt"
 alias commands="open /Users/avillanueva/Documents/NPR/Commands.txt"
