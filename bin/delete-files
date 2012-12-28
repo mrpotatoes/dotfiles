@@ -1,0 +1,11 @@
+#!/bin/sh
+# Recursively delete a bunch of files of the same name.
+
+USAGE_TEXT="delete-file FILE"
+. noargs
+
+#
+# Example:
+# $ delete_files .DS_Store
+# $ delete_files .svn
+find . -name "$1" -exec rm -rf '{}' \;

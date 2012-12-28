@@ -68,16 +68,6 @@ function sqldown() {
 }
 
 #----------------------------------------------------------------
-# A much easier way to make many files recursively.
-#
-# Example:
-# $ delete_files .DS_Store
-# $ delete_files .svn
-function delete_files() {
-	find . -name "$1" -exec rm -rf '{}' \;
-}
-
-#----------------------------------------------------------------
 # A much easier way to make many files. 
 function mfile() {
 	touch $2.$1

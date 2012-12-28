@@ -4,9 +4,18 @@
 USAGE_TEXT="hide FILE [FILE]..."
 . noargs
 
+if [ $1 == "--all" ]
+	then
+		# Get a list of just the hidden files.
+		FILE_LIST=( $(find . -iname ".*" -type f) )
+	else
+		# Get the arguments as an array.
+		FILE_LIST=($@)
+fi
+
 # This is where the work is actually done.
 set -e
-for f in "$@"
+for FILE in "${FILE_LIST[@]}"
 	do
-  	mv -v "$f" $(dirname "${f#.}")/$(basename "${f#.}")
+		mv -v $FILE $(basename "${FILE##*.}")
 done
