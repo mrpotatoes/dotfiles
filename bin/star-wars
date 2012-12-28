@@ -1,0 +1,4 @@
+#!/bin/sh
+# Usage: argv <args>
+# Dump arguments
+telnet towel.blinkenlights.nl

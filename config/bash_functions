@@ -1,21 +1,4 @@
 #----------------------------------------------------------------
-# A simpler open function. It's a wrapper for opening applications in OS X.
-# 
-# Examples:
-# $ o activity monitor
-# $ o mail
-function o() {
-	# if the second parameter is not in there then it'll do the else.  
-	# otherwise it does the "then" statement
-	if [ -z $2 ]
-		then
-			open -a "$1.app"
-		else
-			open -a $1\ $2.app
-	fi
-}
-
-#----------------------------------------------------------------
 # A simple function to cleanup files within one of my drupal websites. Sometimes
 function cleanupfiles() {
 	PASS="root"

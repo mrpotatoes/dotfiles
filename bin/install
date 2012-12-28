@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 NO_ARGS=0 
 E_OPTERROR=85
 
