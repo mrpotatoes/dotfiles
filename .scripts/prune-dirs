@@ -1,7 +1,0 @@
-#!/bin/sh
-# Usage: prune-dirs <path>...
-
-USAGE_TEXT="Remove empty directories under and including <path>s."
-. noargs
-
-find "$@" -type d -empty -depth | xargs rmdir
