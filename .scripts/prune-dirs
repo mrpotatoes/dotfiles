@@ -1,0 +1,17 @@
+#!/bin/sh
+# Usage: prune-dirs <path>...
+
+NO_ARGS=0 
+USAGE_TEXT="Remove empty directories under and including <path>s."
+HELP="--help"
+
+# If script is invoked with no command-line args
+# OR
+# someone types in --help
+if [[ $# -eq "$NO_ARGS" || $1 == "$HELP" ]]
+	then
+  	echo $USAGE_TEXT 
+	  exit 0
+fi
+
+find "$@" -type d -empty -depth | xargs rmdir

@@ -1,0 +1,12 @@
+#!/bin/sh
+# Open an application
+
+# Set "How to" text
+USAGE_TEXT="oo activity monitor"
+
+# Use this so that I don't have to copy this code each time. 
+# Takes the arguments as globals
+. noargs
+
+APP=$@
+open -a "${APP}.app"

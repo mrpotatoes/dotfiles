@@ -1,0 +1,12 @@
+#!/bin/sh
+# Hide file by putting a dot in front
+
+USAGE_TEXT="hide FILE [FILE]..."
+. noargs
+
+# This is where the work is actually done.
+set -e
+for f in "$@"
+	do
+  	mv -v "$f" $(dirname "$f")/.$(basename "$f")
+done

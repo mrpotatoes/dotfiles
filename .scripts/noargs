@@ -1,0 +1,13 @@
+#!/bin/sh
+NO_ARGS=0 
+#USAGE_TEXT="Usage: hide FILE [FILE]..."
+HELP="--help"
+
+# If script is invoked with no command-line args
+# OR
+# someone types in --help
+if [[ $# -eq "$NO_ARGS" || $1 == "$HELP" ]]
+	then
+  	echo "How to use: ${USAGE_TEXT}"
+	  exit 0
+fi

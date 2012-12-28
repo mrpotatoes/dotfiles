@@ -1,90 +1,32 @@
-# Aliases & Functions
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+	[ -r "$file" ] && source "$file"
+done
+unset file
+
 source $HOME/.bash_alias
 source $HOME/.bash_functions
 
 # ENVIROMENT VARIABLES
 export PATH="$JOINED_PATH:$PATH"
-
 export EDITOR=vim
 export JAVA_HOME="/Library/Java/Home/"
 export CATALINA_HOME=/Applications/Developer/Tomcat
 export HISTTIMEFORMAT="[%h/%d - %H:%M:%S] "
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
 
-#----------------------------------------------------------------
-# Examples:
-# $ o activity monitor
-# $ o mail
-function o() {
-	# if the second parameter is not in there then it'll do the else.  
-	# otherwise it does the "then" statement
-	if [ -z $2 ]
-		then
-			open -a "$1.app"
-		else
-			open -a $1\ $2.app
-	fi
-}
+# Add tab completion for `defaults read|write NSGlobalDomain`
+# You could just use `-g` instead, but I like being explicit
+complete -W "NSGlobalDomain" defaults
 
-function command_not_found_handle() {
-	echo $1
-}
+# Add `killall` tab completion for common apps
+complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
 
-#----------------------------------------------------------------
-function cleanupfiles() {
-	PASS="root"
-	mysql -uroot -p"$PASS" -e "use files; truncate file_managed; truncate watchdog"
-	rm -rf /Users/avillanueva/Projects/Web-Applications/files/sites/default/files/*
-}
-
-function tomcat() {
-	sh /Applications/Developer/Tomcat/bin/$1.sh
-}
-
-function resetuser() {
-	PASS="root"
-	if [ -z $1 ]
-		then
-			DBNAME=files
-		else
-			DBNAME=$1
-	fi
-	
-	QUERY="use ${DBNAME}; UPDATE users SET pass='\$S\$Cd059Vsxc8berFeg6hspaa7ejx2bSxyUisvCbT4h9o8XIgSUtPKz' WHERE uid=1; UPDATE users SET name='admin' WHERE uid=1;"
-	mysql -uroot -p"$PASS" -e "${QUERY}"
-}
-
-function sqlup() {
-	PASS="root"
-	mysql -uroot -p"$PASS" $1 < $2
-}
-
-#----------------------------------------------------------------
-function sqldown() {
-	PASS="root"
-	mysqldump -uroot -p"$PASS" $1 > $2.sql
-}
-
-#----------------------------------------------------------------
-function mfile() {
-	touch $2.$1
-}
-
-#----------------------------------------------------------------
-# Title
-function title() {
-    echo -ne "\033]0;$1\007";
-}
-
-#----------------------------------------------------------------
-function file_ext() {
-    file=$1
-    new_ext=$2
-    new_basename="${file%.*}"
-    #newfile "extension: ${file##*.}"
-    new_file=${new_basename}.${new_ext}
-    mv ${file} ${new_file}
-}
-#----------------------------------------------------------------
+# If possible, add tab completion for many more commands
+[ -f /etc/bash_completion ] && source /etc/bash_completion
 
 #http://sos.blog-city.com/mac_os_x__bash_customize_your_terminal_prompt_a_little_color.htm
 PS1="\[\e[0;32m\]\u:\[\e[0m\] [[\[\e[41m\]\w\[\e[0m\]]]: "
