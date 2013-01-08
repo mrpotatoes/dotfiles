@@ -34,7 +34,7 @@ alias maven="mvn"
 alias empty_trash="rm -rf ~/.Trash/*"
 alias staget='ssh -A -qC avillanueva@dev.publicinteractive.com -L 3310:192.168.140.106:3306'
 alias am="o activity monitor"
-alias dotfiles="cd ~/.dotfiles"
+alias dotf="cd ~/.dotfiles"
 
 alias cloneprod="echo -n i8aDrupal | pbcopy;"
 # http://stackoverflow.com/questions/1753110/how-do-i-capture-bash-output-to-the-mac-os-x-clipboard
