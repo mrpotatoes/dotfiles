@@ -1,16 +1,23 @@
+#!/bin/sh
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
-	[ -r "$file" ] && source "$file"
+for file_r in ~/.{path,bash_prompt,exports,aliases,functions,extra}; 
+	do
+		echo $file_r
+		#[ -r "$file" ] && source "$file"
 done
+
 unset file
 
-source $HOME/.bash_alias
-source $HOME/.bash_functions
+source $HOME/.dotfiles/config/paths
+source $HOME/.dotfiles/config/bash_alias
+source $HOME/.dotfiles/config/bash_functions
+source $HOME/.dotfiles/config/dynamic-paths
 
 # ENVIROMENT VARIABLES
-export PATH="$JOINED_PATH:$PATH"
+export PATH="$JOINED_PATHS:$PATH"
 export EDITOR=vim
 export JAVA_HOME="/Library/Java/Home/"
 export CATALINA_HOME=/Applications/Developer/Tomcat
@@ -30,5 +37,3 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 #http://sos.blog-city.com/mac_os_x__bash_customize_your_terminal_prompt_a_little_color.htm
 PS1="\[\e[0;32m\]\u:\[\e[0m\] [[\[\e[41m\]\w\[\e[0m\]]]: "
-
-export PATH=/opt/local/bin:/opt/local/sbin:/Users/avillanueva/:$PATH

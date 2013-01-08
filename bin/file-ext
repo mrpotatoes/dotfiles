@@ -1,0 +1,8 @@
+#!/bin/sh
+
+file=$1
+new_ext=$2
+new_basename="${file%.*}"
+#newfile "extension: ${file##*.}"
+new_file=${new_basename}.${new_ext}
+mv ${file} ${new_file}

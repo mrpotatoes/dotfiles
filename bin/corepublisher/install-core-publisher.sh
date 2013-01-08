@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Some variables that we need to setup.  Paths and usernames
 . install-variables.sh 
 

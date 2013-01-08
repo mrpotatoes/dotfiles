@@ -1,0 +1,11 @@
+#!/bin/sh
+# These are a set of paths that are used by the scripts.
+DOTFILES="${HOME}/.dotfiles"
+HTDOCS=""
+GENERATED_ALIASES="${DOTFILES}/tmp/generated-aliases"
+
+INCLUDES=(
+	bash_alias
+	bash_functions
+	dynamic_paths
+)

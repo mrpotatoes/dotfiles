@@ -1,0 +1,4 @@
+#!/bin/sh
+
+PASS="root"
+mysqldump -uroot -p"$PASS" $1 > $2.sql

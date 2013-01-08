@@ -1,0 +1,9 @@
+#!/bin/sh
+
+build_shortcuts() { 
+	for d in "$1"/*/; do 
+		tgt="${d%/}"; cmd="${tgt##*/}";
+		printf -v code "function %s() { cd %q; }\n" "$cmd" "$tgt";
+		type "$cmd" >/dev/null 2>/dev/null || eval "$code"; 
+	done; 
+}

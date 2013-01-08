@@ -1,0 +1,4 @@
+#!/bin/sh
+
+PASS="root"
+mysql -uroot -p"$PASS" $1 < $2

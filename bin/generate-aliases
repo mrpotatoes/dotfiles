@@ -1,0 +1,19 @@
+#!/bin/sh
+
+source $HOME/.dotfiles/config/paths
+
+HTDOCS_DIR="$HOME/Projects/Web-Applications"
+
+dirs=( $(find $HTDOCS_DIR -maxdepth 1 -not -iwholename '*.svn*' -type d -print) )
+
+vh="#!/bin/sh\n"
+vh="${vh}# Extra aliases that will be added to the alias script. These are generated aliases.\n\n"
+
+for dir in "${dirs[@]}"; do
+	# This is the only way to not throw an error.
+	ALIAS_NAME=$(basename $dir) 
+  vh="${vh}alias ${ALIAS_NAME}=\"cd ${dir}\"\n"
+done
+
+# Save it to the new file.
+echo $vh > $GENERATED_ALIASES

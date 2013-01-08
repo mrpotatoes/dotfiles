@@ -1,0 +1,4 @@
+#!/bin/bash
+# Explode the path to see what is there.
+
+echo $PATH | awk -F : '{print "PATH is set to"} {for (i=1;i<=NF;i++) {print "["i"]",$i}}'

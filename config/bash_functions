@@ -1,3 +1,5 @@
+#!/bin/sh
+
 #----------------------------------------------------------------
 # A simple function to cleanup files within one of my drupal websites. Sometimes
 function cleanupfiles() {

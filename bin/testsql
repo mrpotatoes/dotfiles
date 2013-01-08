@@ -1,0 +1,10 @@
+#!/bin/sh
+# Assumes an OS X environment that has Text wrangler installed
+
+#hey="${which edit}"
+#echo $HEY
+#exit 0;
+
+sqlfile="$HOME/.dotfiles/tmp/sql.sql"
+
+edit $sqlfile
