@@ -1,0 +1,9 @@
+#!/bin/sh
+
+DOTFILES_BIN_DIRECTORY=$HOME/.dotfiles/bin
+
+dirs=( $(find $DOTFILES_BIN_DIRECTORY -maxdepth 1 -not -iwholename -print) )
+
+for dir in "${dirs[@]}"; do
+	basename $dir
+done
