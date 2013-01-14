@@ -14,21 +14,6 @@ function tomcat() {
 	sh /Applications/Developer/Tomcat/bin/$1.sh
 }
 
-#----------------------------------------------------------------
-# Reset the user on my drupal site.
-function resetuser() {
-	PASS="root"
-	if [ -z $1 ]
-		then
-			DBNAME=files
-		else
-			DBNAME=$1
-	fi
-	
-	QUERY="use ${DBNAME}; UPDATE users SET pass='\$S\$Cd059Vsxc8berFeg6hspaa7ejx2bSxyUisvCbT4h9o8XIgSUtPKz' WHERE uid=1; UPDATE users SET name='admin' WHERE uid=1;"
-	mysql -uroot -p"$PASS" -e "${QUERY}"
-}
-
 function sqlup() {
 	PASS="root"
 	mysql -uroot -p"$PASS" $1 < $2

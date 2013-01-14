@@ -29,19 +29,19 @@ alias ealias="edit ~/.dotfiles/config/bash_alias"
 alias htdocs="cd ~/Projects/Web-Applications"
 alias spikes="cd ~/Projects/Web-Applications/spikes"
 alias startup="oo adium; oo outlook; oo netbeans; oo chrome; oo limechat; oo mamp; oo spotify"
-alias pushnight="o adium; o mail; o chrome;"
+alias pushnight="oo adium; oo mail; oo chrome;"
 alias maven="mvn"
 alias empty_trash="rm -rf ~/.Trash/*"
 alias staget='ssh -A -qC avillanueva@dev.publicinteractive.com -L 3310:192.168.140.106:3306'
-alias am="o activity monitor"
+alias am="oo activity monitor"
 alias dotf="cd ~/.dotfiles"
 
 alias cloneprod="echo -n i8aDrupal | pbcopy;"
 # http://stackoverflow.com/questions/1753110/how-do-i-capture-bash-output-to-the-mac-os-x-clipboard
-alias cloneproduction="open /Users/avillanueva/Documents/NPR/clone.txt"
-alias commands="open /Users/avillanueva/Documents/NPR/Commands.txt"
-alias tunnel="o sqlpro; staget"
-alias text="o textedit"
+#alias cloneproduction="open /Users/avillanueva/Documents/NPR/clone.txt"
+#alias commands="open /Users/avillanueva/Documents/NPR/Commands.txt"
+alias tunnel="oo sqlpro; staget"
+alias text="oo textedit"
 alias vpnon="sudo mv /etc/resolver/npr.org.disabled /etc/resolver/npr.org"
 alias vpnoff="sudo mv /etc/resolver/npr.org /etc/resolver/npr.org.disabled"
 alias drush='php ~/Documents/NPR/pubcore/drush/drush.php -i ~/Documents/NPR/pubcore/drush_custom'
@@ -76,7 +76,7 @@ alias umcheats="open -e ~/.useful/mysql/mysql-cheatsheet.txt"
 alias umpermissions="open -e ~/.useful/mysql/permissions.txt"
 alias umsubselects="open -e ~/.useful/mysql/subselects.txt"
 
-alias calc="o calculator"
+alias calc="oo calculator"
 
 # GOTO SPECIFIC FOLDERS
 alias docs="cd ~/Documents"

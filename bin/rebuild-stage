@@ -1,0 +1,21 @@
+#!/bin/sh
+# Rebuild this site from scratch.
+
+alias dru="php ~/Documents/NPR/pubcore/drush/drush.php -i ~/Documents/NPR/pubcore/drush_custom"
+
+dru -y sql-drop
+$(dru sql-connect) < sql.sql
+dru cc all
+dru -y en coder coder_review admin_menu dblog devel_generate
+dru -y dis toolbar shortcut
+dru cc all
+dru vset -y pi_shared_cache_db shared_cache
+dru vset -y pi_shared_cache_host 127.0.0.1
+dru vset -y pi_shared_cache_user root
+dru vset -y pi_shared_cache_pass root
+dru vset -y page_compression 0
+dru vset -y preprocess_css 0
+dru vset -y preprocess_js 0
+resetuser
+
+unalias dru
