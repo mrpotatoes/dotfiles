@@ -1,20 +1,6 @@
 #!/bin/sh
 
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for file_r in ~/.{path,bash_prompt,exports,aliases,functions,extra}; 
-	do
-		echo $file_r
-		#[ -r "$file" ] && source "$file"
-done
-
-unset file
-
-source $HOME/.dotfiles/config/paths
-source $HOME/.dotfiles/config/bash_alias
-source $HOME/.dotfiles/config/bash_functions
-source $HOME/.dotfiles/config/dynamic-paths
+source $HOME/.dotfiles/config/includes
 
 # ENVIROMENT VARIABLES
 export PATH="$JOINED_PATHS:$PATH"
