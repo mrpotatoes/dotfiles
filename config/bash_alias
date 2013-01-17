@@ -45,6 +45,8 @@ alias text="oo textedit"
 alias vpnon="sudo mv /etc/resolver/npr.org.disabled /etc/resolver/npr.org"
 alias vpnoff="sudo mv /etc/resolver/npr.org /etc/resolver/npr.org.disabled"
 alias drush='php ~/Documents/NPR/pubcore/drush/drush.php -i ~/Documents/NPR/pubcore/drush_custom'
+alias en='drush en -y'
+alias dis='drush dis -y'
 alias ep="explode-path"
 
 ## BASH

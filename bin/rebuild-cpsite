@@ -14,6 +14,6 @@ dru vset -y pi_shared_cache_user root
 dru vset -y pi_shared_cache_pass root
 dru vset -y pi_station_npr_api_key MDAyNTQ1NzQ1MDEyMjk0OTcxNTI4MzljZQ001
 dru vset -y pi_station_npr_api_org_id 1177
-resetuser
+resetuser files
 
 unalias dru

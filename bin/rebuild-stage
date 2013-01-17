@@ -16,6 +16,6 @@ dru vset -y pi_shared_cache_pass root
 dru vset -y page_compression 0
 dru vset -y preprocess_css 0
 dru vset -y preprocess_js 0
-resetuser
+resetuser files
 
 unalias dru
