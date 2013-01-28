@@ -1,0 +1,15 @@
+#!/bin/sh
+# Do a complete checkout of the directory
+
+rm -rf *
+rm -rf .svn
+rm .htaccess
+
+svn co svn+ssh://avillanueva@dev.publicbroadcasting.net/home/svn/trunk/drupal/drupal7 . 
+mv sites/default/default.settings.php .
+rm -rf sites profiles
+svn co svn+ssh://avillanueva@dev.publicbroadcasting.net/home/svn/trunk/pubcore/sites sites/
+svn co svn+ssh://avillanueva@dev.publicbroadcasting.net/home/svn/trunk/pubcore/profiles profiles/
+
+mkdir sites/default
+mv default.settings.php sites/default/
