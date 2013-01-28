@@ -1,0 +1,7 @@
+#!/bin/sh
+# Archive a set of files and/or directories into an archive
+
+USAGE_TEXT="untar ..."
+. noargs
+
+tar -zcvf archive.tar $@

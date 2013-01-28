@@ -50,7 +50,7 @@ alias dis='drush dis -y'
 alias ep="explode-path"
 
 ## BASH
-alias uuseful="open ~/.useful"
+alias uuseful="open ~/.dotfiles/useful"
 alias udrush="open -e ~/.useful/bash/drush.txt"
 alias useful="open -e ~/.useful/bash/useful-commands.txt"
 alias uarchive="open -e ~/.useful/bash/archive.txt"

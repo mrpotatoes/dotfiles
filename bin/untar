@@ -1,0 +1,7 @@
+#!/bin/sh
+# untar a file
+
+USAGE_TEXT="untar FILENAME"
+. noargs
+
+tar -zxvf $1

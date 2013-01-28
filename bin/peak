@@ -1,0 +1,7 @@
+#!/bin/sh
+# Peak in an archive
+
+USAGE_TEXT="untar DIRECTORY"
+. noargs
+
+tar -tf $1
