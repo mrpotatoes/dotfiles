@@ -16,8 +16,9 @@ fi
 alias syncup="sh .scripts/sync-settings-up.sh"
 alias syncdown="sh .scripts/sync-settings-down.sh"
 
-# GENERATED ALIASES 
+# GENERATED & CUSTOM ALIASES 
 source $HOME/.dotfiles/tmp/generated-aliases
+source $HOME/.custom/other/custom-aliases
 
 # GENERAL ALIASES
 alias l="ls -aGl"
@@ -31,25 +32,27 @@ alias spikes="cd ~/Projects/Web-Applications/spikes"
 alias startup="oo adium; oo outlook; oo netbeans; oo chrome; oo limechat; oo mamp; oo spotify"
 alias pushnight="oo adium; oo mail; oo chrome;"
 alias maven="mvn"
-alias empty_trash="rm -rf ~/.Trash/*"
+alias etrash="rm -rf ~/.Trash/*"
 alias staget='ssh -A -qC avillanueva@dev.publicinteractive.com -L 3310:192.168.140.106:3306'
 alias am="oo activity monitor"
 alias dotf="cd ~/.dotfiles"
 
-alias cloneprod="echo -n i8aDrupal | pbcopy;"
-# http://stackoverflow.com/questions/1753110/how-do-i-capture-bash-output-to-the-mac-os-x-clipboard
-#alias cloneproduction="open /Users/avillanueva/Documents/NPR/clone.txt"
-#alias commands="open /Users/avillanueva/Documents/NPR/Commands.txt"
-alias tunnel="oo sqlpro; staget"
-alias text="oo textedit"
-alias vpnon="sudo mv /etc/resolver/npr.org.disabled /etc/resolver/npr.org"
-alias vpnoff="sudo mv /etc/resolver/npr.org /etc/resolver/npr.org.disabled"
-alias drush='php ~/Documents/NPR/pubcore/drush/drush.php -i ~/Documents/NPR/pubcore/drush_custom'
-alias en='drush en -y'
-alias dis='drush dis -y'
+## DRUPAL
+alias en='dru en -y'
+alias dis='dru dis -y'
 alias ep="explode-path"
 
-## BASH
+## CONVENIENCE
+alias arhive="tar -zcvf"
+alias unarchive="tar -zxvf"
+alias size="du -sh"
+
+## APPS
+alias calc="oo calculator"
+alias ff="oo firefox"
+alias text="oo textedit"
+
+## CHEAT-SHEETS
 alias uuseful="open ~/.dotfiles/useful"
 alias udrush="open -e ~/.useful/bash/drush.txt"
 alias useful="open -e ~/.useful/bash/useful-commands.txt"
@@ -64,11 +67,7 @@ alias uinternet="open -e ~/.useful/bash/internet.txt"
 alias umisc="open -e ~/.useful/bash/misc.txt"
 alias uregex="open -e ~/.useful/bash/regex.txt"
 alias usystem="open -e ~/.useful/bash/system.txt"
-alias ehosts="open -a textwrangler /etc/hosts"
-alias vhosts="open -a textwrangler.app /Applications/MAMP/conf/apache/httpd.conf"
-alias arhive="tar -zcvf"
-alias unarchive="tar -zxvf"
-alias size="du -sh"
+alias usvn="open ~/.useful/svn/paths.txt"
 
 ### MYSQL
 alias umcli="open -e ~/.useful/mysql/cli.txt"
@@ -78,8 +77,6 @@ alias umcheats="open -e ~/.useful/mysql/mysql-cheatsheet.txt"
 alias umpermissions="open -e ~/.useful/mysql/permissions.txt"
 alias umsubselects="open -e ~/.useful/mysql/subselects.txt"
 
-alias calc="oo calculator"
-
 # GOTO SPECIFIC FOLDERS
 alias docs="cd ~/Documents"
 alias music="cd ~/Music"
@@ -88,7 +85,6 @@ alias proj="cd ~/Projects"
 alias apps="cd /Applications"
 alias dl="cd ~/Downloads"
 alias desk="cd ~/Desktop"
-alias mamp="cd /Applications/MAMP/"
 
 # OPEN SPECIFIC FOLDERS
 alias odocs="open ~/Documents/"
@@ -98,47 +94,16 @@ alias oapps="open /Applications/"
 alias odl="open ~/Downloads/"
 alias odesk="open ~/Desktop/"
 alias oprojects="open ~/Projects"
-alias oscripts="open ~/.scripts/"
 alias ohtdocs="open ~/Projects/Web-Applications"
-alias developer-apps="open /Applications/Developer"
-alias codepush="open ~/Documents/NPR/DS-CodePushChecklist-140312-1558-132.pdf"
+alias appsdevel="open /Applications/Developer"
 
-# OPEN SPECIFIC APPLICATION FOLDERS
-alias test="cd ~/Projects/Web-Applications/install_name"
-alias testmodules="cd ~/Projects/Web-Applications/install_name/sites/all/modules"
-alias testtheme="cd ~/Projects/Web-Applications/install_name/sites/all/themes"
-alias drupal="cd ~/Projects/Web-Applications/drupal"
-alias drupalmodules="cd ~/Projects/Web-Applications/drupal/sites/all/modules"
-alias drupaltheme="cd ~/Projects/Web-Applications/drupal/sites/all/themes"
-alias corepub="cd ~/Projects/Web-Applications/corepub"
-alias corepubmodules="cd ~/Projects/Web-Applications/corepub/sites/all/modules"
-alias corepubtheme="cd ~/Projects/Web-Applications/corepub/sites/all/themes"
-alias media="cd ~/Projects/Web-Applications/media"
-alias mediamodules="cd ~/Projects/Web-Applications/media/sites/all/modules"
-alias mediatheme="cd ~/Projects/Web-Applications/media/sites/all/themes"
-alias upgrade="cd /Users/avillanueva/Projects/Web-Applications/corepub-upgrade"
-
-# DEVELOPMENT
-alias clean_xprof="rm -rf /Users/avillanueva/Projects/XHProf-Output/*"
-
-# OPEN THIS FILE
+## WEB DEVELOPMENT
+alias mamp="cd /Applications/MAMP/"
+alias ehosts="open -a textwrangler /etc/hosts"
+alias vhosts="open -a textwrangler.app /Applications/MAMP/conf/apache/httpd.conf"
 alias httpdconf="open /Applications/MAMP/conf/apache/httpd.conf"
 alias phperror="open /Applications/MAMP/logs/php_error.log"
-
-# QUICK SSH 
-alias taters="ssh taters@mrpotatoes.com"
-alias dev="ssh -A dev.publicinteractive.com"
-
-# EXECUTE SCRIPTS
 alias bhidden="~/.scripts/backup-hidden.sh"
 alias starttomcat="/Applications/Developer/Tomcat/bin/startup.sh"
 alias stoptomcat="/Applications/Developer/Tomcat/bin/shutdown.sh"
-
-# SUBVERSION ALIASES
-alias usvn="open ~/.useful/svn/paths.txt"
-
-# TEMPORARY ALIASES
-# - EMPTY - #
-
-# DRUPAL
-#alias drupalcs="phpcs --standard=/Users/avillanueva/Projects/drupalcs/Drupal/ruleset.xml -extensions=php,module,inc,install,test,profile,theme"
+alias clean_xprof="rm -rf /Users/avillanueva/Projects/XHProf-Output/*"

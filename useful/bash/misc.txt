@@ -8,3 +8,4 @@ http://ss64.com/osx/
 \n newline
 \h hostname
 
+# http://stackoverflow.com/questions/1753110/how-do-i-capture-bash-output-to-the-mac-os-x-clipboard

@@ -1,0 +1,28 @@
+#!/bin/sh
+# Custom aliases that are needed.
+
+alias codepush="open ~/Documents/NPR/DS-CodePushChecklist-140312-1558-132.pdf"
+alias cloneprod="echo -n i8aDrupal | pbcopy;"
+alias tunnel="oo sqlpro; staget"
+alias vpnon="sudo mv /etc/resolver/npr.org.disabled /etc/resolver/npr.org"
+alias vpnoff="sudo mv /etc/resolver/npr.org /etc/resolver/npr.org.disabled"
+alias drush='php ~/Documents/NPR/pubcore/drush/drush.php -i ~/Documents/NPR/pubcore/drush_custom'
+
+# OPEN SPECIFIC APPLICATION FOLDERS
+alias test="cd ~/Projects/Web-Applications/install_name"
+alias testmodules="cd ~/Projects/Web-Applications/install_name/sites/all/modules"
+alias testtheme="cd ~/Projects/Web-Applications/install_name/sites/all/themes"
+alias drupal="cd ~/Projects/Web-Applications/drupal"
+alias drupalmodules="cd ~/Projects/Web-Applications/drupal/sites/all/modules"
+alias drupaltheme="cd ~/Projects/Web-Applications/drupal/sites/all/themes"
+alias corepub="cd ~/Projects/Web-Applications/corepub"
+alias corepubmodules="cd ~/Projects/Web-Applications/corepub/sites/all/modules"
+alias corepubtheme="cd ~/Projects/Web-Applications/corepub/sites/all/themes"
+alias media="cd ~/Projects/Web-Applications/media"
+alias mediamodules="cd ~/Projects/Web-Applications/media/sites/all/modules"
+alias mediatheme="cd ~/Projects/Web-Applications/media/sites/all/themes"
+alias upgrade="cd /Users/avillanueva/Projects/Web-Applications/corepub-upgrade"
+
+# QUICK SSH 
+alias taters="ssh taters@mrpotatoes.com"
+alias dev="ssh -A dev.publicinteractive.com"

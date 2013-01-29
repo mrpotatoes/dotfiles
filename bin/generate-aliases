@@ -1,10 +1,9 @@
 #!/bin/sh
 
-source $HOME/.dotfiles/config/paths
+source $HOME/.custom/other/paths-to-generate
+GENERATED_ALIASES=$HOME/.dotfiles/tmp/generated-aliases
 
-HTDOCS_DIR="$HOME/Projects/Web-Applications"
-
-dirs=( $(find $HTDOCS_DIR -maxdepth 1 -not -iwholename '*.svn*' -type d -print) )
+dirs=( $(find $PATHS -maxdepth 1 -not -iwholename '*.svn*' -type d -print) )
 
 vh="#!/bin/sh\n"
 vh="${vh}# Extra aliases that will be added to the alias script. These are generated aliases.\n\n"

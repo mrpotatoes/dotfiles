@@ -3,14 +3,20 @@
 # .dotfiles should be in the home directory
 
 # Generate the aliases
-${HOME}/.dotfiles/bin/generate-aliases
+#${HOME}/.dotfiles/bin/generate-aliases
 
 # Copy over the .osx file and restart finder
-${HOME}/.dotfiles/osx2
+#${HOME}/.dotfiles/osx2
 
 # Copy over the bash_profile to the user directory.
 cp "${HOME}/.dotfiles/config/bash_profile" "${HOME}/.bash_profile"
 
-# ????
+# Create the custom directories.
+mkdir -p $HOME/.custom
+mkdir -p $HOME/.custom/scripts
+mkdir -p $HOME/.custom/other
 
-# Profit.
+# Create the custom-aliases file.
+touch $HOME/.custom/other/custom-aliases
+touch $HOME/.custom/other/paths-to-generate
+touch $HOME/.dotfiles/tmp/generated-aliases

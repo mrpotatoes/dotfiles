@@ -5,7 +5,6 @@ alias dru="php ~/Documents/NPR/pubcore/drush/drush.php -i ~/Documents/NPR/pubcor
 
 dru -y sql-drop
 $(dru sql-connect) < sql.sql
-dru cc all
 dru -y en coder coder_review admin_menu dblog devel_generate
 dru -y dis toolbar shortcut
 dru cc all

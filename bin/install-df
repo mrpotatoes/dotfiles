@@ -1,0 +1,32 @@
+#!/bin/bash
+# This shell script demonstrates how to write interactive shell scripts
+# by allowing you to get user input.  Also demonstrated is the use of
+# shell functions and shell arrays, timing using SECONDS, and more!
+# Written by Wayne Pollock, Tampa FL 1996
+
+pause() {
+  PROMPT="Hit any key to continue ...";
+  
+  if [ -n "$1" ]
+		then
+			PROMPT=$1;
+	fi
+  key=""
+  
+  echo -n $PROMPT
+  stty -icanon
+  key=`dd count=1 2>/dev/null`
+  stty icanon
+}
+
+# Create the custom directories ----------------------------------------------------------
+pause "Click to create the directories"
+
+# Create the custom files ----------------------------------------------------------------
+pause
+
+# Ask user to create the thingy
+pause "asd"
+
+# Move over the bash_profile
+pause

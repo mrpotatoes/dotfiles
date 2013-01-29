@@ -1,7 +1,7 @@
 #!/bin/sh
 # Rebuild this site from a sql file.
 
-alias dru="php ~/Documents/NPR/pubcore/drush/drush.php -i ~/Documents/NPR/pubcore/drush_custom"
+#alias dru="php ~/Documents/NPR/pubcore/drush/drush.php -i ~/Documents/NPR/pubcore/drush_custom"
 
 dru -y sql-drop
 dru -y site-install ndest --db-url=mysql://root:root@localhost/files
@@ -16,4 +16,4 @@ dru vset -y pi_station_npr_api_key MDAyNTQ1NzQ1MDEyMjk0OTcxNTI4MzljZQ001
 dru vset -y pi_station_npr_api_org_id 1177
 resetuser files
 
-unalias dru
+#unalias dru

@@ -10,6 +10,9 @@ PATHS_TO_JOIN=(
 	/Applications/MAMP/bin/php/php5.2.17/bin	
 	/Applications/Internet/Firefox.app/Contents/MacOS	
 	${HOME}/.dotfiles/bin
+	
+	# Where a user adds custom environment scripts.
+	${HOME}/.custom/scripts
 )
 
 JOINED_PATHS=""
