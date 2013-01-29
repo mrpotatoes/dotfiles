@@ -4,29 +4,16 @@
 # shell functions and shell arrays, timing using SECONDS, and more!
 # Written by Wayne Pollock, Tampa FL 1996
 
-pause() {
-  PROMPT="Hit any key to continue ...";
-  
-  if [ -n "$1" ]
-		then
-			PROMPT=$1;
-	fi
-  key=""
-  
-  echo -n $PROMPT
-  stty -icanon
-  key=`dd count=1 2>/dev/null`
-  stty icanon
-}
+source $HOME/.dotfiles/config/bash_functions
 
 # Create the custom directories ----------------------------------------------------------
-pause "Click to create the directories"
+prompt "Click to create the directories"
 
 # Create the custom files ----------------------------------------------------------------
-pause
+prompt
 
 # Ask user to create the thingy
-pause "asd"
+prompt "asd"
 
 # Move over the bash_profile
-pause
+prompt

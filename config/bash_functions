@@ -60,3 +60,18 @@ function file_ext() {
     mv ${file} ${new_file}
 }
 #----------------------------------------------------------------
+
+prompt() {
+  PROMPT="Hit any key to continue ...";
+  
+  if [ -n "$1" ]
+		then
+			PROMPT=$1;
+	fi
+  key=""
+  
+  echo -n $PROMPT
+  stty -icanon
+  key=`dd count=1 2>/dev/null`
+  stty icanon
+}
