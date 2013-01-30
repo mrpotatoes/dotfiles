@@ -20,24 +20,6 @@ function sqlup() {
 }
 
 #----------------------------------------------------------------
-# Take a dump of a mysql database. If the second param isn't there the sqlfile will be 
-# named after the first param.
-#
-# Examples:
-# $ sqldown files files
-# $ sqldown files
-function sqldown() {
-	PASS="root"
-	
-	if [ -z $2 ]
-		then
-			mysqldump -uroot -p"$PASS" $1 > $1.sql
-		else
-			mysqldump -uroot -p"$PASS" $1 > $2.sql
-	fi
-}
-
-#----------------------------------------------------------------
 # A much easier way to make many files. 
 function mfile() {
 	touch $2.$1
@@ -58,20 +40,4 @@ function file_ext() {
     #newfile "extension: ${file##*.}"
     new_file=${new_basename}.${new_ext}
     mv ${file} ${new_file}
-}
-#----------------------------------------------------------------
-
-prompt() {
-  PROMPT="Hit any key to continue ...";
-  
-  if [ -n "$1" ]
-		then
-			PROMPT=$1;
-	fi
-  key=""
-  
-  echo -n $PROMPT
-  stty -icanon
-  key=`dd count=1 2>/dev/null`
-  stty icanon
 }

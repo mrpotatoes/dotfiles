@@ -1,0 +1,4 @@
+To use either type as this:
+  --> oo activity monitor
+Or open the current directory with:
+  --> oo

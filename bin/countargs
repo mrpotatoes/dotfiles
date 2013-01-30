@@ -1,0 +1,14 @@
+#!/bin/sh
+HELP="--help"
+
+# The script that is calling me.
+MAIN_SCRIPT="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
+
+# If script is invoked with no command-line args
+# OR
+# someone types in --help
+if [[ $# != "$REQUIRED_ARGUMENT_COUNT" || $1 == "$HELP" ]]
+	then
+  	manuals $MAIN_SCRIPT "${USAGE_TEXT}"
+	  exit 0
+fi

@@ -10,6 +10,7 @@ export CATALINA_HOME=/Applications/Developer/Tomcat
 export HISTTIMEFORMAT="[%h/%d - %H:%M:%S] "
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
+#export FIGNORE=DS_Store #Ignore the DS Store files when using bash.
 
 # Add tab completion for `defaults read|write NSGlobalDomain`
 # You could just use `-g` instead, but I like being explicit

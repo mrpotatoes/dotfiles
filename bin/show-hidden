@@ -1,20 +1,13 @@
 #!/bin/sh
 
-# Check if hidden files are visible and store result in a variable.
-isVisible="$(defaults read com.apple.finder AppleShowAllFiles)"
-
-echo $isVisible;
-exit 0;
-
-# toggle visibility based on variables value
-if [ "$isVisible" = FALSE ]
+# Toggle visibility based on variables value.
+if [ "$(defaults read com.apple.finder AppleShowAllFiles)" == false ]
 	then
-		defaults write com.apple.finder AppleShowAllFiles TRUE
+	  defaults write com.apple.finder AppleShowAllFiles true
 	else
-		defaults write com.apple.finder AppleShowAllFiles FALSE
+	  defaults write com.apple.finder AppleShowAllFiles false
 fi
 
-# Force changes by restarting Finder.
+# Then do some custom work make the work stick.
 killall Finder
-
 open /System/Library/CoreServices/Finder.app

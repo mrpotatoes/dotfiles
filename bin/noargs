@@ -1,6 +1,6 @@
 #!/bin/sh
 NO_ARGS=0 
-#USAGE_TEXT="Usage: hide FILE [FILE]..."
+MAIN_SCRIPT="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 HELP="--help"
 
 # If script is invoked with no command-line args
@@ -8,6 +8,6 @@ HELP="--help"
 # someone types in --help
 if [[ $# -eq "$NO_ARGS" || $1 == "$HELP" ]]
 	then
-  	echo "How to use: ${USAGE_TEXT}"
+  	manuals $MAIN_SCRIPT "${USAGE_TEXT}"
 	  exit 0
 fi

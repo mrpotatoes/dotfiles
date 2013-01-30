@@ -1,12 +1,20 @@
 #!/bin/sh
 # Open an application
 
-# Set "How to" text
-USAGE_TEXT="oo activity monitor"
+USAGE_TEXT='default'
 
-# Use this so that I don't have to copy this code each time. 
-# Takes the arguments as globals
-. noargs
+# The help text if needed.
+if [[ $1 == "--help" ]]
+	then
+	  manuals 'oo' "${USAGE_TEXT}"
+	  exit 0;
+fi
 
-APP=$@
-open -a "${APP}.app"
+# Actual functionality.
+if [ -n "$1" ]
+	then
+	  APP=$@
+    open -a "${APP}.app"
+  else
+    open .
+fi

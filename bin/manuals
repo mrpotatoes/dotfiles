@@ -1,0 +1,20 @@
+#!/bin/sh
+# Usage: argv <args>
+
+if [ $# != 2 ]
+	then
+	  echo "Requires 2 parameters. The manual to check for and thusly show a less of and the other which is the default value"
+	  exit 0
+fi
+
+
+MANUAL=$1
+FILE=$HOME/.dotfiles/manuals/$MANUAL.txt
+
+
+if [ ! -f $FILE ]
+  then
+    echo $2
+  else
+    less $FILE
+fi

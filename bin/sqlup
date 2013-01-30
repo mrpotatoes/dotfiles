@@ -1,4 +1,12 @@
 #!/bin/sh
+#----------------------------------------------------------------
+# Copy a sql file up to a given database.
+#
+# Examples:
+# $ sqlup PASSWORD files files
 
-PASS="root"
-mysql -uroot -p"$PASS" $1 < $2
+USAGE_TEXT="sqlup PASSWORD DATABASENAME FILENAME"
+REQUIRED_ARGUMENT_COUNT=3
+. countargs
+
+mysql -uroot -p"$1" $2 < $3
