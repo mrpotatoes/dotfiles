@@ -1,5 +1,8 @@
 #!/bin/sh
 
+REQUIRED_ARGUMENT_COUNT=2
+. countargs
+
 file=$1
 new_ext=$2
 new_basename="${file%.*}"

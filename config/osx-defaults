@@ -6,11 +6,11 @@
 # http://nerdlogger.com/2012/07/30/get-control-of-mountain-lion-with-a-huge-list-of-command-line-tweaks/
 
 # Disable menu bar transparency
-defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true
 
 # Show remaining battery time; hide percentage
-defaults write com.apple.menuextra.battery ShowPercent "NO"
-defaults write com.apple.menuextra.battery ShowTime "YES"
+defaults write com.apple.menuextra.battery ShowPercent "YES"
+defaults write com.apple.menuextra.battery ShowTime "NO"
 
 # Always show scrollbars. A nice to have for 10.7 and up.
 #defaults write NSGlobalDomain AppleShowScrollBars -string "Always"

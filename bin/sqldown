@@ -6,7 +6,6 @@
 # Examples:
 # $ sqldown PASSWORD files files
 
-USAGE_TEXT="sqldown PASSWORD DATABASENAME FILENAME"
 REQUIRED_ARGUMENT_COUNT=3
 . countargs
 

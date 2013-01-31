@@ -37,9 +37,6 @@ alias staget='ssh -A -qC avillanueva@dev.publicinteractive.com -L 3310:192.168.1
 alias am="oo activity monitor"
 alias dotf="cd ~/.dotfiles"
 
-## DRUPAL
-alias en='dru en -y'
-alias dis='dru dis -y'
 alias ep="explode-path"
 
 ## CONVENIENCE
@@ -107,3 +104,9 @@ alias bhidden="~/.scripts/backup-hidden.sh"
 alias starttomcat="/Applications/Developer/Tomcat/bin/startup.sh"
 alias stoptomcat="/Applications/Developer/Tomcat/bin/shutdown.sh"
 alias clean_xprof="rm -rf /Users/avillanueva/Projects/XHProf-Output/*"
+
+  ## DRUPAL
+  alias dru='' # Default Drupal stuff.
+  alias en='drush en -y'
+  alias dis='drush dis -y'
+

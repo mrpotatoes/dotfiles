@@ -1,7 +1,6 @@
 #!/bin/sh
 # Basically an alias for find.
 
-USAGE_TEXT="search SIMPLE_FILENAME_GREP"
 . noargs
 
 #

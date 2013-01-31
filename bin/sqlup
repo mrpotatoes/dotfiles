@@ -5,7 +5,6 @@
 # Examples:
 # $ sqlup PASSWORD files files
 
-USAGE_TEXT="sqlup PASSWORD DATABASENAME FILENAME"
 REQUIRED_ARGUMENT_COUNT=3
 . countargs
 

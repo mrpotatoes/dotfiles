@@ -9,6 +9,6 @@ MAIN_SCRIPT="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 # someone types in --help
 if [[ $# != "$REQUIRED_ARGUMENT_COUNT" || $1 == "$HELP" ]]
 	then
-  	manuals $MAIN_SCRIPT "${USAGE_TEXT}"
+  	manuals $MAIN_SCRIPT
 	  exit 0
 fi

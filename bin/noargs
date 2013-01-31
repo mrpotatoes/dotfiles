@@ -8,6 +8,6 @@ HELP="--help"
 # someone types in --help
 if [[ $# -eq "$NO_ARGS" || $1 == "$HELP" ]]
 	then
-  	manuals $MAIN_SCRIPT "${USAGE_TEXT}"
+  	manuals $MAIN_SCRIPT
 	  exit 0
 fi

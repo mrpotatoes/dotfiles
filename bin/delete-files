@@ -1,7 +1,6 @@
 #!/bin/sh
 # Recursively delete a bunch of files of the same name.
 
-USAGE_TEXT="delete-file FILE"
 . noargs
 
 #

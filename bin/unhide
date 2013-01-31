@@ -1,7 +1,6 @@
 #!/bin/sh
 # Hide file by putting a dot in front
 
-USAGE_TEXT="hide FILE [FILE]..."
 . noargs
 
 if [ $1 == "--all" ]
