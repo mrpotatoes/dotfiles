@@ -101,6 +101,8 @@ alias starttomcat="/Applications/Developer/Tomcat/bin/startup.sh"
 alias stoptomcat="/Applications/Developer/Tomcat/bin/shutdown.sh"
 alias clean_xprof="rm -rf /Users/avillanueva/Projects/XHProf-Output/*"
 
+alias ocustom="open $HOME/.custom/"
+
   ## DRUPAL
   alias dru='' # Default Drupal stuff.
   alias en='drush en -y'
