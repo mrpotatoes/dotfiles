@@ -16,10 +16,6 @@ fi
 alias syncup="sh .scripts/sync-settings-up.sh"
 alias syncdown="sh .scripts/sync-settings-down.sh"
 
-# GENERATED & CUSTOM ALIASES 
-source $HOME/.dotfiles/tmp/generated-aliases
-source $HOME/.custom/other/custom-aliases
-
 # GENERAL ALIASES
 alias l="ls -aGl"
 alias lsd="ls -l | egrep '^d'"
@@ -110,3 +106,6 @@ alias clean_xprof="rm -rf /Users/avillanueva/Projects/XHProf-Output/*"
   alias en='drush en -y'
   alias dis='drush dis -y'
 
+# GENERATED & CUSTOM ALIASES 
+source $HOME/.dotfiles/tmp/generated-aliases
+source $HOME/.custom/other/custom-aliases
