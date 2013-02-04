@@ -29,7 +29,6 @@ alias startup="oo adium; oo outlook; oo netbeans; oo chrome; oo limechat; oo mam
 alias pushnight="oo adium; oo mail; oo chrome;"
 alias maven="mvn"
 alias etrash="rm -rf ~/.Trash/*"
-alias staget='ssh -A -qC avillanueva@dev.publicinteractive.com -L 3310:192.168.140.106:3306'
 alias am="oo activity monitor"
 alias dotf="cd ~/.dotfiles"
 
