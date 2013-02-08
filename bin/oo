@@ -1,23 +1,49 @@
 #!/bin/sh
 # Open an application, directory or current working directory.
 
+LIST=(
+  /hey
+  /hey there/dude
+  /hey there/dude guy.exe
+)
+
+#echo "${LIST[0]}"
+#echo "${LIST[1]}"
+
+for IN in "${LIST[@]}"; do
+  #echo $IN
+  echo "$IN"
+done;
+
+exit;
+
 # This needs to be set so as to not match against case.
 shopt -s nocasematch
 
 # This is a bunch of setup to get the applist
 LSREGISTER=/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister
-APPS=( $($LSREGISTER -dump | grep --after-context 1 "^bundle" | grep --only-matching "/.*\.app") )
+APPS=( $($LSREGISTER -dump | grep --after-context 1 "^bundle" | grep --only-matching "/.*\.app" | grep "/Applications") )
+
+#$LSREGISTER -dump | grep --after-context 1 "^bundle" | grep --only-matching "/.*\.app" | grep "/Applications" > hey.txt
+#open hey.txt
+#exit;
+
 APP_FOUND=false
 DESIRED=$@
 
 # Figure out if the $1 is found. This needs to be tested so that it can take arguments with multiple values $@
 for IN in "${APPS[@]}"; do
-  if [[ "$IN.app" == "$1.app" ]]
+  if [ $(basename $IN) == "$1.app" ]
     then
       APP_FOUND=true
-      break
+      break;
+    else
+      continue;
   fi
 done
+
+echo $APP_FOUND
+exit
 
 # This script can be used in one of 3 ways.
 #   - open an app
