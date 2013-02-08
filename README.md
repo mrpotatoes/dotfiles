@@ -20,3 +20,8 @@ https://github.com/thoughtbot/dotfiles
 
 -- Another dude.
 https://github.com/rtomayko/dotfiles
+
+
+http://kpumuk.info/mac-os-x/how-to-show-ssh-host-name-on-the-iterms-background/
+
+http://apple.stackexchange.com/questions/25143/what-is-the-difference-between-iterm2-and-terminal
