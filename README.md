@@ -1,4 +1,5 @@
 **How to use**
+
 There are a few things that you should have by default if you're to use these .dotfiles.
 
 First you'll want to install a few applications which aren't hard to do.
