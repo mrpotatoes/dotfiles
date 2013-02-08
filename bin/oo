@@ -1,70 +1,20 @@
 #!/bin/sh
-# Open an application, directory or current working directory.
+# Open an application
 
-LIST=(
-  /hey
-  /hey there/dude
-  /hey there/dude guy.exe
-)
+USAGE_TEXT='default'
 
-#echo "${LIST[0]}"
-#echo "${LIST[1]}"
-
-for IN in "${LIST[@]}"; do
-  #echo $IN
-  echo "$IN"
-done;
-
-exit;
-
-# This needs to be set so as to not match against case.
-shopt -s nocasematch
-
-# This is a bunch of setup to get the applist
-LSREGISTER=/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister
-APPS=( $($LSREGISTER -dump | grep --after-context 1 "^bundle" | grep --only-matching "/.*\.app" | grep "/Applications") )
-
-#$LSREGISTER -dump | grep --after-context 1 "^bundle" | grep --only-matching "/.*\.app" | grep "/Applications" > hey.txt
-#open hey.txt
-#exit;
-
-APP_FOUND=false
-DESIRED=$@
-
-# Figure out if the $1 is found. This needs to be tested so that it can take arguments with multiple values $@
-for IN in "${APPS[@]}"; do
-  if [ $(basename $IN) == "$1.app" ]
-    then
-      APP_FOUND=true
-      break;
-    else
-      continue;
-  fi
-done
-
-echo $APP_FOUND
-exit
-
-# This script can be used in one of 3 ways.
-#   - open an app
-#   - open the current working directory
-#   - open another directory
-if [ -n "$1" ]
-  # -n => length of string is non-zero (they typed something in)
+# The help text if needed.
+if [[ $1 == "--help" ]]
 	then
-	  # The string was found so therefore open the application or directory.
-    if [ $APP_FOUND == true ]
-      # The application was found so open the application.
-      then
-        open -a "${DESIRED}.app"
-      # Otherwise open the directory that was desired.
-      else
-        open "${DESIRED}"
-    fi
-  # Otherwise open the current working directory.
+	  manuals 'oo' "${USAGE_TEXT}"
+	  exit 0;
+fi
+
+# Actual functionality.
+if [ -n "$1" ]
+	then
+	  APP=$@
+    open -a "${APP}.app"
   else
     open .
 fi
-
-# Unset this flag
-shopt -u nocasematch
