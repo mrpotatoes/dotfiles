@@ -1,3 +1,22 @@
+**Folder Structure**
+bin
+
+config
+
+custom
+
+  other
+
+  scripts
+
+data
+
+  hosts
+
+manuals
+
+useful
+
 **How to use**
 
 There are a few things that you should have by default if you're to use these .dotfiles.
