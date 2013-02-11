@@ -109,8 +109,9 @@ alias ocustom="open $HOME/.custom/"
 
 # GENERATED & CUSTOM ALIASES 
 source $HOME/.dotfiles/data/generated-aliases
-source $HOME/.custom/other/custom-aliases
+source $HOME/.dotfiles/custom/other/custom-aliases
 
 # WORKING WITH CUSTOM STUFF
 alias ecalias="edit ~/.custom/other/custom-aliases"
-alias ocustom="open ~/.custom"
+alias ocustom="open ~/.dotfiles/custom"
+alias escripts="open ~/.dotfiles/custom/scripts"

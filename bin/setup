@@ -19,7 +19,7 @@ case $1 in
     echo "The iterm setup file has been moved. Everything will now look and behave nicely. You now have a hot key drop down console window by pressin ctrl+~" ;;
     
   'profile') 
-    cp "${HOME}/.dotfiles/config/bash_profile" "${HOME}/.bash_profile";
+    ln -s "${HOME}/.dotfiles/config/bash_profile ${HOME}/.bash_profile";
     echo "Updated your .bash_profile";;
     
   'aliases' | 'alias')

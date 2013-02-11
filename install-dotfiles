@@ -17,11 +17,5 @@ PATH=${HOME}/.dotfiles/config:${HOME}/.dotfiles/bin:$PATH
 #cp "${HOME}/.dotfiles/config/bash_profile" "${HOME}/.bash_profile"
 
 # Create the custom directories.
-#mkdir -p $HOME/.custom
-#mkdir -p $HOME/.custom/scripts
-#mkdir -p $HOME/.custom/other
-
-# Create the custom-aliases file.
-#touch $HOME/.custom/other/custom-aliases
-#touch $HOME/.custom/other/paths-to-generate
-#touch $HOME/.dotfiles/data/generated-aliases
+mkdir -p ${HOME}/.dotfiles/.custom/scripts
+mkdir -p ${HOME}/.dotfiles/.custom/other

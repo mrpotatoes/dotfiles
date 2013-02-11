@@ -1,3 +1,4 @@
 tmp/*
-custom/*
+custom/other/*
+custom/scripts/*
 data/*

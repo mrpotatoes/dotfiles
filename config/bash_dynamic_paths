@@ -12,7 +12,7 @@ PATHS_TO_JOIN=(
 	${HOME}/.dotfiles/bin
 	
 	# Where a user adds custom environment scripts.
-	${HOME}/.custom/scripts
+	${HOME}/.dotfiles/custom/scripts
 )
 
 JOINED_PATHS=""

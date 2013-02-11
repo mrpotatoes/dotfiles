@@ -1,0 +1,8 @@
+#!/bin/bash
+
+. noargs
+
+FILENAME="$DOTFILES/custom/scripts/$1";
+
+touch $FILENAME
+edit $FILENAME;

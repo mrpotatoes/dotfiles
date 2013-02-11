@@ -27,18 +27,18 @@ read CUSTOM
 if [ "$CUSTOM" == "yes" ]
   then
     # Create the directories.
-    mkdir -p $HOME/.custom
-    mkdir -p $HOME/.custom/scripts
-    mkdir -p $HOME/.custom/other
+    #mkdir -p $HOME/.custom
+    #mkdir -p $HOME/.custom/scripts
+    #mkdir -p $HOME/.custom/other
 
     # Create the files.
-    touch $HOME/.custom/other/custom-aliases
-    touch $HOME/.custom/other/paths-to-generate
-    touch $HOME/.dotfiles/data/generated-aliases
+    #touch $HOME/.custom/other/custom-aliases
+    #touch $HOME/.custom/other/paths-to-generate
+    #touch $HOME/.dotfiles/data/generated-aliases
     
     echo $HOME
-    open $HOME/.custom/scripts
-    open $HOME/.custom/other
+    #open $HOME/.custom/scripts
+    #open $HOME/.custom/other
   else
     echo "We will skip this step";
 fi
