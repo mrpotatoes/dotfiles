@@ -1,4 +1,8 @@
 tmp/*
+data/*
+
 custom/other/*
 custom/scripts/*
-data/*
+
+custom/other/!nada.txt
+custom/scripts/!nada.txt
