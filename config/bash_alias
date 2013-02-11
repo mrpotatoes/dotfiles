@@ -99,7 +99,7 @@ alias bhidden="~/.scripts/backup-hidden.sh"
 alias starttomcat="/Applications/Developer/Tomcat/bin/startup.sh"
 alias stoptomcat="/Applications/Developer/Tomcat/bin/shutdown.sh"
 alias clean_xprof="rm -rf /Users/avillanueva/Projects/XHProf-Output/*"
-alias emacs="echo -e \"\033]50;SetProfile=emacs\a\"; emacs -nv"
+alias emacs="echo -e \"\033]50;SetProfile=emacs\a\"; emacs -nw"
 alias ocustom="open $HOME/.custom/"
 
   ## DRUPAL
