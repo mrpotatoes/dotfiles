@@ -6,7 +6,7 @@ HTDOCS=""
 INCLUDES=(
 	bash_alias
 	bash_functions
-	dynamic_paths
+	bash_dynamic_paths
 )
 
 # Dynamic inclusion of all the needed files.

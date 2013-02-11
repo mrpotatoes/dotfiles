@@ -1,6 +1,0 @@
-#!/bin/sh
-# Custom aliases that are needed.
-
-LSREGISTER=/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister
-
-#$LSREGISTER -dump | grep --after-context 1 "^bundle" | grep --only-matching "/.*\.app"

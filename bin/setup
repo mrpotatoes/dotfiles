@@ -1,0 +1,41 @@
+#!/bin/sh
+# Setup the environment and possibly rebuilt certain items.
+
+# THe usage function
+setup_usage() {
+  . noargs
+}
+
+# THE ACTUAL PROGRAM ---------------------------------------------------------------------
+case $1 in
+    'iterm' ) 
+      # cp setup-iterm.plist ~/Library/Preferences/net.sourceforge.iTerm.plist
+        echo "Setup the iterm settings file.";;
+    'profile') 
+        [[ -z $2 ]] && { setup_usage; exit 1; }
+        add_host $@;;
+    'aliases' | 'alias') 
+        [[ -z $2 ]] && { setup_usage; exit 1; }
+        echo 'hey andric';;
+    'prompt')
+        echo "setup: $1";;
+    'paths')
+        echo "setup: $1";;
+    'osx-defaults' | 'osx')
+        echo "setup: $1";;
+    'prompt')
+        echo "setup: $1";;
+        
+    'emacs')
+        echo "setup: $1";;
+        
+    'MAMP' | 'mamp')
+        echo 'Must have MacPorts installed\n'
+        echo "Using macports we'll setup a custom apache/php/mysql server instance. Use with caution as your environment would differ from mine and may not work perfect.";;
+    *)
+        . noargs;;
+esac
+
+#edit $BLCK_FILE
+#edit $DOTFILES/data/hosts
+
