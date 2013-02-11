@@ -1,41 +1,54 @@
 #!/bin/sh
 # Setup the environment and possibly rebuilt certain items.
 
+SETUP_DIRECTORY=${HOME}/.dotfiles/config
+
 # THe usage function
 setup_usage() {
   . noargs
 }
 
+# Require a second argument.
+# [[ -z $2 ]] && { setup_usage; exit 1; }
+
 # THE ACTUAL PROGRAM ---------------------------------------------------------------------
 case $1 in
-    'iterm' ) 
-      # cp setup-iterm.plist ~/Library/Preferences/net.sourceforge.iTerm.plist
-        echo "Setup the iterm settings file.";;
-    'profile') 
-        [[ -z $2 ]] && { setup_usage; exit 1; }
-        add_host $@;;
-    'aliases' | 'alias') 
-        [[ -z $2 ]] && { setup_usage; exit 1; }
-        echo 'hey andric';;
-    'prompt')
-        echo "setup: $1";;
-    'paths')
-        echo "setup: $1";;
-    'osx-defaults' | 'osx')
-        echo "setup: $1";;
-    'prompt')
-        echo "setup: $1";;
-        
-    'emacs')
-        echo "setup: $1";;
-        
-    'MAMP' | 'mamp')
-        echo 'Must have MacPorts installed\n'
-        echo "Using macports we'll setup a custom apache/php/mysql server instance. Use with caution as your environment would differ from mine and may not work perfect.";;
-    *)
-        . noargs;;
+  'iterm' ) 
+    cp $SETUP_DIRECTORY/setup-iterm.plist ~/Library/Preferences/net.sourceforge.iTerm.plist;
+    . $SETUP_DIRECTORY/setup-itermprefs.itermcolors
+    echo "The iterm setup file has been moved. Everything will now look and behave nicely. You now have a hot key drop down console window by pressin ctrl+~" ;;
+    
+  'profile') 
+    cp "${HOME}/.dotfiles/config/bash_profile" "${HOME}/.bash_profile";
+    echo "Updated your .bash_profile";;
+    
+  'aliases' | 'alias')
+    ${HOME}/.dotfiles/bin/generate-aliases;
+    echo 'Generated any extra aliases that may have been setup.';;
+    
+  'prompt')
+    echo "(Unfinished) Need to learn mastery of AWK/SED in order to get this to work.";;
+    
+  'emacs')
+    cp $SETUP_DIRECTORY/setup-emacs ${HOME}/.emacs;
+    echo "Moved the emacs setup file. Go ahead and get to work.";;
+    
+  'paths')
+    $SETUP_DIRECTORY/setup-prompt "These are the extra paths that you can edit to add to the path variable. Eventually I'll add a path variable to custom that people can use. Hit any key to continue."
+    edit $SETUP_DIRECTORY/bash_dynamic_paths;;
+    
+  'osx-defaults' | 'osx')
+    $SETUP_DIRECTORY/setup-osx-defaults
+    echo "You will need to restart your computer for most of these to take effect";;
+      
+  'MAMP' | 'mamp')
+    echo '(Unfinished) Must have MacPorts installed';;
+    #echo "Using macports we will setup a custom apache/php/mysql server instance. Use with caution as your environment would differ from mine and may not work perfect.";;
+    
+  *)
+    . noargs;;
+
 esac
 
 #edit $BLCK_FILE
 #edit $DOTFILES/data/hosts
-

@@ -1,64 +1,13 @@
-#!/bin/bash
+#! /bin/sh
 
-# Retrieved from here and modified.
-# http://codereview.stackexchange.com/questions/10910/bash-script-to-swap-out-edit-host-files
-#
-# Others to check out.
-# https://bbs.archlinux.org/viewtopic.php?id=139784
-#
-# The intention of this script can be found in the manual.
+# This core of this functionality was taken from here:
+# http://clauswitt.com/319.html
 
-DOTFILES="${HOME}/.dotfiles"
-
+# FUNCTIONS ------------------------------------------------------------------------------
+# The hosts functions that I am separating for the time being. I will bring them back into here.
+# A simple function to get the manual.
 usage() {
   . noargs
-}
-
-# HOST_FILE - actual host file to be swapped around.
-# ORIG_FILE - original host file without any of the appended blocked hosts.
-# BLCK_FILE - list of blocked hosts.
-# BLCK_TEMP - temporary file used when removing hosts.
-VARDIR="$DOTFILES/data/var"
-HOST_FILE="/etc/hosts"
-HOST_FILE="$DOTFILES/data/hosts"
-ORIG_FILE="$VARDIR/original_host"
-BLCK_FILE="$VARDIR/blocked_host"
-BLCK_TEMP=`mktemp -t "blocked_hosts"` || `mktemp /data/blocked_hosts.XXXXXXX` || exit 1
-
-# Make sure files exist.
-[[ -e $ORIG_FILE ]] || touch "$ORIG_FILE"
-[[ -e $BLCK_FILE ]] || touch "$BLCK_FILE"
-
-# Check to see if the block is currently active.
-ACTIVE_FLAG="$HOME/.wrk_block.flag"
-if [[ -e $ACTIVE_FLAG ]]; then 
-    IS_ACTIVE=0
-else 
-    IS_ACTIVE=1
-fi
-
-add_host() {
-  local hosts=("$@")
-  for host in "${hosts[@]:1}"; do
-    # append host to blocked hosts list
-    echo "127.0.0.1 $host" >> "$BLCK_FILE"
-    echo -e "\033[0;32madded\033[0m $host" 
-  done
-}
-
-add_to_host() {
-  echo 'Appending to /etc/hosts file';
-}
-
-# todo: remove need for loop; do in one go
-rm_host() {
-    local hosts=("$@")
-    for host in "${hosts[@]:1}"; do
-        # overwrite host list file with a copy removing a certain host
-        awk -v host=$host 'NF==2 && $2!=host { print }' "$BLCK_FILE" > "$BLCK_TEMP"
-        mv "$BLCK_TEMP" "$BLCK_FILE"
-        echo -e "\033[0;31mremoved\033[0m $host" 
-    done
 }
 
 # Check if the user is the root user. Otherwise the user will have to use sudo to call it.
@@ -71,50 +20,71 @@ check_root() {
   fi
 }
 
-start_block() {
-    if [[ $IS_ACTIVE -ne 0 ]]; then
-        cp "$HOST_FILE" "$ORIG_FILE"
-        cat "$BLCK_FILE" >> "$HOST_FILE"
-        touch "$ACTIVE_FLAG"
-        echo "Block started."
-    else
-        echo "Already blocking."
-    fi
+####
+# Backup the hosts file.
+# 
+# When adding do the backup and call it something. The backup format is ALWAYS going to be
+#    -> etc-hosts-%hh-%dd-%mm-%yyyy.backup
+#    If directory is empty create the first backup
+#      etc-hosts-first.backup
+#    else
+#      If the file exists do nothing.
+#        If the file does not exist create it
+#          after created create the copy of the most current /etc/hosts
+hosts_backup() {
+  # If the file doesn't exist then create it before doing work on it.
+  if [[ ! -e $BACKUP_FILE ]]; 
+    then
+      cp /etc/hosts $BACKUP_FILE
+  fi
+
+  # Do the actual work here.  
+  echo "$IP $2"  >> $HOSTS_FILE;
+  echo -e "\033[0;32madded\033[0m $2"
 }
 
-stop_block() {
-    if [[ $IS_ACTIVE -eq 0 ]]; then
-        cp "$ORIG_FILE" "$HOST_FILE"
-        [[ -e $ACTIVE_FLAG ]] && rm "$ACTIVE_FLAG"
-        echo "Stopped blocking."
-    else
-        echo "Not blocking."
-    fi
+# Revert host file
+remove_entry() {
+  sed -ie "\|^$IP $2\$|d" $HOSTS_FILE
+  echo -e "\033[0;31mremoved\033[0m $2" 
 }
+
+# https://trac.macports.org/wiki/howto/bash-completion
+revert_hosts_file() {
+  echo "Take a backup of this file and put it into the /etc/hosts file"
+  cp "/etc/hosts" "$BACKUP_HOSTS/etc-hosts"
+  echo -e "\033[0;31mIf anything is broken feel free to use $BACKUP_HOSTS/etc-hosts to revert back\033[0m" 
+  #cat "$2" >> "/etc/hosts"
+}
+
+# SOME VARIABLES -------------------------------------------------------------------------
+DEFAULT_IP=127.0.0.1
+IP=${3:-$DEFAULT_IP}
+NOW=$(date +"%H-%d-%m-%Y")
+
+# Files and directories. 
+BACKUP_HOSTS="${HOME}/.dotfiles/data/hosts"
+BACKUP_FILE="$BACKUP_HOSTS/etc-hosts-$NOW.backup"
+HOSTS_FILE="/etc/hosts"
 
 # THE ACTUAL PROGRAM ---------------------------------------------------------------------
-case $1 in
-    'ls' | 'list' | 'show' ) 
-        awk 'NF == 2 { print $2 }; END { if (!NR) print "Empty" }' "$BLCK_FILE" | less ;;
-    'add') 
-        [[ -z $2 ]] && { usage; exit 1; }
-        add_host $@;;
-    'add-to-etc-hosts') 
-        [[ -z $2 ]] && { usage; exit 1; }
-        echo 'hey andric';;
-        #add_to_host $@;;
-    'rm' | 'remove') 
-        [[ -z $2 ]] && { usage; exit 1; }
-        rm_host $@;;
-    'start') 
-        check_root
-        start_block;;
-    'stop') 
-        check_root
-        stop_block;;
-    *)
-        . noargs;;
-esac
+case "$1" in
+  add)
+    [[ -z $2 ]] && { usage; exit 1; }
+    hosts_backup;;
 
-#edit $BLCK_FILE
-#edit $DOTFILES/data/hosts
+  remove)
+    [[ -z $2 ]] && { usage; exit 1; }
+    remove_entry $2;;
+    
+  revert)
+    [[ -z $2 ]] && { usage; exit 1; }
+    revert_hosts_file $2;; 
+    
+  # List the current backup files in the directory.
+  list-backups)
+    ls $BACKUP_HOSTS | less;;
+
+  *)
+    usage;;
+esac

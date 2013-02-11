@@ -17,12 +17,19 @@ Purpose: This file does a lot that with a hosts file that allows us to manage ma
 Usage: hosts [command] [host1 host2 ...]
 
 Commands:
+  Manipulating the work and personal /etc/hosts files
     list                List blocked hosts
     ls                  List blocked hosts (short hand)
     add [host ...]      Add a host to be blocked
     rm [host ...]       Remove hosts from block
     start               Start blocking
     stop                Stop blocking
+    
+  Direct manipulation of /etc/hosts file.
+    set-hosts           Set the hosts file.
+    add-hosts [host]    Add to the hosts file
+    rm-hosts  [host]    Remove from the hosts file
+    ls-hosts            Add to the hosts file.
     revert [backup]     Revert a hosts file with the given file.
     rv [backup]         Revert a hosts file with the given file. (short hand)
     view-hosts          View the current hosts file
