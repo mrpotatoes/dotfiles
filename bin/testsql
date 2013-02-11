@@ -5,6 +5,6 @@
 #echo $HEY
 #exit 0;
 
-sqlfile="$HOME/.dotfiles/tmp/sql.sql"
+sqlfile="$HOME/.dotfiles/data/sql.sql"
 
 edit $sqlfile

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 source $HOME/.custom/other/paths-to-generate
-GENERATED_ALIASES=$HOME/.dotfiles/tmp/generated-aliases
+GENERATED_ALIASES=$HOME/.dotfiles/data/generated-aliases
 
 dirs=( $(find $PATHS -maxdepth 1 -not -iwholename '*.svn*' -type d -print) )
 

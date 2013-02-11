@@ -3,7 +3,7 @@
 #  remember - an easy command-line based memory pad
 #    search the results with 'remindme'
 
-rememberfile="$HOME/.dotfiles/tmp/remember"
+rememberfile="$HOME/.dotfiles/data/remember"
 
 if [ $# -eq 0 ] ; then
   echo "Enter note, end with ^D: "

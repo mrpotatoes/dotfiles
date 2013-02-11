@@ -18,12 +18,12 @@ usage() {
 # ORIG_FILE - original host file without any of the appended blocked hosts.
 # BLCK_FILE - list of blocked hosts.
 # BLCK_TEMP - temporary file used when removing hosts.
-VARDIR="$DOTFILES/tmp/var"
+VARDIR="$DOTFILES/data/var"
 HOST_FILE="/etc/hosts"
-HOST_FILE="$DOTFILES/tmp/hosts"
+HOST_FILE="$DOTFILES/data/hosts"
 ORIG_FILE="$VARDIR/original_host"
 BLCK_FILE="$VARDIR/blocked_host"
-BLCK_TEMP=`mktemp -t "blocked_hosts"` || `mktemp /tmp/blocked_hosts.XXXXXXX` || exit 1
+BLCK_TEMP=`mktemp -t "blocked_hosts"` || `mktemp /data/blocked_hosts.XXXXXXX` || exit 1
 
 # Make sure files exist.
 [[ -e $ORIG_FILE ]] || touch "$ORIG_FILE"
@@ -117,4 +117,4 @@ case $1 in
 esac
 
 #edit $BLCK_FILE
-#edit $DOTFILES/tmp/hosts
+#edit $DOTFILES/data/hosts

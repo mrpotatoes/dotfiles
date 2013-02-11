@@ -24,4 +24,4 @@ PATH=${HOME}/.dotfiles/config:${HOME}/.dotfiles/bin:$PATH
 # Create the custom-aliases file.
 #touch $HOME/.custom/other/custom-aliases
 #touch $HOME/.custom/other/paths-to-generate
-#touch $HOME/.dotfiles/tmp/generated-aliases
+#touch $HOME/.dotfiles/data/generated-aliases

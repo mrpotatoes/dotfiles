@@ -108,7 +108,7 @@ alias ocustom="open $HOME/.custom/"
   alias dis='drush dis -y'
 
 # GENERATED & CUSTOM ALIASES 
-source $HOME/.dotfiles/tmp/generated-aliases
+source $HOME/.dotfiles/data/generated-aliases
 source $HOME/.custom/other/custom-aliases
 
 # WORKING WITH CUSTOM STUFF

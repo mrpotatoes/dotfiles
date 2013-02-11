@@ -34,7 +34,7 @@ if [ "$CUSTOM" == "yes" ]
     # Create the files.
     touch $HOME/.custom/other/custom-aliases
     touch $HOME/.custom/other/paths-to-generate
-    touch $HOME/.dotfiles/tmp/generated-aliases
+    touch $HOME/.dotfiles/data/generated-aliases
     
     echo $HOME
     open $HOME/.custom/scripts

@@ -1,17 +1,17 @@
 ## Directories
-/bin			Essential programs and commands for use by all users
-/etc			System configuration files and global settings
-/home			Home directory for users
-/sbin			Programs and commands needed for system boot
-/tmp			Temporary files
-/usr/bin		Commands and programs that are less central to basic UNIX system 
-			functionality than those in the /bin but we installed with the system
-/usr/local		Most files and data that were developed or customized on the system
+/bin			        Essential programs and commands for use by all users
+/etc			        System configuration files and global settings
+/home			        Home directory for users
+/sbin			        Programs and commands needed for system boot
+/data			        Temporary files and data
+/usr/bin		      Commands and programs that are less central to basic UNIX system 
+			            functionality than those in the /bin but we installed with the system
+/usr/local		    Most files and data that were developed or customized on the system
 /usr/local/bin		Locally developed or installed programs
 /usr/local/man		Manuals for local programs
 /usr/share/man		Manual pages
-/var			Changeable data, including system logs, temporary data from programs and 
-			user mail storage
+/var			        Changeable data, including system logs, temporary data from programs and 
+			            user mail storage
 
 ### Permissions
 -- nada
