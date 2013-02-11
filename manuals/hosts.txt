@@ -1,0 +1,9 @@
+Usage: hosts [command] [host1 host2 ...]
+
+Commands:
+    list                list blocked hosts
+    add [host ...]      add a host to be blocked
+    rm [host ...]       remove hosts from block
+    start               start blocking
+    stop                stop blocking
+    
