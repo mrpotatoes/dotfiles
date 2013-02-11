@@ -14,36 +14,47 @@ setup_usage() {
 # THE ACTUAL PROGRAM ---------------------------------------------------------------------
 case $1 in
   'iterm' ) 
+    # Maybe this should be a symlink BUT it has to be tested to make sure that iTerm2
+    # will modify the one in the repo so that it can still be commited.
     cp $SETUP_DIRECTORY/setup-iterm.plist ~/Library/Preferences/net.sourceforge.iTerm.plist;
     . $SETUP_DIRECTORY/setup-itermprefs.itermcolors
     echo "The iterm setup file has been moved. Everything will now look and behave nicely. You now have a hot key drop down console window by pressin ctrl+~" ;;
     
+  # Create a profile symlink so that all changes in the profile can be revision.
   'profile') 
     ln -s "${HOME}/.dotfiles/config/bash_profile ${HOME}/.bash_profile";
     echo "Updated your .bash_profile";;
-    
+
+  # Generate the aliases.    
   'aliases' | 'alias')
     ${HOME}/.dotfiles/bin/generate-aliases;
     echo 'Generated any extra aliases that may have been setup.';;
     
+  # Use the "sexy" prompt
   'prompt')
     echo "(Unfinished) Need to learn mastery of AWK/SED in order to get this to work.";;
     
+  # Set a symlink to the emacs settings file and packages file.
+  # May want to do a sub module: http://git-scm.com/book/en/Git-Tools-Submodules
   'emacs')
     cp $SETUP_DIRECTORY/setup-emacs ${HOME}/.emacs;
     echo "Moved the emacs setup file. Go ahead and get to work.";;
     
+  # Setup the dynamic paths.
   'paths')
     $SETUP_DIRECTORY/setup-prompt "These are the extra paths that you can edit to add to the path variable. Eventually I'll add a path variable to custom that people can use. Hit any key to continue."
     edit $SETUP_DIRECTORY/bash_dynamic_paths;;
-    
+
+  # Run the OS X defaults.    
   'osx-defaults' | 'osx')
     $SETUP_DIRECTORY/setup-osx-defaults
     echo "You will need to restart your computer for most of these to take effect";;
       
+  # Do the macport MAMP install cuz mamp blows fishcakes.
   'MAMP' | 'mamp')
+    # Put the configuration files somewhere it can be easily reached/edited. OR have an 
+    # alias that can be used.
     echo '(Unfinished) Must have MacPorts installed';;
-    #echo "Using macports we will setup a custom apache/php/mysql server instance. Use with caution as your environment would differ from mine and may not work perfect.";;
     
   *)
     . noargs;;
