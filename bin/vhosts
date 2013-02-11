@@ -1,0 +1,14 @@
+#! /bin/sh
+
+.noargs
+
+VHOST=$1
+DIRECTORY=$2
+HTTPD_CONF=""
+
+echo "\n\n<VirtualHost *> \
+  ServerName $VHOST \
+  DocumentRoot \"$DIRECTORY\" \
+</VirtualHost>" >> $HTTPD_CONF
+
+echo -e "\033[0;32mAdded vHost\033[0m $VHOST"

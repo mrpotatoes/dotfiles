@@ -40,7 +40,7 @@ hosts_backup() {
 
   # Do the actual work here.  
   echo "$2 $1"  >> $HOSTS_FILE;
-  echo -e "\033[0;32madded\033[0m $2"
+  echo -e "\033[0;32madded\033[0m $1"
 }
 
 # Revert host file

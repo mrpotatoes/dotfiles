@@ -6,7 +6,7 @@ USAGE_TEXT='default'
 # The help text if needed.
 if [[ $1 == "--help" ]]
 	then
-	  manuals 'oo' "${USAGE_TEXT}"
+	  manuals 'oo'
 	  exit 0;
 fi
 
