@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "this is a wrapper class for the lsregister functionality."
+
+exit 0;
+
+# Case: Rebuild the registry
+#       - http://apple.stackexchange.com/questions/64124/how-can-i-modify-the-list-of-applications-under-open-with
+#       - http://useyourloaf.com/blog/2013/01/01/open-with-duplicates.html
+# Case: Find an application

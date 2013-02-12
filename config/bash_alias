@@ -45,6 +45,7 @@ alias ff="oo firefox"
 alias text="oo textedit"
 
 ## CHEAT-SHEETS
+alias uu="open ~/.dotfiles/useful"
 alias uuseful="open ~/.dotfiles/useful"
 alias udrush="open -e ~/.useful/bash/drush.txt"
 alias useful="open -e ~/.useful/bash/useful-commands.txt"
