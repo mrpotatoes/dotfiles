@@ -1,17 +1,27 @@
 #!/bin/bash
 
 PATHS_TO_JOIN=(
+  # System level paths.
 	/usr/local/bin	
 	/usr/local/sbin	
+	
+  # These are Mac Ports specific paths.
 	/opt/local/bin
 	/opt/local/sbin
-	/Applications/Mamp/Library/bin	
-	/Applications/Developer/Maven/bin	
+	/opt/local/apache2/bin
+	/opt/local/lib/mysql5/bin/
+	
+	# MAMP (application) specific paths.
+	#/Applications/Mamp/Library/bin
 	/Applications/MAMP/bin/php/php5.2.17/bin	
+	
+	# This is for selenium.
 	/Applications/Internet/Firefox.app/Contents/MacOS	
+	
+	# Custom script files used by dotfiles.
 	${HOME}/.dotfiles/bin
 	
-	# Where a user adds custom environment scripts.
+	# Where a user added custom environment scripts.
 	${HOME}/.dotfiles/custom/scripts
 )
 
