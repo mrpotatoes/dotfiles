@@ -1,0 +1,18 @@
+#!/bin/bash
+
+. noargs
+
+# THE ACTUAL PROGRAM ---------------------------------------------------------------------
+case "$1" in
+  'st' | 'start' ) 
+    apachectl start;;
+    
+  'sp' | 'stop')
+    apachectl stop;;
+
+  'rs' | 'restart')
+    apachectl restart;;
+    
+  'fs' | 'fullstatus')
+    apachectl fullstatus;;
+esac

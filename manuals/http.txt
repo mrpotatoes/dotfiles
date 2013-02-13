@@ -1,0 +1,9 @@
+Purpose: An easier way to start, stop and restart an apache instance.
+
+Usage: http [command]
+
+Commands:
+  st/start            Start the apache instance.
+  sp/stop             Stop the apache instance.
+  rs/restart          restart the apache instance.
+  fs/fullstatus       Get a status on the thing.
