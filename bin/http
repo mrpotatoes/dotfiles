@@ -2,6 +2,10 @@
 
 . noargs
 
+# Make sure they are allowed to do what they need to do.
+. ${HOME}/.dotfiles/config/bash_functions
+check_root
+    
 # THE ACTUAL PROGRAM ---------------------------------------------------------------------
 case "$1" in
   'st' | 'start' ) 

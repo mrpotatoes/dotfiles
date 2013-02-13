@@ -1,17 +1,11 @@
 #!/bin/sh
 
-#----------------------------------------------------------------
-# A simple function to cleanup files within one of my drupal websites. Sometimes
-function cleanupfiles() {
-	PASS="root"
-	mysql -uroot -p"$PASS" -e "use files; truncate file_managed; truncate watchdog"
-	rm -rf /Users/avillanueva/Projects/Web-Applications/files/sites/default/files/*
-}
-
-#----------------------------------------------------------------
-# Start my tomcat server which is located within this directory. I don't use tomcat anymore.
-function tomcat() {
-	sh /Applications/Developer/Tomcat/bin/$1.sh
+# Check if the user is the root user. Otherwise the user will have to use sudo to call it.
+check_root() {
+  if [[ "`whoami`" != "root" ]]; then
+    echo "You don't have sufficient priviledges to run this script (try sudo.)"
+    exit 1
+  fi
 }
 
 function sqlup() {
