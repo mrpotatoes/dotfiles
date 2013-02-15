@@ -1,0 +1,10 @@
+Purpose: A wrapper class to start, stop restart a server. Wraps the http script with
+         the sql script to make it a quick an painless way to start the servers adhoc.
+
+Usage: http [command]
+
+Commands:
+  st/start            Start the apache & MySql instance.
+  sp/stop             Stop the apache & MySql instance.
+  rs/restart          restart the apache & MySql instance.
+  fs/fullstatus       Get a status on the httpd server.

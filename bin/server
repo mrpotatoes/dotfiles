@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 . noargs
 
@@ -9,17 +9,18 @@ check_root
 # THE ACTUAL PROGRAM ---------------------------------------------------------------------
 case "$1" in
   'st' | 'start' ) 
-    apachectl start;;
+    apachectl start
+    sql start;;
     
   'sp' | 'stop')
-    apachectl stop;;
+    apachectl stop
+    sql stop;;
 
   'rs' | 'restart')
-    apachectl restart;;
+    apachectl restart
+    sql stop
+    sql start;;
     
   'fs' | 'fullstatus')
     apachectl fullstatus;;
-    
-  'edit')
-    edit /opt/local/apache2/conf/httpd.conf;;
 esac
