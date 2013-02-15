@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# In order for this to work it requires at minimum 2 arguments.
+REQUIRED_ARGUMENT_COUNT=2
+
+# Do the check
+. countargs
+
+# Prepare the file name to test against.
+USEFUL_FILE="${DOTFILES}/useful/$1/$2.txt"
+
+# Do the work.
+if [ -f $USEFUL_FILE ]
+  then
+    less $USEFUL_FILE
+  else
+    echo "This particular cheatsheet does not exist. "
+fi

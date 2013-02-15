@@ -1,0 +1,5 @@
+Purpose
+
+Examples
+  useful bash archive
+    -> Opens up $DOTFILES/useful/bash/archive.txt

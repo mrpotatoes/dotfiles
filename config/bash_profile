@@ -1,5 +1,15 @@
 #!/bin/sh
 
+# Some quick paths to use globally in include (source) files into bash scripts.
+export DOTFILES="$HOME/.dotfiles"
+export DOTFILES_CONFIG="$HOME/.dotfiles/config"
+export DOTFILES_BIN="$HOME/.dotfiles/bin"
+export DOTFILES_CUSTOM="$HOME/.dotfiles/custom"
+export BASH_CONSTS="$HOME/.dotfiles/config/constants"
+export WEBSERVER_CONSTS="$HOME/.dotfiles/config/webserver/paths"
+export BASH_FUNCTIONS="$HOME/.dotfiles/config/bash_functions"
+
+# Now do some includes.
 source $HOME/.dotfiles/config/bash_includes
 
 # ENVIROMENT VARIABLES
@@ -11,6 +21,7 @@ export HISTTIMEFORMAT="[%h/%d - %H:%M:%S] "
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 #export FIGNORE=DS_Store #Ignore the DS Store files when using bash.
+
 
 # Add tab completion for `defaults read|write NSGlobalDomain`
 # You could just use `-g` instead, but I like being explicit

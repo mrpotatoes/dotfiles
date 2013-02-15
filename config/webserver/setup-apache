@@ -1,1 +1,5 @@
 #!/bin/sh
+
+sudo port install apache2
+
+#sudo port load apache2

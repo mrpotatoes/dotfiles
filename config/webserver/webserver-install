@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo $DOTFILES_CONFIG
+
+. $BASH_FUNCTIONS
+. $BASH_CONSTS
+#check_root
+
