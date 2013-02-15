@@ -1,18 +1,25 @@
 #!/bin/bash
 
-# In order for this to work it requires at minimum 2 arguments.
-REQUIRED_ARGUMENT_COUNT=2
-
 # Do the check
-. countargs
+. noargs
 
 # Prepare the file name to test against.
-USEFUL_FILE="${DOTFILES}/useful/$1/$2.txt"
+USEFUL_DIRECTORY="${DOTFILES}/useful/$1"
+
+# The second argument isn't present we'll list the contents of the directory.
+if [ -d $USEFUL_DIRECTORY ] && [ $# -lt 2 ]
+  then
+    ls "$USEFUL_DIRECTORY" | less
+    exit 0;
+fi
+
+# Prepare the file name to test against.
+USEFUL_FILE="$USEFUL_DIRECTORY/$2.txt"
 
 # Do the work.
 if [ -f $USEFUL_FILE ]
   then
     less $USEFUL_FILE
   else
-    echo "This particular cheatsheet does not exist. "
+    echo "These are not the droids you are looking for."
 fi
