@@ -1,6 +1,10 @@
 #!/bin/bash
 
 PATHS_TO_JOIN=(
+  # MAMP path overrides.
+	/Applications/Mamp/Library/bin
+	/Applications/MAMP/bin/php/php5.2.17/bin	
+	
   # System level paths.
 	/usr/local/bin	
 	/usr/local/sbin	
@@ -10,10 +14,6 @@ PATHS_TO_JOIN=(
 	/opt/local/sbin
 	/opt/local/apache2/bin
 	/opt/local/lib/mysql5/bin/
-	
-	# MAMP (application) specific paths.
-	#/Applications/Mamp/Library/bin
-	#/Applications/MAMP/bin/php/php5.2.17/bin	
 	
 	# This is for selenium on my local.
 	/Applications/Internet/Firefox.app/Contents/MacOS	

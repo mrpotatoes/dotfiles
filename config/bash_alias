@@ -29,7 +29,6 @@ alias ealias="edit ~/.dotfiles/config/bash_alias"
 alias epaths="edit ~/.dotfiles/config/bash_dynamic_paths"
 alias htdocs="cd ~/Projects/Web-Applications"
 alias spikes="cd ~/Projects/Web-Applications/spikes"
-alias startup="oo adium; oo outlook; oo netbeans; oo chrome; oo limechat; oo mamp; oo spotify"
 alias pushnight="oo adium; oo mail; oo chrome;"
 alias maven="mvn"
 alias etrash="rm -rf ~/.Trash/*"
@@ -103,6 +102,7 @@ alias phperror="edit ${PHP_ERROR}"
 alias starttomcat="/Applications/Developer/Tomcat/bin/startup.sh"
 alias stoptomcat="/Applications/Developer/Tomcat/bin/shutdown.sh"
 alias clean_xprof="rm -rf /Users/avillanueva/Projects/XHProf-Output/*"
+alias webserver_paths="less ${DOTFILES}/config/webserver/paths"
 
   ## DRUPAL
   alias dru='' # Default Drupal stuff.

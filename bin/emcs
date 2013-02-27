@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. noargs
+
 #ITERM_PATH="/Applications/User Utilities/iTerm.app"
 #alias emacs="echo -e \"\033]50;SetProfile=emacs\a\"; emacs -nw"
 #open -n $ITERM_PATH
@@ -10,4 +12,6 @@ echo -e "\033]50;SetProfile=emacs\a";
 #mdls -name kMDItemCFBundleIdentifier \
 #     -raw "$(mdfind "(kMDItemContentTypeTree=com.apple.application) && (kMDItemDisplayName == 'iterm*'cdw)" | head -1)"
 
-com.googlecode.iterm2
+#com.googlecode.iterm2
+
+emacs -nw $1
