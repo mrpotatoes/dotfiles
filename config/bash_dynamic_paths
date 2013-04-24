@@ -3,7 +3,7 @@
 PATHS_TO_JOIN=(
   # MAMP path overrides.
 	/Applications/Mamp/Library/bin
-	/Applications/MAMP/bin/php/php5.2.17/bin	
+	/Applications/MAMP/bin/php/php5.3.6/bin
 	
   # System level paths.
 	/usr/local/bin	
@@ -23,6 +23,9 @@ PATHS_TO_JOIN=(
 	
 	# Where a user added custom environment scripts.
 	${HOME}/.dotfiles/custom/scripts
+	
+	# Ruby Gems
+	${HOME}/.gem/ruby/1.8/bin
 )
 
 JOINED_PATHS=""

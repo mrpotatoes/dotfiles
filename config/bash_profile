@@ -20,7 +20,7 @@ export CATALINA_HOME=/Applications/Developer/Tomcat
 export HISTTIMEFORMAT="[%h/%d - %H:%M:%S] "
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
-#export FIGNORE=DS_Store #Ignore the DS Store files when using bash.
+export FIGNORE=DS_Store #Ignore the DS Store files when using bash.
 
 
 # Add tab completion for `defaults read|write NSGlobalDomain`
@@ -36,4 +36,7 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # Use IF check to determine if using SEXY_PROMPT or not.
 
 #http://sos.blog-city.com/mac_os_x__bash_customize_your_terminal_prompt_a_little_color.htm
-PS1="\[\e[0;32m\]\u:\[\e[0m\] [[\[\e[41m\]\w\[\e[0m\]]]: "
+#PS1="\[\e[0;32m\]\u:\[\e[0m\] [[\[\e[41m\]\w\[\e[0m\]]]: "
+#PS1="\e[1;34m\u@\h \w> \e[m"
+#PS1="\[\e[36;1m\]\u@\[\e[32;1m\]\H> \[\e[0m\]"
+PS1="\[\033[36m\][\t] \[\033[1;33m\]\u\[\033[0m\] \[\033[36m\][\w]:\[\033[0m\] " 
