@@ -37,7 +37,7 @@ case $1 in
   # Set a symlink to the emacs settings file and packages file.
   # May want to do a sub module: http://git-scm.com/book/en/Git-Tools-Submodules
   'emacs')
-    cp $SETUP_DIRECTORY/setup-emacs ${HOME}/.emacs;
+    ln -s "${HOME}/.dotfiles/config/setup-emacs ${HOME}/.emacs";
     echo "Moved the emacs setup file. Go ahead and get to work.";;
     
   # Setup the dynamic paths.

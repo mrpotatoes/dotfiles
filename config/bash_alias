@@ -34,7 +34,8 @@ alias maven="mvn"
 alias etrash="rm -rf ~/.Trash/*"
 alias am="oo activity monitor"
 alias dotf="cd ~/.dotfiles"
-# alias emacs="emacs -nw"
+alias emacs="emacs -nw"
+alias eemacs="edit ~/.emacs"
 
 alias ep="explode-path"
 
@@ -119,7 +120,6 @@ source $HOME/.dotfiles/custom/other/custom-aliases
 alias ecalias="edit ~/.custom/other/custom-aliases"
 alias ocustom="open ${DOTFILES}/custom"
 alias escripts="open ${DOTFILES}/custom/scripts"
-#alias emacs="emacs -nw"
 
 alias lipsum="echo -n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum lacinia egestas. Nullam auctor tortor euismod turpis egestas pretium. Aliquam ullamcorper nulla diam, a fermentum velit vehicula non. Pellentesque egestas enim vitae pellentesque pulvinar. Nam placerat dictum mattis. Nunc non augue molestie, ullamcorper dui eu, interdum nunc. In ac aliquet sapien. Cras viverra luctus nisl, nec iaculis mauris laoreet sed. Etiam eu tortor nec mauris semper accumsan at at turpis.  | pbcopy; echo copied"
 

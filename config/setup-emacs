@@ -1,1 +1,399 @@
-# Setup some emacs awesomeness
+;; --------------------------------------------------------------------------------
+;; Other modules to consider.
+;;    - http://www.emacswiki.org/emacs/PredictiveMode#toc5
+;;    - http://www.youtube.com/watch?v=rGVVnDxwJYE
+;;      - This seems even better as it gets function definitions and such.
+;;    - http://amitp.blogspot.com/2012/10/emacs-helm-for-finding-files.html
+;; --------------------------------------------------------------------------------
+
+;; --------------------------------------------------------------------------------
+;; Making iTerm 2 work with normal Mac OSX keyboard shortcuts
+;;    - http://elweb.co/making-iterm-2-work-with-normal-mac-osx-keyboard-shortcuts/
+;; --------------------------------------------------------------------------------
+
+;; Tell emacs where is your personal elisp lib dir this is default dir for extra packages.
+(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/magit")
+;(add-to-list 'load-path "~/.emacs.d/yasnippet")
+(add-to-list 'load-path "~/.emacs.d/eproject")
+
+;; --------------------------------------------------------------------------------
+;; Default settings for my emacs.
+(set-default 'truncate-lines t)
+(setq inhibit-startup-screen t)
+(menu-bar-mode -1)
+(setq default-tab-width 2)
+(setq-default indent-tabs-mode nil)
+(setq visual-line-mode t)
+(setq linum-format "%3d\u2502 ")
+(setq dired-listing-switches "-lha")
+(setq backup-inhibited t)
+(setq auto-save-default nil)
+(setq global-ede-mode t)
+
+(put 'narrow-to-region 'disabled nil)
+(global-linum-mode t)
+
+(require 'pbcopy)
+(turn-on-pbcopy)
+
+;; --------------------------------------------------------------------------------
+;; Some global settings
+(global-set-key (kbd "M-;")
+     (lambda ()
+       (interactive)
+       (save-excursion
+         (move-beginning-of-line nil)
+         (push-mark (point) t t)
+         (move-end-of-line nil)
+         (comment-dwim nil)
+         (pop-mark))))
+
+;; --------------------------------------------------------------------------------
+;; Add Marmalade repo to package
+(require 'package)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(add-to-list 'package-archives 
+  '("marmalade" .
+    "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
+(load-theme 'solarized-dark' t)
+
+;; --------------------------------------------------------------------------------
+;; Reset some keys.
+(global-set-key (kbd "M-N") 'mc/mark-next-like-this)
+(global-set-key (kbd "M-P") 'mc/mark-previous-like-this)
+
+(autoload 'js-console "js-console" nil t)
+;;(load "~/.emacs.d/nxhtml/autostart.el")
+
+(load "haml-mode")
+(load "stubs")
+
+(require 'magit)
+;(require 'yasnippet)
+
+;; --------------------------------------------------------------------------------
+;; TEXT MODE.
+(defun my-text-mode-hook ()
+   "When in text-mode, remove linum and turn on visual-line-mode"
+   (visual-line-mode))
+
+  ;; UNCOMMENT THE FOLLOWING LINE TO SHOW DISABLE LINE NUMBERS. 
+  ;(linum-mode -1))
+(add-hook 'text-mode-hook 'my-text-mode-hook)
+
+; The column line that we'll be setting to either 80 or 120
+; http://www.emacswiki.org/FillColumnIndicator
+(require 'fill-column-indicator)
+(setq fci-rule-width 1)
+(setq fci-rule-color "darkblue")
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode 1)
+
+;; --------------------------------------------------------------------------------
+;; gist-mode
+(add-to-list 'load-path "~/.emacs.d/elpa/gist-1.0.3/gist.elc")
+(require 'gist)
+
+;; --------------------------------------------------------------------------------
+;; js2-mode
+(add-to-list 'load-path "~/.emacs.d/elpa/js2-mode-1.1")
+(load "js2-mode")
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+;(yas-global-mode 1)
+
+(global-set-key (kbd "C-w") 'backward-kill-word)
+(global-set-key (kbd "C-x C-k") 'kill-region)
+(global-set-key (kbd "C-x C-g") 'magit-status)
+
+;; --------------------------------------------------------------------------------
+;; Delete word without adding it to kill ring in minibuffer
+(defun backward-delete-word (arg)
+  "Delete characters backward until encountering the beginning of a word. With argument ARG, do this that many times."
+  (interactive "p")
+  (delete-region (point) (progn (backward-word arg) (point))))
+
+(define-key minibuffer-local-map (kbd "M-DEL") 'backward-delete-word)
+(define-key minibuffer-local-map (kbd "C-w") 'backward-delete-word)
+(define-key minibuffer-local-map (kbd "<C-backspace>") 'backward-delete-word)
+(define-key minibuffer-local-map (kbd "C-q") 'backward-delete-char)
+
+(defun buffer-file-name-interactive ()
+  "Interactive wrapper for buffer-file-name."
+  (interactive)
+  (message (buffer-file-name)))
+
+;; --------------------------------------------------------------------------------
+;; Global Indentation
+(defun add-indentation-spaces ()
+  "add TAB-WIDTH spaces to the beginning of this line"
+  (interactive)
+  (indent-rigidly (line-beginning-position) (line-end-position) (tab-width)))
+  
+(defun remove-indentation-spaces ()
+  "remove TAB-WIDTH spaces from the beginning of this line"
+  (interactive)
+  (indent-rigidly (line-beginning-position) (line-end-position) (- tab-width)))
+
+(global-set-key (kbd "<tab>") 'add-indentation-spaces)
+(global-set-key (kbd "<backtab>") 'remove-indentation-spaces)
+
+(setq default-tab-width 2)
+(setq-default indent-tabs-mode nil)
+
+;; --------------------------------------------------------------------------------
+;; Autopair
+;;    http://www.emacswiki.org/emacs/AutoPairs
+;;    - https://github.com/capitaomorte/autopair
+(add-to-list 'load-path "~/.emacs.d/autopair")
+(require 'autopair)
+ 
+;; --------------------------------------------------------------------------------
+;; PHP Mode
+;;  - https://github.com/ejmr/php-mode
+;;  - https://github.com/arnested/php-extras
+;;  - http://stackoverflow.com/questions/912671/what-is-a-good-setup-for-editing-php-in-emacs
+(add-to-list 'load-path "~/.emacs.d/php-mode")
+(require 'php-mode)
+
+(setq php-mode-force-pear t)
+(add-hook 'php-mode-hook
+  '(lambda ()
+    (autopair-mode)
+    (setq indent-tabs-mode nil)
+    (setq tab-width 2)
+    (setq c-basic-offset 2)))
+    
+(setq c-default-style "bsd"
+  c-basic-offset 2)
+
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.module$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.install$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.test$" . php-mode))
+
+;; --------------------------------------------------------------------------------
+;; Git Gutter
+;;  - https://github.com/syohex/emacs-git-gutter
+;;  - If git gutter is enabled I'll need to cleanup the lines.
+(add-to-list 'load-path "~/.emacs.d/emacs-git-gutter")
+(require 'git-gutter)
+(global-git-gutter-mode t)
+
+;; --------------------------------------------------------------------------------
+;; Minimap
+;; Next bind the mini map to a key. Perhaps: M-x *
+;;  - git://randomsample.de/minimap.git
+;;  - http://www.emacswiki.org/emacs/MiniMap
+(add-to-list 'load-path "~/.emacs.d/minimap")
+(require 'minimap)
+
+;; --------------------------------------------------------------------------------
+;; Drupal PHP Development. Eventually make this PHP/Java development & coding standards.
+;;  - http://how-to.linuxcareer.com/customizing-emacs-for-development
+;(defun drupal-mode ()
+;  "Drupal php-mode."
+;  (interactive)
+;  (php-mode)
+;  (message "Drupal mode activated.")
+;  (set 'tab-width 2)
+;  (set 'c-basic-offset 2)
+;  (set 'indent-tabs-mode nil)
+;  (c-set-offset 'case-label '+)
+;  (c-set-offset 'arglist-intro '+) ; for FAPI arrays and DBTNG
+;  (c-set-offset 'arglist-cont-nonempty 'c-lineup-math) ; for DBTNG fields and values
+;  ; More Drupal-specific customizations here
+;)
+;
+;(defun setup-php-drupal ()
+;  ; Drupal
+;  (add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . drupal-mode))
+;  (add-to-list 'auto-mode-alist '("/drupal.*\\.\\(php\\|inc\\)$" . drupal-mode))
+;  (add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
+;)
+; 
+;(setup-php-drupal)
+
+;; --------------------------------------------------------------------------------
+;; Multiple cursors
+;;  - https://github.com/emacsmirror/multiple-cursors
+;;  - git@github.com:emacsmirror/multiple-cursors.git
+(add-to-list 'load-path "~/.emacs.d/multiple-cursors")
+(require 'multiple-cursors)
+
+;; Keyboard shortcuts
+(global-set-key (kbd "M-N") 'mc/mark-next-like-this)
+(global-set-key (kbd "M-P") 'mc/mark-previous-like-this)
+
+;; --------------------------------------------------------------------------------
+;; Keyboard shortcuts
+(defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
+
+(define-minor-mode my-keys-minor-mode
+  "A minor mode so that my key settings override annoying major modes."
+  t " my-keys" 'my-keys-minor-mode-map)
+(my-keys-minor-mode 1)
+
+(define-key my-keys-minor-mode-map (kbd "<backtab>") 'remove-indentation-spaces)
+(define-key my-keys-minor-mode-map (kbd "ESC n") 'scroll-up-line)
+(define-key my-keys-minor-mode-map (kbd "ESC p") 'scroll-down-line)
+
+(define-key my-keys-minor-mode-map (kbd "M-`") 'previous-buffer)
+(define-key my-keys-minor-mode-map (kbd "M-~") 'next-buffer) 
+(define-key my-keys-minor-mode-map (kbd "M-TAB") 'next-buffer)
+
+;; --------------------------------------------------------------------------------
+;; Syntax Checking
+;;  Using: Flymake, rfringe, etc
+;;    - http://www.gnu.org/software/emacs/manual/html_mono/flymake.html#Installing-Flymake
+;;    - http://www.illusori.co.uk/projects/
+;;    - https://github.com/illusori/emacs-flymake
+;;    - http://www.emacswiki.org/emacs/FlyMake
+;;      - Tmp directory & etc.
+;;
+;;  PHP
+;;    - http://www.illusori.co.uk/projects/emacs-flymake-phpcs/
+;;
+;;  Some other stuff to check out:
+;;    - http://ergoemacs.org/emacs_manual/elisp/Fringe-Indicators.html
+;;    - https://github.com/Fuco1/indicators.el
+;;    - http://www.emacswiki.org/emacs/FlymakeCursor
+(add-to-list 'load-path "~/.emacs.d/emacs-flymake")
+(add-to-list 'load-path "~/.emacs.d/fringe-helper.el")
+(add-to-list 'load-path "~/.emacs.d/extras")
+(require 'flymake)
+(require 'fringe-helper)
+
+(require 'fringe)
+
+;(defun define-fringe-bitmap (bitmap bits &optional height width align))
+
+;(add-to-list 'load-path "~/.emacs.d/indicators")
+;(require 'indicators)
+
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+ 
+(global-set-key [f3] 'flymake-display-err-menu-for-current-line)
+(global-set-key [f4] 'flymake-goto-next-error)
+
+;; --------------------------------------------------------------------------------
+;; ANDRIC
+;(add-to-list 'load-path "~/.emacs.d/andric")
+;(require 'andric)
+;(load "~/.emacs.d/andric/andric.el")
+
+;; --------------------------------------------------------------------------------
+;; GTAGS
+(add-to-list 'load-path "~/.emacs.d/gtags")
+(autoload 'gtags-mode "gtags" "" t)
+
+(add-hook 'php-mode-hook
+  '(lambda () 
+    (gtags-mode 1)
+    (global-set-key (kbd "M-.") 'gtags-find-tag)    ; Find a tag.
+    (local-set-key (kbd "M-,") 'gtags-find-rtag)  ; reverse tag
+))
+
+;; Update the gtags every chance we get.
+(defun djcb-gtags-create-or-update ()
+  "create or update the gnu global tag file"
+  (interactive)
+  (if (not (= 0 (call-process "global" nil nil nil " -p"))) ; tagfile doesn't exist?
+    (let ((olddir default-directory)
+          (topdir (read-directory-name  
+                    "gtags: top of source tree:" default-directory)))
+      (cd topdir)
+      (shell-command "gtags && echo 'created tagfile'")
+      (cd olddir)) ; restore   
+    ;;  tagfile already exists; update it
+    (shell-command "global -u && echo 'updated tagfile'")))
+    
+(add-hook 'after-save-hook 'djcb-gtags-create-or-update)
+
+; rm GPATH GRTAGS GTAGS; sleep 1s; gtags -v --skip=sites/ --gtagslabel=drupal; size GPATH GRTAGS GTAGS
+
+;; --------------------------------------------------------------------------------
+;; Company mode
+;;  - https://github.com/company-mode/company-mode
+;;  - http://company-mode.github.io/
+(add-to-list 'load-path "~/.emacs.d/company-mode")
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(setq company-backends 
+  '(company-elisp 
+    company-ropemacs
+    company-gtags
+    company-dabbrev-code
+    company-keywords
+    company-files 
+    company-dabbrev))
+
+;; Keyboard Bindings.
+(global-set-key (kbd "M-r") 'company-complete-common)
+
+;; --------------------------------------------------------------------------------
+;; http://www.emacswiki.org/emacs/SmoothScrolling
+;; More info:
+;;  - http://mattbriggs.net/blog/2012/03/18/awesome-emacs-plugins-ctags/
+;;  - http://www.emacswiki.org/BuildTags
+;;  - http://www.emacswiki.org/emacs/TagsFile
+;;  - http://www.emacswiki.org/emacs/EmacsTags
+(unless window-system
+  (require 'mouse)
+  (xterm-mouse-mode t)
+  (global-set-key [mouse-4] '(lambda ()
+    (interactive)
+    (scroll-down 1)))
+  (global-set-key [mouse-5] '(lambda ()
+    (interactive)
+    (scroll-up 1)))
+    
+  (defun track-mouse (e))
+  (setq mouse-sel-mode t)
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+  (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+  (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+)
+
+;; --------------------------------------------------------------------------------
+;; hl-line seems to be only for emacs
+;;    - http://www.emacswiki.org/emacs/highline.el
+
+(require 'highline)
+(add-hook 'org-agenda-mode-hook '(lambda () (highline-mode 1)))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(highline-face ((((type tty) (class color)) (:background "#399" :foreground "black"))))
+ '(linum ((t (:inherit (shadow default) :background "black" :foreground "brightgreen"))))
+ '(magit-item-highlight ((t (:background "black" :foreground "blue"))))
+ '(magit-log-head-label-local ((t (:background "Grey85" :foreground "LightSkyBlue4" :box 1)))))
+ 
+ ;; To customize the background color
+(set-face-background 'highline-face "#CCC")
+
+;; --------------------------------------------------------------------------------
+;; Helm
+;;    - https://github.com/emacs-helm/helm/wiki#wiki-generalhelmcommands
+;;    - https://github.com/emacs-helm/helm
+;;    - git clone https://github.com/emacs-helm/helm.git 
+;;    - http://amitp.blogspot.com/2012/10/emacs-helm-for-finding-files.html
+;;    - http://stackoverflow.com/questions/12672186/how-to-have-emacs-helm-list-offer-files-in-fixed-directories-as-options
+(add-to-list 'load-path "~/.emacs.d/helm")
+(require 'helm-config)
+
+(global-set-key (kbd "C-c h") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(put 'dired-find-alternate-file 'disabled nil)

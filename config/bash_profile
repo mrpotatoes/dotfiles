@@ -1,155 +1,66 @@
 #!/bin/sh
 
-############################################################
-# ALIASES
-############################################################
+# Some quick paths to use globally in include (source) files into bash scripts.
+export DOTFILES="$HOME/.dotfiles"
+export DOTFILES_CONFIG="$HOME/.dotfiles/config"
+export DOTFILES_BIN="$HOME/.dotfiles/bin"
+export DOTFILES_CUSTOM="$HOME/.dotfiles/custom"
+export BASH_CONSTS="$HOME/.dotfiles/config/constants"
+export WEBSERVER_CONSTS="$HOME/.dotfiles/config/webserver/paths"
+export BASH_FUNCTIONS="$HOME/.dotfiles/config/bash_functions"
 
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
-else # OS X `ls`
-	colorflag="-G"
-fi
+# Now do some includes.
+source $HOME/.dotfiles/config/bash_includes
 
-# INCLUDE THE WEBSERVER CONSTANTS FOR USE ELSEWHERE.
-. $WEBSERVER_CONSTS
+# ENVIROMENT VARIABLES
+export PATH="$JOINED_PATHS:$PATH"
+export EDITOR=vim
+export JAVA_HOME="/Library/Java/Home/"
+export CATALINA_HOME=/Applications/Developer/Tomcat
+export HISTTIMEFORMAT="[%h/%d - %H:%M:%S] "
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
+export FIGNORE=DS_Store #Ignore the DS Store files when using bash.
+export TERM=xterm-256color
 
-# http://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
+# Add tab completion for `defaults read|write NSGlobalDomain`
+# You could just use `-g` instead, but I like being explicit
+complete -W "NSGlobalDomain" defaults
 
-# Keep settings files in sync. Can only be run from ~
-alias syncup="sh .scripts/sync-settings-up.sh"
-alias syncdown="sh .scripts/sync-settings-down.sh"
+# Add 'killall' tab completion for common apps
+complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
 
-# GENERAL ALIASES
-alias l="ls -aGl"
-alias lsd="ls -l | egrep '^d'"
-alias ..="cdup"
-alias sbash="source ~/.bash_profile"
-alias ebash="edit ~/.bash_profile"
-alias ealias="edit ~/.dotfiles/config/bash_alias"
-alias epaths="edit ~/.dotfiles/config/bash_dynamic_paths"
-alias htdocs="cd ~/Projects/Web-Applications"
-alias spikes="cd ~/Projects/Web-Applications/spikes"
-alias pushnight="oo adium; oo mail; oo chrome;"
-alias maven="mvn"
-alias etrash="rm -rf ~/.Trash/*"
-alias am="oo activity monitor"
-alias dotf="cd ~/.dotfiles"
-# alias emacs="emacs -nw"
+# If possible, add tab completion for many more commands
+[ -f /etc/bash_completion ] && source /etc/bash_completion
 
-alias ep="explode-path"
+# Modify cal
+cal=`cal`; 
+today=`date "+%e"`; 
+alias cal="echo -en \"${cal/${today}/\033[1;32m${today}\033[0m}\"; echo \"\"";
 
-## CONVENIENCE
-alias arhive="tar -zcvf"
-alias unarchive="tar -zxvf"
-alias size="du -sh"
+# Use IF check to determine if using SEXY_PROMPT or not.
+function parse_git_branch {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo " ("${ref#refs/heads/}")"
+}
 
-## APPS
-alias calc="oo calculator"
-alias ff="oo firefox"
-alias text="oo textedit"
+#http://sos.blog-city.com/mac_os_x__bash_customize_your_terminal_prompt_a_little_color.htm
+#PS1="\[\e[0;32m\]\u:\[\e[0m\] [[\[\e[41m\]\w\[\e[0m\]]]: "
+#PS1="\e[1;34m\u@\h \w> \e[m"
+#PS1="\[\e[36;1m\]\u@\[\e[32;1m\]\H> \[\e[0m\]"
+#PS1="\[\033[36m\][\t] \[\033[1;33m\]\u\[\033[0m\] \[\033[36m\][\w]:\[\033[0m\] " 
+PS1="\[\033[1;33m\]\u\[\033[0m\] \[\033[36m\][\W\[\033[1;33m\]$(parse_git_branch)\[\033[0m\]]:\[\033[0m\] " 
 
-## CHEAT-SHEETS
-alias uu="open ~/.dotfiles/useful"
-alias uuseful="open ~/.dotfiles/useful"
-alias udrush="open -e ~/.useful/bash/drush.txt"
-#alias useful="open -e ~/.useful/bash/useful-commands.txt"
-alias uarchive="open -e ~/.useful/bash/archive.txt"
-alias ucron="open -e ~/.useful/bash/cron.txt"
-alias udates="open -e ~/.useful/bash/dates.txt"
-alias uemail="open -e ~/.useful/bash/email.txt"
-alias ufile-editing="open -e ~/.useful/bash/file-editing.txt"
-alias ufile-system="open -e ~/.useful/bash/file-system.txt"
-alias ufiles="open -e ~/.useful/bash/files.txt"
-alias uinternet="open -e ~/.useful/bash/internet.txt"
-alias umisc="open -e ~/.useful/bash/misc.txt"
-alias uregex="open -e ~/.useful/bash/regex.txt"
-alias usystem="open -e ~/.useful/bash/system.txt"
-alias usvn="open ~/.useful/svn/paths.txt"
-
-### MYSQL
-alias umcli="open -e ~/.useful/mysql/cli.txt"
-alias umcounting="open -e ~/.useful/mysql/counting.txt"
-alias ummisc="open -e ~/.useful/mysql/misc.txt"
-alias umcheats="open -e ~/.useful/mysql/mysql-cheatsheet.txt"
-alias umpermissions="open -e ~/.useful/mysql/permissions.txt"
-alias umsubselects="open -e ~/.useful/mysql/subselects.txt"
-
-# GOTO SPECIFIC FOLDERS
-alias docs="cd ~/Documents"
-alias music="cd ~/Music"
-alias pics="cd ~/Pictures"
-alias proj="cd ~/Projects"
-alias apps="cd /Applications"
-alias dl="cd ~/Downloads"
-alias desk="cd ~/Desktop"
-
-# OPEN SPECIFIC FOLDERS
-alias odocs="open ~/Documents/"
-alias omusic="open ~/Music/"
-alias opics="open ~/Pictures/"
-alias oapps="open /Applications/"
-alias odl="open ~/Downloads/"
-alias odesk="open ~/Desktop/"
-alias oproj="open ~/Projects"
-alias ohtdocs="open ~/Projects/Web-Applications"
-alias appsdevel="open /Applications/Developer"
-
-## WEB DEVELOPMENT
-alias mamp="cd /Applications/MAMP/"
-alias ehosts="edit /etc/hosts"
-alias vhosts="edit ${APACHE_CONF_HOSTS}"
-alias httpdconf="edit ${APACHE_CONF}"
-alias phperror="edit ${PHP_ERROR}"
-alias starttomcat="/Applications/Developer/Tomcat/bin/startup.sh"
-alias stoptomcat="/Applications/Developer/Tomcat/bin/shutdown.sh"
-alias clean_xprof="rm -rf /Users/avillanueva/Projects/XHProf-Output/*"
-alias webserver_paths="less ${DOTFILES}/config/webserver/paths"
-alias comms="oo adium; oo limechat"
-
-  ## DRUPAL
-  alias dru='' # Default Drupal stuff.
-  alias en='drush en -y'
-  alias dis='drush dis -y'
-
-# GENERATED & CUSTOM ALIASES 
-source $HOME/.dotfiles/data/generated-aliases
-source $HOME/.dotfiles/custom/other/custom-aliases
-
-# WORKING WITH CUSTOM STUFF
-alias ecalias="edit ~/.custom/other/custom-aliases"
-alias ocustom="open ${DOTFILES}/custom"
-alias escripts="open ${DOTFILES}/custom/scripts"
-#alias emacs="emacs -nw"
-
-alias lipsum="echo -n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum lacinia egestas. Nullam auctor tortor euismod turpis egestas pretium. Aliquam ullamcorper nulla diam, a fermentum velit vehicula non. Pellentesque egestas enim vitae pellentesque pulvinar. Nam placerat dictum mattis. Nunc non augue molestie, ullamcorper dui eu, interdum nunc. In ac aliquet sapien. Cras viverra luctus nisl, nec iaculis mauris laoreet sed. Etiam eu tortor nec mauris semper accumsan at at turpis.  | pbcopy; echo copied"
-
-## GET SPECIFIC
-alias ga='git add'
-alias gp='git push'
-alias gpl='git pull'
-alias gf='git fetch'
-alias gl='git log'
-alias gs='git status'
-alias gd='git diff'
-alias gdc='git diff --cached'
-alias gb='git branch'
-alias gc='git commit'
-alias gcl='git clone'
-alias gco='git checkout'
-alias gpom='git push origin master'
-alias gpod='git push origin dev'
-
-if [ -f ~/scripts/git-completion.bash ]; then
-   source ~/scripts/git-completion.bash
-   __git_complete ga _git_add
-   __git_complete gp _git_push
-   __git_complete gpl _git_pull
-   __git_complete gf _git_fetch
-   __git_complete gl _git_log
-   __git_complete gs _git_status
-   __git_complete gd _git_diff
-   __git_complete gb _git_branch
-   __git_complete gc _git_commit
-   __git_complete gcl _git_clone
-   __git_complete gco _git_checkout
-fi
+cdup()
+{
+  if [[ $# -eq 0 ]]
+	then
+	  cd ..
+	  
+	else
+	  for (( c=1; c<=$1; c++ ))
+      do
+	      cd ..
+      done
+  fi
+}
