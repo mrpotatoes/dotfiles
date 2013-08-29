@@ -6,3 +6,5 @@ custom/scripts/*
 
 custom/other/!nada.txt
 custom/scripts/!nada.txt
+
+.DS_Store
