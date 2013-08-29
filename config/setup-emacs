@@ -242,6 +242,25 @@
   t " my-keys" 'my-keys-minor-mode-map)
 (my-keys-minor-mode 1)
 
+;; This is a redefinition of the buffer list so as to not view them when cycling through files.
+(setq skippable-buffers '("*Messages*" "*scratch*" "*Help*" "*Compile-log*" "*helm gtags*"))
+(defun my-next-buffer ()
+  "Skips certain buffers"
+  (interactive)
+  (next-buffer)
+  (while (member (buffer-name) skippable-buffers)
+      (next-buffer)))
+
+(defun my-previous-buffer ()
+  "previous-buffer that skips certain buffers"
+  (interactive)
+  (previous-buffer)
+  (while (member (buffer-name) skippable-buffers)
+    (previous-buffer)))
+
+(global-set-key [remap next-buffer] 'my-next-buffer)
+(global-set-key [remap previous-buffer] 'my-previous-buffer)
+
 (define-key my-keys-minor-mode-map (kbd "<backtab>") 'remove-indentation-spaces)
 (define-key my-keys-minor-mode-map (kbd "ESC n") 'scroll-up-line)
 (define-key my-keys-minor-mode-map (kbd "ESC p") 'scroll-down-line)
@@ -292,15 +311,15 @@
 
 ;; --------------------------------------------------------------------------------
 ;; GTAGS
-(add-to-list 'load-path "~/.emacs.d/gtags")
-(autoload 'gtags-mode "gtags" "" t)
+;(add-to-list 'load-path "~/.emacs.d/gtags")
+;(autoload 'gtags-mode "gtags" "" t)
 
-(add-hook 'php-mode-hook
-  '(lambda () 
-    (gtags-mode 1)
-    (global-set-key (kbd "M-.") 'gtags-find-tag)    ; Find a tag.
-    (local-set-key (kbd "M-,") 'gtags-find-rtag)  ; reverse tag
-))
+;(add-hook 'php-mode-hook
+;  '(lambda () 
+;    (gtags-mode 1)
+;    (global-set-key (kbd "M-.") 'gtags-find-tag)    ; Find a tag.
+;    (local-set-key (kbd "M-,") 'gtags-find-rtag)  ; reverse tag
+;))
 
 ;; Update the gtags every chance we get.
 (defun djcb-gtags-create-or-update ()
@@ -397,3 +416,16 @@
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (put 'dired-find-alternate-file 'disabled nil)
+
+;; --------------------------------------------------------------------------------
+;; Helm Tags
+;;     - https://github.com/syohex/emacs-helm-gtags
+(add-to-list 'load-path "~/.emacs.d/helm-gtags")
+(require 'helm-gtags)
+(helm-gtags-mode 1)
+
+(add-hook 'php-mode-hook
+  '(lambda () 
+    (global-set-key (kbd "M-.") 'helm-gtags-find-tag)    ; Find a tag.
+    (local-set-key (kbd "M-,") 'helm-gtags-find-rtag)  ; reverse tag
+))
