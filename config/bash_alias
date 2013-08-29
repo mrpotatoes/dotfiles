@@ -22,7 +22,7 @@ alias syncdown="sh .scripts/sync-settings-down.sh"
 # GENERAL ALIASES
 alias l="ls -aGl"
 alias lsd="ls -l | egrep '^d'"
-alias ..="cd .."
+alias ..="cdup"
 alias sbash="source ~/.bash_profile"
 alias ebash="edit ~/.bash_profile"
 alias ealias="edit ~/.dotfiles/config/bash_alias"
@@ -34,6 +34,7 @@ alias maven="mvn"
 alias etrash="rm -rf ~/.Trash/*"
 alias am="oo activity monitor"
 alias dotf="cd ~/.dotfiles"
+# alias emacs="emacs -nw"
 
 alias ep="explode-path"
 
@@ -118,3 +119,37 @@ source $HOME/.dotfiles/custom/other/custom-aliases
 alias ecalias="edit ~/.custom/other/custom-aliases"
 alias ocustom="open ${DOTFILES}/custom"
 alias escripts="open ${DOTFILES}/custom/scripts"
+#alias emacs="emacs -nw"
+
+alias lipsum="echo -n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum lacinia egestas. Nullam auctor tortor euismod turpis egestas pretium. Aliquam ullamcorper nulla diam, a fermentum velit vehicula non. Pellentesque egestas enim vitae pellentesque pulvinar. Nam placerat dictum mattis. Nunc non augue molestie, ullamcorper dui eu, interdum nunc. In ac aliquet sapien. Cras viverra luctus nisl, nec iaculis mauris laoreet sed. Etiam eu tortor nec mauris semper accumsan at at turpis.  | pbcopy; echo copied"
+
+## GET SPECIFIC
+alias ga='git add'
+alias gp='git push'
+alias gpl='git pull'
+alias gf='git fetch'
+alias gl='git log'
+alias gs='git status'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gb='git branch'
+alias gc='git commit'
+alias gcl='git clone'
+alias gco='git checkout'
+alias gpom='git push origin master'
+alias gpod='git push origin dev'
+
+if [ -f ~/scripts/git-completion.bash ]; then
+   source ~/scripts/git-completion.bash
+   __git_complete ga _git_add
+   __git_complete gp _git_push
+   __git_complete gpl _git_pull
+   __git_complete gf _git_fetch
+   __git_complete gl _git_log
+   __git_complete gs _git_status
+   __git_complete gd _git_diff
+   __git_complete gb _git_branch
+   __git_complete gc _git_commit
+   __git_complete gcl _git_clone
+   __git_complete gco _git_checkout
+fi
