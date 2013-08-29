@@ -2,8 +2,8 @@
 
 PATHS_TO_JOIN=(
   # MAMP path overrides.
-	/Applications/Mamp/Library/bin
-	/Applications/MAMP/bin/php/php5.3.6/bin
+	#/Applications/Mamp/Library/bin
+	#/Applications/MAMP/bin/php/php5.3.6/bin
 	
   # System level paths.
 	/usr/local/bin	

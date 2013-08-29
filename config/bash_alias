@@ -92,7 +92,8 @@ alias oapps="open /Applications/"
 alias odl="open ~/Downloads/"
 alias odesk="open ~/Desktop/"
 alias oproj="open ~/Projects"
-alias ohtdocs="open ~/Projects/Web-Applications"
+alias ohtdocs="open /opt/local/apache2/htdocs"
+#alias ohtdocs="open ~/Projects/Web-Applications"
 alias appsdevel="open /Applications/Developer"
 
 ## WEB DEVELOPMENT
@@ -139,8 +140,8 @@ alias gco='git checkout'
 alias gpom='git push origin master'
 alias gpod='git push origin dev'
 
-if [ -f ~/scripts/git-completion.bash ]; then
-   source ~/scripts/git-completion.bash
+if [ -f $HOME/.dotfiles/bin/git-completion.bash ]; then
+   source $HOME/.dotfiles/bin/git-completion.bash
    __git_complete ga _git_add
    __git_complete gp _git_push
    __git_complete gpl _git_pull

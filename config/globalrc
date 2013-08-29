@@ -1,0 +1,9 @@
+# Default drupal configuration.
+drupal|Generate the global tags:\
+	:tc=common:\
+	:langmap=php\:.php.module.inc.profile.install.test:
+
+# Drupal w/o sites configuration.
+drupal-nosites|Generate the global tags sans the sites directory:\
+	:tc=common:\
+	:langmap=php\:.php.module.inc.profile.install.test:skip=sites/
