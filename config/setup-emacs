@@ -95,6 +95,8 @@
 (setq fci-rule-color "darkblue")
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode 1)
+(add-to-list 'auto-mode-alist '("\\.ini$" . text-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . text-mode))
 
 ;; --------------------------------------------------------------------------------
 ;; gist-mode
@@ -328,7 +330,7 @@
   (if (not (= 0 (call-process "global" nil nil nil " -p"))) ; tagfile doesn't exist?
     (let ((olddir default-directory)
           (topdir (read-directory-name  
-                    "gtags: top of source tree:" default-directory)))
+            "gtags: top of source tree:" default-directory)))
       (cd topdir)
       (shell-command "gtags && echo 'created tagfile'")
       (cd olddir)) ; restore   

@@ -1,3 +1,10 @@
+## Andric's Dotfiles
+This is a project that I use to put all my dotfiles on my mac computer. I prefer Mac's so that's what I use. 
+
+## Requirements
+* Git
+* Macports (or some equivalent)
+
 **Folder Structure**
 bin
 

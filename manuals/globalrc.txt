@@ -1,0 +1,6 @@
+This is the globalrc help manual.
+
+This will run this command:
+     gtags -v --gtagsconf=$DOTFILES/config/globalrc --gtagslabel=$TARGET
+
+Where $TARGET is the second parameter.
