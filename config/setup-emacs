@@ -30,6 +30,16 @@
 (setq backup-inhibited t)
 (setq auto-save-default nil)
 (setq global-ede-mode t)
+(setq vc-follow-symlinks t)
+
+; Set the temp directory
+(setq backup-directory-alist '(("." . "~/tmp")))
+
+; ALl questios are y or n answers.
+(fset 'yes-or-no-p 'y-or-n-p)
+
+; Use my aliases plz.
+(setq shell-command-switch "-ic")
 
 (put 'narrow-to-region 'disabled nil)
 (global-linum-mode t)
@@ -313,15 +323,15 @@
 
 ;; --------------------------------------------------------------------------------
 ;; GTAGS
-;(add-to-list 'load-path "~/.emacs.d/gtags")
-;(autoload 'gtags-mode "gtags" "" t)
+(add-to-list 'load-path "~/.emacs.d/gtags")
+(autoload 'gtags-mode "gtags" "" t)
 
-;(add-hook 'php-mode-hook
-;  '(lambda () 
-;    (gtags-mode 1)
-;    (global-set-key (kbd "M-.") 'gtags-find-tag)    ; Find a tag.
-;    (local-set-key (kbd "M-,") 'gtags-find-rtag)  ; reverse tag
-;))
+(add-hook 'php-mode-hook
+  '(lambda () 
+    (gtags-mode 1)
+    (global-set-key (kbd "M-.") 'gtags-find-tag)    ; Find a tag.
+    (local-set-key (kbd "M-,") 'gtags-find-rtag)  ; reverse tag
+))
 
 ;; Update the gtags every chance we get.
 (defun djcb-gtags-create-or-update ()
@@ -412,22 +422,23 @@
 ;;    - git clone https://github.com/emacs-helm/helm.git 
 ;;    - http://amitp.blogspot.com/2012/10/emacs-helm-for-finding-files.html
 ;;    - http://stackoverflow.com/questions/12672186/how-to-have-emacs-helm-list-offer-files-in-fixed-directories-as-options
-(add-to-list 'load-path "~/.emacs.d/helm")
-(require 'helm-config)
-
-(global-set-key (kbd "C-c h") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(put 'dired-find-alternate-file 'disabled nil)
+;(add-to-list 'load-path "~/.emacs.d/helm")
+;(require 'helm-config)
+;
+;(global-set-key (kbd "C-c h") 'helm-mini)
+;(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;(put 'dired-find-alternate-file 'disabled nil)
 
 ;; --------------------------------------------------------------------------------
 ;; Helm Tags
 ;;     - https://github.com/syohex/emacs-helm-gtags
-(add-to-list 'load-path "~/.emacs.d/helm-gtags")
-(require 'helm-gtags)
-(helm-gtags-mode 1)
+;(add-to-list 'load-path "~/.emacs.d/helm-gtags")
+;(require 'helm-gtags)
+;(helm-gtags-mode 1)
+;
+;(add-hook 'php-mode-hook
+;  '(lambda () 
+;    (global-set-key (kbd "M-.") 'helm-gtags-find-tag)    ; Find a tag.
+;    (local-set-key (kbd "M-,") 'helm-gtags-find-rtag)  ; reverse tag
+;))
 
-(add-hook 'php-mode-hook
-  '(lambda () 
-    (global-set-key (kbd "M-.") 'helm-gtags-find-tag)    ; Find a tag.
-    (local-set-key (kbd "M-,") 'helm-gtags-find-rtag)  ; reverse tag
-))

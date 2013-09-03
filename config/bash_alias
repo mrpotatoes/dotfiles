@@ -36,6 +36,7 @@ alias am="oo activity monitor"
 alias dotf="cd ~/.dotfiles"
 alias emacs="emacs -nw"
 alias eemacs="edit ~/.emacs"
+alias estartup="edit ~/.dotfiles/bin/startup"
 
 alias ep="explode-path"
 
@@ -154,3 +155,5 @@ if [ -f $HOME/.dotfiles/bin/git-completion.bash ]; then
    __git_complete gcl _git_clone
    __git_complete gco _git_checkout
 fi
+
+alias ack-5.12="ack"
