@@ -47,6 +47,8 @@
 (require 'pbcopy)
 (turn-on-pbcopy)
 
+(global-set-key (kbd "M-DEL") 'backward-delete-word)
+
 ;; --------------------------------------------------------------------------------
 ;; Some global settings
 (global-set-key (kbd "M-;")
@@ -427,7 +429,6 @@
 ;
 ;(global-set-key (kbd "C-c h") 'helm-mini)
 ;(global-set-key (kbd "C-x C-f") 'helm-find-files)
-;(put 'dired-find-alternate-file 'disabled nil)
 
 ;; --------------------------------------------------------------------------------
 ;; Helm Tags
@@ -441,4 +442,15 @@
 ;    (global-set-key (kbd "M-.") 'helm-gtags-find-tag)    ; Find a tag.
 ;    (local-set-key (kbd "M-,") 'helm-gtags-find-rtag)  ; reverse tag
 ;))
+
+(put 'dired-find-alternate-file 'disabled nil)
+
+;; --------------------------------------------------------------------------------
+;; Bcycle
+(add-to-list 'load-path "~/.emacs.d/bcycle")
+(require 'bcycle)
+(setq bcycle-skip-patterns (cons "^irc\.freenode" bcycle-skip-patterns))
+(setq bcycle-skip-patterns (cons "^#" bcycle-skip-patterns))
+(define-key my-keys-minor-mode-map (kbd "M-TAB") 'bcycle-next-buffer)
+(define-key my-keys-minor-mode-map (kbd "M-`") 'bcycle-previous-buffer)
 

@@ -34,7 +34,7 @@ alias maven="mvn"
 alias etrash="rm -rf ~/.Trash/*"
 alias am="oo activity monitor"
 alias dotf="cd ~/.dotfiles"
-alias emacs="emacs -nw"
+alias emacs="emacs -nw --debug-init"
 alias eemacs="edit ~/.emacs"
 alias estartup="edit ~/.dotfiles/bin/startup"
 
