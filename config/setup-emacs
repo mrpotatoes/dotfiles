@@ -256,25 +256,6 @@
   t " my-keys" 'my-keys-minor-mode-map)
 (my-keys-minor-mode 1)
 
-;; This is a redefinition of the buffer list so as to not view them when cycling through files.
-(setq skippable-buffers '("*Messages*" "*scratch*" "*Help*" "*Compile-log*" "*helm gtags*"))
-(defun my-next-buffer ()
-  "Skips certain buffers"
-  (interactive)
-  (next-buffer)
-  (while (member (buffer-name) skippable-buffers)
-      (next-buffer)))
-
-(defun my-previous-buffer ()
-  "previous-buffer that skips certain buffers"
-  (interactive)
-  (previous-buffer)
-  (while (member (buffer-name) skippable-buffers)
-    (previous-buffer)))
-
-(global-set-key [remap next-buffer] 'my-next-buffer)
-(global-set-key [remap previous-buffer] 'my-previous-buffer)
-
 (define-key my-keys-minor-mode-map (kbd "<backtab>") 'remove-indentation-spaces)
 (define-key my-keys-minor-mode-map (kbd "ESC n") 'scroll-up-line)
 (define-key my-keys-minor-mode-map (kbd "ESC p") 'scroll-down-line)
@@ -341,8 +322,7 @@
   (interactive)
   (if (not (= 0 (call-process "global" nil nil nil " -p"))) ; tagfile doesn't exist?
     (let ((olddir default-directory)
-          (topdir (read-directory-name  
-            "gtags: top of source tree:" default-directory)))
+      (topdir (read-directory-name "gtags: top of source tree:" default-directory)))
       (cd topdir)
       (shell-command "gtags && echo 'created tagfile'")
       (cd olddir)) ; restore   
