@@ -43,7 +43,8 @@ case $1 in
   # Set a symlink to the emacs settings file and packages file.
   # May want to do a sub module: http://git-scm.com/book/en/Git-Tools-Submodules
   'emacs-modules')
-    echo "This needs to run the git commands to download all the thingies.";
+    mkdir ${HOME}/.emacs.d
+    echo "Created the modules directory.";
     
   # Setup the dynamic paths.
   'paths')

@@ -84,7 +84,7 @@
 (autoload 'js-console "js-console" nil t)
 ;;(load "~/.emacs.d/nxhtml/autostart.el")
 
-(load "haml-mode")
+;(load "haml-mode")
 (load "stubs")
 
 (require 'magit)

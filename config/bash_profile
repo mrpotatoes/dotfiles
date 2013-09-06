@@ -64,3 +64,5 @@ cdup()
       done
   fi
 }
+
+set completion-ignore-case on

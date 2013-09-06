@@ -50,7 +50,7 @@ alias size="du -sh"
 ## APPS
 alias calc="oo calculator"
 alias ff="oo firefox"
-alias text="oo textemacs"
+alias text="oo textedit"
 
 ## CHEAT-SHEETS
 alias uu="open ~/.dotfiles/useful"
