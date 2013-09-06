@@ -1,1 +1,0 @@
-This is where all my emacs modules (from github) will be dumped to.

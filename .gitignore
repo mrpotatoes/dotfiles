@@ -1,6 +1,8 @@
 tmp/*
 data/*
 
+config/emacs/modules/*
+
 custom/other/*
 custom/scripts/*
 
