@@ -13,9 +13,6 @@
 
 ;; Tell emacs where is your personal elisp lib dir this is default dir for extra packages.
 (add-to-list 'load-path "~/.emacs.d/")
-(add-to-list 'load-path "~/.emacs.d/magit")
-;(add-to-list 'load-path "~/.emacs.d/yasnippet")
-(add-to-list 'load-path "~/.emacs.d/eproject")
 
 ;; Load all the custom module paths
 (add-to-list 'load-path "~/.dotfiles/config/emacs/modules/autopair")
@@ -28,19 +25,19 @@
 (add-to-list 'load-path "~/.dotfiles/config/emacs/modules/helm")
 (add-to-list 'load-path "~/.dotfiles/config/emacs/modules/helm-gtags")
 (add-to-list 'load-path "~/.dotfiles/config/emacs/modules/indicators")
-;(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/magit")
 (add-to-list 'load-path "~/.dotfiles/config/emacs/modules/multiple-cursors")
 (add-to-list 'load-path "~/.dotfiles/config/emacs/modules/webmode")
 (add-to-list 'load-path "~/.dotfiles/config/emacs/modules/yasnippet")
 (add-to-list 'load-path "~/.dotfiles/config/emacs/modules/php-mode-module")
+(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/magit")
 
-;; Load all the theme paths 
+;; Load all the theme path.
 (add-to-list 'custom-theme-load-path "~/.dotfiles/config/emacs/themes")
 
-;; Load the global stuff
+;; Load the global stuff.
 (add-to-list 'load-path "~/.dotfiles/config/emacs/global")
 
-;; Load the custom modes paths
+;; Load the custom modes paths.
 (add-to-list 'load-path "~/.dotfiles/config/emacs/modes")
 (load "functions")
 (load "keys");
@@ -53,8 +50,8 @@
 (load "modules");
 
 (load "php") 
-
-(load "mouse")
+;(require 'mouse)
+(load "mouse-global")
 ;(load "haml-mode")
 ;(load "stubs")
 ;(require 'magit)
@@ -89,19 +86,4 @@
 (put 'narrow-to-region 'disabled nil)
 (global-linum-mode t)
 
-;; --------------------------------------------------------------------------------
-;; Some global settings
-(global-set-key (kbd "M-;")
-     (lambda ()
-       (interactive)
-       (save-excursion
-         (move-beginning-of-line nil)
-         (push-mark (point) t t)
-         (move-end-of-line nil)
-         (comment-dwim nil)
-         (pop-mark))))
-
 ;(yas-global-mode 1)
-
-
-

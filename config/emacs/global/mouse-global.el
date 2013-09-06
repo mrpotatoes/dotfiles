@@ -6,7 +6,7 @@
 ;;  - http://www.emacswiki.org/emacs/TagsFile
 ;;  - http://www.emacswiki.org/emacs/EmacsTags
 (unless window-system
-  ;(require 'mouse)
+  (require 'mouse)
   (xterm-mouse-mode t)
   (global-set-key [mouse-4] '(lambda ()
     (interactive)
