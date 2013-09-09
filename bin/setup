@@ -20,6 +20,9 @@ case $1 in
     . $SETUP_DIRECTORY/setup-itermprefs.itermcolors
     echo "The iterm setup file has been moved. Everything will now look and behave nicely. You now have a hot key drop down console window by pressin ctrl+~" ;;
     
+  'rc')
+  ln -s "${HOME}/.dotfiles/config/.inputrc ${HOME}/.bash_inputrc";;
+
   # Create a profile symlink so that all changes in the profile can be revision.
   'profile') 
     ln -s "${HOME}/.dotfiles/config/bash_profile ${HOME}/.bash_profile";

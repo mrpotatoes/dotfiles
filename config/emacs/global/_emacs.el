@@ -33,15 +33,31 @@
     ;;  tagfile already exists; update it
     (shell-command "global -u && echo 'updated tagfile'")))
     
-(add-hook 'after-save-hook 'djcb-gtags-create-or-update)
+;(add-hook 'after-save-hook 'djcb-gtags-create-or-update)
 
 ; rm GPATH GRTAGS GTAGS; sleep 1s; gtags -v --skip=sites/ --gtagslabel=drupal; size GPATH GRTAGS GTAGS
 
 ;; --------------------------------------------------------------------------------
-;; Bcycle
+;; Buffer cycling.
 (require 'bcycle)
 (setq bcycle-skip-patterns (cons "^irc\.freenode" bcycle-skip-patterns))
 (setq bcycle-skip-patterns (cons "^#" bcycle-skip-patterns))
 (define-key my-keys-minor-mode-map (kbd "M-TAB") 'bcycle-next-buffer)
 (define-key my-keys-minor-mode-map (kbd "M-`") 'bcycle-previous-buffer)
+
+;; --------------------------------------------------------------------------------
+;; IRC and various other communications.
+;; todo: Add stuff.
+
+
+
+
+
+
+
+
+
+
+
+
 

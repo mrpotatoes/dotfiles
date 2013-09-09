@@ -52,6 +52,21 @@ if hash git 2>/dev/null; then
   echo "\nDownloading the php mode module."
   git clone https://github.com/ejmr/php-mode $MODULE_DIR/php-mode
 
+  # http://www.emacswiki.org/emacs/PowerLine
+  echo "\nDownloading the emacs powerline module."
+  git clone git@github.com:milkypostman/powerline.git $MODULE_DIR/powerline
+  #git clone https://github.com/jonathanchu/emacs-powerline $MODULE_DIR/powerline
+
+  # https://github.com/magnars/expand-region.el
+  # http://emacsrocks.com/e09.html
+  echo "\nDownloading the expand-region module."
+  git clone git@github.com:magnars/expand-region.el.git $MODULE_DIR/expand-region
+
+  echo "\nDownloading the projectile module."
+  git clone git@github.com:bbatsov/projectile.git $MODULE_DIR/projectile
+  git clone git@github.com:magnars/dash.el.git $MODULE_DIR/dash
+  git clone git@github.com:magnars/s.el.git $MODULE_DIR/s.el
+
 else
   echo "Git does not exist on this system"
   exit;

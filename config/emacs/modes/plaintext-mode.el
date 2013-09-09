@@ -8,6 +8,12 @@
   ;(linum-mode -1))
 (add-hook 'text-mode-hook 'my-text-mode-hook)
 
+(add-hook 'text-mode-hook
+  '(lambda ()
+    (setq flyspell-mode t)
+    )
+  )
+
 ; The column line that we'll be setting to either 80 or 120
 ; http://www.emacswiki.org/FillColumnIndicator
 (require 'fill-column-indicator)

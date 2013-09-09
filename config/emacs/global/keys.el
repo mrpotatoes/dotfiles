@@ -28,10 +28,6 @@
 (define-key minibuffer-local-map (kbd "<C-backspace>") 'backward-delete-word)
 (define-key minibuffer-local-map (kbd "C-q") 'backward-delete-char)
 
-;; Keyboard shortcuts
-(global-set-key (kbd "M-N") 'mc/mark-next-like-this)
-(global-set-key (kbd "M-P") 'mc/mark-previous-like-this)
-
 ;; --------------------------------------------------------------------------------
 ;; Keyboard shortcuts
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
@@ -48,3 +44,5 @@
 (define-key my-keys-minor-mode-map (kbd "M-`") 'previous-buffer)
 (define-key my-keys-minor-mode-map (kbd "M-~") 'next-buffer) 
 (define-key my-keys-minor-mode-map (kbd "M-TAB") 'next-buffer)
+
+ 
