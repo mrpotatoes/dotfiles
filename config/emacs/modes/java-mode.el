@@ -6,9 +6,9 @@
 ;; http://www.emacswiki.org/emacs/EmacsEclim
 ;; https://github.com/senny/emacs-eclim
 ;; 
-;; 
-;; 
-;; 
+;; Malabar Mode
+;; https://github.com/espenhw/malabar-mode
+;; http://www.skybert.net/emacs/using-malabar-for-java-development/
 ;; 
 ;; 
 ;; 

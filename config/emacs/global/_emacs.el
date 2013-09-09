@@ -38,6 +38,15 @@
 ; rm GPATH GRTAGS GTAGS; sleep 1s; gtags -v --skip=sites/ --gtagslabel=drupal; size GPATH GRTAGS GTAGS
 
 ;; --------------------------------------------------------------------------------
+;; Make the mode-line sexy.
+(require 'powerline)
+
+;; --------------------------------------------------------------------------------
+;; Make the mode-line sexy.
+; (require 'projectile)
+; (projectile-global-mode)
+
+;; --------------------------------------------------------------------------------
 ;; Buffer cycling.
 (require 'bcycle)
 (setq bcycle-skip-patterns (cons "^irc\.freenode" bcycle-skip-patterns))

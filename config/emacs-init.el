@@ -14,32 +14,21 @@
 ;; Not for myself but for elpa (I think).
 (add-to-list 'load-path "~/.emacs.d/")
 
-;; Load all the custom module paths
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/autopair")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/bcycle")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/company")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/emacs-modules-mirror")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/flymake")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/fringe-helper")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/git-gutter")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/helm")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/helm-gtags")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/indicators")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/multiple-cursors")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/webmode")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/yasnippet")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/php-mode")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/magit")
-(add-to-list 'load-path "~/.dotfiles/config/emacs/modules/powerline")
+;; Add all the directories in this path to the add-to-list
+;;    - http://www.emacswiki.org/emacs/LoadPath
+(let ((default-directory "~/.dotfiles/config/emacs/modules/"))
+  (normal-top-level-add-subdirs-to-load-path))
 
-;; Load  the theme path.
-(add-to-list 'custom-theme-load-path "~/.dotfiles/config/emacs/themes")
+;; Load  the theme paths.
+(let ((default-directory "~/.dotfiles/config/emacs/themes/"))
+  (normal-top-level-add-subdirs-to-load-path))
 
 ;; Load the global path.
 (add-to-list 'load-path "~/.dotfiles/config/emacs/global")
 
 ;; Load the custom modes paths.
 (add-to-list 'load-path "~/.dotfiles/config/emacs/modes")
+
 (load "functions")
 (load "keys");
 ;(load "javascript-mode")
@@ -49,6 +38,7 @@
 (load "indentation")
 (load "company")
 (load "modules");
+(load "project-management")
 
 ;; Text modes.
 (load "php") 
@@ -71,9 +61,9 @@
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t) 
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t) 
+
 ;; --------------------------------------------------------------------------------
 ;; Setting up some default variables for my emacs.
-
 ;; Line wrapping.
 (set-default 'truncate-lines t)
 
@@ -129,6 +119,3 @@
 
 (setq-default ispell-program-name "aspell")
 
-;; --------------------------------------------------------------------------------
-;; Make the mode-line sexy.
-(require 'powerline)

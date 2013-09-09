@@ -67,6 +67,15 @@ if hash git 2>/dev/null; then
   git clone git@github.com:magnars/dash.el.git $MODULE_DIR/dash
   git clone git@github.com:magnars/s.el.git $MODULE_DIR/s.el
 
+  echo "\nDownloading the grizzl module."
+  git clone git@github.com:d11wtq/grizzl.git $MODULE_DIR/projectile
+
+  echo "\nDownloading the eproject module."
+  git clone git@github.com:jrockway/eproject.git $MODULE_DIR/eproject
+
+  echo "\nDownloading the mk-project module."
+  git clone git@github.com:mattkeller/mk-project.git $MODULE_DIR/mk-project
+
 else
   echo "Git does not exist on this system"
   exit;
