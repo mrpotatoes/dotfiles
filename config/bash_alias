@@ -51,6 +51,7 @@ alias size="du -sh"
 alias calc="oo calculator"
 alias ff="oo firefox"
 alias text="oo textedit"
+alias sublime="open -a sublime.app"
 
 ## CHEAT-SHEETS
 alias uu="open ~/.dotfiles/useful"

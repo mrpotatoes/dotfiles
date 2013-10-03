@@ -13,3 +13,10 @@
   (interactive)
   (message (buffer-file-name)))
  
+(defun other-window-backward (&optional n)
+  "Select Nth previous window."
+  (interactive p)
+  (if n
+    (other-window (- n))
+    (other-window -1)))
+

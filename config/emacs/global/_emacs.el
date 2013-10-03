@@ -25,11 +25,11 @@
   "create or update the gnu global tag file"
   (interactive)
   (if (not (= 0 (call-process "global" nil nil nil " -p"))) ; tagfile doesn't exist?
-    (let ((olddir default-directory)
-      (topdir (read-directory-name "gtags: top of source tree:" default-directory)))
-      (cd topdir)
-      (shell-command "gtags && echo 'created tagfile'")
-      (cd olddir)) ; restore   
+    ;(let ((olddir default-directory)
+    ;  (topdir (read-directory-name "gtags: top of source tree:" default-directory)))
+    ;  (cd topdir)
+    ;  (shell-command "gtags && echo 'created tagfile'")
+    ;  (cd olddir)) ; restore   
     ;;  tagfile already exists; update it
     (shell-command "global -u && echo 'updated tagfile'")))
     
@@ -57,6 +57,57 @@
 ;; --------------------------------------------------------------------------------
 ;; IRC and various other communications.
 ;; todo: Add stuff.
+
+;; --------------------------------------------------------------------------------
+;; Eventually this:
+;;    - https://github.com/Fuco1/smartparens
+(require 'paren)
+(show-paren-mode 1)
+(set-face-background 'show-paren-match-face (face-background 'default))
+(set-face-foreground 'show-paren-match-face "#f30")
+(set-face-attribute 'show-paren-match-face nil :weight 'extra-bold)
+
+
+;(require 'smart-mode-line)
+;(if after-init-time (sml/setup)
+;  (add-hook 'after-init-hook 'sml/setup))
+
+;; --------------------------------------------------------------------------------
+;; Eventually this:
+;;    - https://github.com/Fuco1/smartparens
+;;    - git@github.com:nschum/highlight-symbol.el.git
+;;    - http://www.emacswiki.org/emacs/?action=browse;oldid=HighLight;id=HighlightLibrary
+;(require 'highlight-symbol)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

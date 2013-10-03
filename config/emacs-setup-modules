@@ -76,6 +76,9 @@ if hash git 2>/dev/null; then
   echo "\nDownloading the mk-project module."
   git clone git@github.com:mattkeller/mk-project.git $MODULE_DIR/mk-project
 
+  echo "";
+  git clone git@github.com:nschum/highlight-symbol.el.git $MODULE_DIR/highlight-symbol
+
 else
   echo "Git does not exist on this system"
   exit;

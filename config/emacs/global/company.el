@@ -10,7 +10,7 @@
 (setq company-backends 
   '(company-elisp 
     company-ropemacs
-    company-gtags
+    company-etags
     company-dabbrev-code
     company-keywords
     company-files 

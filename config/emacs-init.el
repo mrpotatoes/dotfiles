@@ -43,6 +43,7 @@
 ;; Text modes.
 (load "php") 
 (load "plaintext-mode")
+;(load "lisp")
 ;(load "shift_mark")
 
 (load "mouse-global")
@@ -118,4 +119,9 @@
 ;(yas-global-mode 1)
 
 (setq-default ispell-program-name "aspell")
+
+;(set-face-background 'modeline "brightblack")
+;(set-face-foreground 'modeline "blue")
+;(set-face-background 'modeline-inactive "brightblack")
+;(set-face-foreground 'modeline-inactive "brightcyan")
 
