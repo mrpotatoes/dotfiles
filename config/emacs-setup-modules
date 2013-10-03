@@ -79,6 +79,9 @@ if hash git 2>/dev/null; then
   echo "";
   git clone git@github.com:nschum/highlight-symbol.el.git $MODULE_DIR/highlight-symbol
 
+  echo "\nDownloading the hisdeshow-org module";
+  git clone git://github.com/secelis/hideshow-org.git $MODULE_DIR/hideshow-org
+
 else
   echo "Git does not exist on this system"
   exit;

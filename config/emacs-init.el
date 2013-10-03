@@ -40,7 +40,10 @@
 (load "modules");
 (load "project-management")
 
-;; Text modes.
+;; Modes.
+;; Things that will be applied globally. Can be modified on a per-mode basis.
+(load "global")
+
 (load "php") 
 (load "plaintext-mode")
 ;(load "lisp")
