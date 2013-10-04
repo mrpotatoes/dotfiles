@@ -44,15 +44,20 @@ function parse_git_branch {
   echo " ("${ref#refs/heads/}")"
 }
 
+# Determine if the repo has stuff that needs to change.
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo " *"
+}
+
 #http://sos.blog-city.com/mac_os_x__bash_customize_your_terminal_prompt_a_little_color.htm
 #PS1="\[\e[0;32m\]\u:\[\e[0m\] [[\[\e[41m\]\w\[\e[0m\]]]: "
 #PS1="\e[1;34m\u@\h \w> \e[m"
 #PS1="\[\e[36;1m\]\u@\[\e[32;1m\]\H> \[\e[0m\]"
 #PS1="\[\033[36m\][\t] \[\033[1;33m\]\u\[\033[0m\] \[\033[36m\][\w]:\[\033[0m\] " 
-PS1="\[\033[1;33m\]\u\[\033[0m\] \[\033[36m\][\W\[\033[1;33m\]\$(parse_git_branch)\[\033[0m\]]:\[\033[0m\] " 
+PS1="\[\033[1;33m\]\u\[\033[0m\] \[\033[36m\][\W\[\033[1;33m\]\$(parse_git_branch)\$(parse_git_dirty)\[\033[0m\]]:\[\033[0m\] " 
+PS1="$USERNAME [$GREEN$PATH_SHORT$YELLOW\$(parse_git_branch)$RED\$(parse_git_dirty)$RESET]: "
 
-cdup()
-{
+cdup() {
   if [[ $# -eq 0 ]]
 	then
 	  cd ..
