@@ -4,11 +4,17 @@
 ;;  - https://github.com/arnested/php-extras
 ;;  - http://stackoverflow.com/questions/912671/what-is-a-good-setup-for-editing-php-in-emacs
 (require 'php-mode)
+(require 'syntax-subword)
+;(global-syntax-subword-mode 1)
 
 (setq php-mode-force-pear t)
+
 (add-hook 'php-mode-hook
   '(lambda ()
+    (require 'highlight-symbol)
+    (highlight-symbol-mode t)
     (autopair-mode t)
+    (syntax-subword-mode t)
     (setq indent-tabs-mode nil)
     (setq tab-width 2)
     (setq c-basic-offset 2)))

@@ -15,7 +15,7 @@ INCLUDES=(
 # * ~/.extra can be used for other settings you don’t want to commit.
 for file in "${INCLUDES[@]}";
 	do
-		source "${HOME}/.dotfiles/config/$file"
+		source "${HOME}/.dotfiles/config/bash/$file"
 done
 
 unset file

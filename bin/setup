@@ -25,7 +25,7 @@ case $1 in
 
   # Create a profile symlink so that all changes in the profile can be revision.
   'profile') 
-    ln -s "${HOME}/.dotfiles/config/bash_profile ${HOME}/.bash_profile";
+    ln -s ${HOME}/.dotfiles/config/bash/bash_profile ${HOME}/.bash_profile;
     echo "Updated your .bash_profile";;
 
   # Generate the aliases.    
@@ -40,7 +40,7 @@ case $1 in
   # Set a symlink to the emacs settings file and packages file.
   'emacs-init')
     echo "Now making a symlink for the .emacs file.";
-    ln -s ${HOME}/.dotfiles/config/emacs-init.el ${HOME}/.emacs;;
+    ln -s ${HOME}/.dotfiles/config/emacs/emacs-init.el ${HOME}/.emacs;;
 
   # Runs the script to download all the git repos to the proper place.
   # Then it will compile everything into bytecode.

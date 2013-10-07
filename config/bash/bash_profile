@@ -2,7 +2,7 @@
 
 # Some quick paths to use globally in include (source) files into bash scripts.
 export DOTFILES="$HOME/.dotfiles"
-export DOTFILES_CONFIG="$HOME/.dotfiles/config"
+export DOTFILES_CONFIG="$HOME/.dotfiles/config/bash"
 export DOTFILES_BIN="$HOME/.dotfiles/bin"
 export DOTFILES_CUSTOM="$HOME/.dotfiles/custom"
 export BASH_CONSTS="$HOME/.dotfiles/config/constants"
@@ -10,7 +10,7 @@ export WEBSERVER_CONSTS="$HOME/.dotfiles/config/webserver/paths"
 export BASH_FUNCTIONS="$HOME/.dotfiles/config/bash_functions"
 
 # Now do some includes.
-source $HOME/.dotfiles/config/bash_includes
+source $DOTFILES_CONFIG/bash_includes
 
 # ENVIROMENT VARIABLES
 export PATH="$JOINED_PATHS:$PATH"
