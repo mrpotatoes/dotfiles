@@ -1,9 +1,9 @@
-#!/bin/bash
-
 #!/bin/sh
 
 # Clear the console buffer to take over the full screen.
 clear
+
+WORKING_DIRECTORY=${PWD##*/}
 
 # This shell script demonstrates how to write interactive shell scripts
 # by allowing you to get user input.  Also demonstrated is the use of
@@ -28,19 +28,10 @@ read CUSTOM
 
 if [ "$CUSTOM" == "yes" ]
   then
-    # Create the directories.
-    #mkdir -p $HOME/.custom
-    #mkdir -p $HOME/.custom/scripts
-    #mkdir -p $HOME/.custom/other
-
-    # Create the files.
-    #touch $HOME/.custom/other/custom-aliases
-    #touch $HOME/.custom/other/paths-to-generate
-    #touch $HOME/.dotfiles/data/generated-aliases
-    
-    echo $HOME
-    #open $HOME/.custom/scripts
-    #open $HOME/.custom/other
+  	if [ ! -d "$DIRECTORY" ]; 
+  		then
+			  # These directories already exist.
+		fi
   else
     echo "We will skip this step";
 fi
@@ -61,7 +52,14 @@ fi
 # BASH PROFILE ---------------------------------------------------------------------------
 clear
 prompt "5. The last thing to do is to create the bash profile."
-#cp "${HOME}/.dotfiles/config/bash_profile" "${HOME}/.bash_profile"
+ln -s ${HOME}/.dotfiles/config/bash/bash_profile ${HOME}/.bash_profile;
+
+# EMACS ----------------------------------------------------------------------------------
+echo "Create emacs settings file \n"
+ln -s ${HOME}/.dotfiles/config/emacs/emacs-init.el ${HOME}/.emacs;;
+
+echo "Download the emacs modules \n"
+${HOME}/.dotfiles/config/emacs/emacs-setup-modules;;
 
 # LAST NOTES ---------------------------------------------------------------------------
 clear
