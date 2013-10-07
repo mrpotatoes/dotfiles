@@ -1,0 +1,87 @@
+#!/bin/sh
+
+MODULE_DIR=$DOTFILES/config/emacs/modules
+THEMES_DIR=$DOTFILES/config/emacs/themes
+
+if hash git 2>/dev/null; 
+  then
+    echo "\nDownloading company"
+    git clone git@github.com:company-mode/company-mode.git $MODULE_DIR/company;
+
+    echo "\nDownloading autopair";
+    git clone git@github.com:capitaomorte/autopair.git $MODULE_DIR/autopair
+
+    echo "\nDownloading Bcycle"
+    git clone git@github.com:mrpotatoes/bcycle.git $MODULE_DIR/bcycle
+   
+    echo "\nDownloading Webmode"
+    git clone git@github.com:fxbois/web-mode.git $MODULE_DIR/webmode
+
+    echo "\nDownloading Flymake"
+    git clone git@github.com:illusori/emacs-flymake.git $MODULE_DIR/flymake
+
+    echo "\nDownloading YaSnippet"
+    git clone git@github.com:capitaomorte/yasnippet.git $MODULE_DIR/yasnippet
+
+    echo "\nDownloading Solarized"
+    git clone git@github.com:sellout/emacs-color-theme-solarized.git $THEMES_DIR/solarized
+
+    echo "\nDownloading Git Gutter"
+    git clone git@github.com:syohex/emacs-git-gutter.git $MODULE_DIR/git-gutter
+
+    echo "\nDownloading Fringe Helper"
+    git clone git@github.com:nschum/fringe-helper.el.git $MODULE_DIR/fringe-helper
+
+    echo "\nDownloading Helm"
+    git clone git@github.com:emacs-helm/helm.git $MODULE_DIR/helm
+
+    # Not using gtags anymore.
+    # echo "\nDownloading Helm GTags"
+    # git clone git@github.com:syohex/emacs-helm-gtags.git $MODULE_DIR/helm-gtags
+
+    echo "\nDownloading Indicators.el"
+    git clone git@github.com:Fuco1/indicators.el.git $MODULE_DIR/indicators
+
+    echo "\nDownloading Magit"
+    git clone git@github.com:magit/magit.git $MODULE_DIR/magit
+
+    echo "\nDownloading Multiple Cursors"
+    git clone git@github.com:emacsmirror/multiple-cursors.git $MODULE_DIR/multiple-cursors
+
+    echo "\nDownloading the misc modules that I have on my repo"
+    git clone git@github.com:mrpotatoes/emacs-modules-mirror.git $MODULE_DIR/emacs-modules-mirror
+    
+    echo "\nDownloading the php mode module."
+    git clone https://github.com/ejmr/php-mode $MODULE_DIR/php-mode
+
+    # http://www.emacswiki.org/emacs/PowerLine
+    echo "\nDownloading the emacs powerline module."
+    git clone git@github.com:milkypostman/powerline.git $MODULE_DIR/powerline
+    #git clone https://github.com/jonathanchu/emacs-powerline $MODULE_DIR/powerline
+
+    # https://github.com/magnars/expand-region.el
+    # http://emacsrocks.com/e09.html
+    echo "\nDownloading the expand-region module."
+    git clone git@github.com:magnars/expand-region.el.git $MODULE_DIR/expand-region
+
+    # echo "\nDownloading the grizzl module."
+    # git clone git@github.com:d11wtq/grizzl.git $MODULE_DIR/projectile
+
+    echo "\nDownloading the mk-project module."
+    git clone git@github.com:mrpotatoes/mk-project.git $MODULE_DIR/mk-project
+
+    echo "";
+    git clone git@github.com:nschum/highlight-symbol.el.git $MODULE_DIR/highlight-symbol
+
+    echo "\nDownloading the hisdeshow-org module";
+    git clone git://github.com/secelis/hideshow-org.git $MODULE_DIR/hideshow-org
+
+    echo "\nDownloading a better point moving module."
+    git clone ssh://hg@bitbucket.org/jpkotta/syntax-subword
+
+    echo "\nDownloading the jade-mode module";
+    git clone https://github.com/brianc/jade-mode.git $MODULE_DIR/jade-mode
+else
+  echo "Git does not exist on this system"
+  exit;
+fi
