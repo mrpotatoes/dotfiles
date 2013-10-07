@@ -1,0 +1,36 @@
+#!/bin/bash
+
+PATHS_TO_JOIN=(
+  # MAMP path overrides.
+	#/Applications/Mamp/Library/bin
+	#/Applications/MAMP/bin/php/php5.3.6/bin
+	
+  # System level paths.
+	/usr/local/bin	
+	/usr/local/sbin	
+	
+  # These are Mac Ports specific paths.
+	/opt/local/bin
+	/opt/local/sbin
+	/opt/local/apache2/bin
+	/opt/local/lib/mysql5/bin/
+	
+	# This is for selenium on my local.
+	/Applications/Internet/Firefox.app/Contents/MacOS	
+	
+	# Custom script files used by dotfiles.
+	${HOME}/.dotfiles/bin
+	
+	# Where a user added custom environment scripts.
+	${HOME}/.dotfiles/custom/scripts
+	
+	# Ruby Gems
+	${HOME}/.gem/ruby/1.8/bin
+)
+
+JOINED_PATHS=""
+
+for f in "${PATHS_TO_JOIN[@]}"
+	do
+		JOINED_PATHS="$JOINED_PATHS:$f"
+done
