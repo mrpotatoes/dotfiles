@@ -10,5 +10,5 @@
 
 ;; --------------------------------------------------------------------------------
 ;; gist-mode
-(add-to-list 'load-path "~/.emacs.d/elpa/gist-1.0.3/gist.elc")
-(require 'gist)
+;(add-to-list 'load-path "~/.emacs.d/elpa/gist-1.0.3/gist.elc")
+;(require 'gist)

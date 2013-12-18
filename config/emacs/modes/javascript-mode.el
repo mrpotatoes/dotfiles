@@ -8,3 +8,11 @@
 
 (autoload 'js-console "js-console" nil t)
 (load "~/.emacs.d/nxhtml/autostart.el")
+
+;(add-hook 'js-mode-hook
+;  '(lambda ()
+;    (autopair-mode t)
+;    (syntax-subword-mode t)
+;    (setq indent-tabs-mode nil)
+;    (setq tab-width 2)
+;    (setq c-basic-offset 2)))

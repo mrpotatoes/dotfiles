@@ -81,6 +81,9 @@ if hash git 2>/dev/null;
 
     echo "\nDownloading the jade-mode module";
     git clone https://github.com/brianc/jade-mode.git $MODULE_DIR/jade-mode
+
+    echo "\nDownloading the Directory Tree module";
+    git clone git@github.com:mrpotatoes/emacs-dirtree.git $MODULE_DIR/dirtree
 else
   echo "Git does not exist on this system"
   exit;

@@ -35,4 +35,3 @@
 ;  (global-set-key (kbd "C-c p t") 'project-tags)
 )
 
-(add-hook 'after-save-hook 'project-tags)

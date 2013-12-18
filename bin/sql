@@ -3,7 +3,7 @@
 . noargs
 
 # Make sure they are allowed to do what they need to do.
-. ${HOME}/.dotfiles/config/bash_functions
+. ${HOME}/.dotfiles/config/bash/bash_functions
 check_root
 
 # THE ACTUAL PROGRAM ---------------------------------------------------------------------

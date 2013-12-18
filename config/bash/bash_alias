@@ -25,8 +25,8 @@ alias lsd="ls -l | egrep '^d'"
 alias ..="cdup"
 alias sbash="source ~/.bash_profile"
 alias ebash="emacs ~/.bash_profile"
-alias ealias="emacs ~/.dotfiles/config/bash_alias"
-alias epaths="emacs ~/.dotfiles/config/bash_dynamic_paths"
+alias ealias="emacs ~/.dotfiles/config/bash/bash_alias"
+alias epaths="emacs ~/.dotfiles/config/bash/bash_dynamic_paths"
 alias htdocs="cd /var/www"
 alias spikes="cd ~/Projects/Web-Applications/spikes"
 alias pushnight="oo adium; oo mail; oo chrome;"
@@ -117,7 +117,7 @@ alias comms="oo adium; oo limechat"
   alias en='drush en -y'
   alias dis='drush dis -y'
 
-# GENERATED & CUSTOM ALIASES 
+# GENERATED & CUSTOM ALIASES
 source $HOME/.dotfiles/data/generated-aliases
 source $HOME/.dotfiles/custom/other/custom-aliases
 
@@ -130,19 +130,21 @@ alias lipsum="echo -n Lorem ipsum dolor sit amet, consectetur adipiscing elit. S
 
 ## GET SPECIFIC
 alias ga='git add'
-alias gp='git push'
 alias gpl='git pull'
 alias gf='git fetch'
 alias gl='git log'
 alias gs='git status'
-alias gd='git diff'
-alias gdc='git diff --cached'
 alias gb='git branch'
 alias gc='git commit'
 alias gcl='git clone'
 alias gco='git checkout'
 alias gpom='git push origin master'
 alias gpod='git push origin dev'
+alias gp="git push origin HEAD"
+
+#alias gp='git push'
+#alias gd='git diff'
+#alias gdc='git diff --cached'
 
 if [ -f $HOME/.dotfiles/bin/git-completion.bash ]; then
    source $HOME/.dotfiles/bin/git-completion.bash

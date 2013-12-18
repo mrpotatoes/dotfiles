@@ -1,7 +1,13 @@
 #!/bin/sh
 
+echo "Starting up Adium"
 oo adium
-oo outlook
-oo chrome
+
+echo "Starting up Limechat"
 oo limechat
-oo spotify
+
+echo "Starting up Chrome"
+oo chrome
+
+echo "Starting up Netbeans"
+oo netbeans

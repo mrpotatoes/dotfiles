@@ -40,6 +40,8 @@
 (load "company")
 (load "modules");
 (load "project-management")
+(load "source-control")
+(require 'dirtree)
 
 ;; Modes.
 ;; Things that will be applied globally. Can be modified on a per-mode basis.
