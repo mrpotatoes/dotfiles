@@ -1,0 +1,5 @@
+#! /bin/sh
+
+. noargs
+
+git diff $1 | less

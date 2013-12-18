@@ -1,0 +1,4 @@
+#!/bin/bash
+# Show a tree structure of the current directory.
+
+ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
