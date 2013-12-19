@@ -50,7 +50,7 @@ function parse_git_dirty {
   # First if is based on: http://stackoverflow.com/a/2180378
   if git ls-files >& /dev/null;
     then
-      [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo " *"
+      [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo " *"
   fi
 }
 
