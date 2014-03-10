@@ -28,7 +28,8 @@ alias ebash="emacs ~/.bash_profile"
 alias ealias="emacs ~/.dotfiles/config/bash/bash_alias"
 alias epaths="emacs ~/.dotfiles/config/bash/bash_dynamic_paths"
 alias htdocs="cd /var/www"
-alias spikes="cd ~/Projects/Web-Applications/spikes"
+alias www="cd /var/www"
+alias spikes="cd /var/www/spikes"
 alias pushnight="oo adium; oo mail; oo chrome;"
 alias maven="mvn"
 alias etrash="rm -rf ~/.Trash/*"
@@ -141,6 +142,7 @@ alias gco='git checkout'
 alias gpom='git push origin master'
 alias gpod='git push origin dev'
 alias gp="git push origin HEAD"
+alias gcam="git commit -am"
 
 #alias gp='git push'
 #alias gd='git diff'

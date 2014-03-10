@@ -38,7 +38,7 @@ ServerRoot "/opt/local/apache2"
 # prevent Apache from glomming onto all bound IP addresses.
 #
 #Listen 12.34.56.78:80
-Listen 8008
+Listen 80
 
 #
 # Dynamic Shared Object (DSO) Support
@@ -167,7 +167,7 @@ ServerAdmin you@example.com
 # documents. By default, all requests are taken from this directory, but
 # symbolic links and aliases may be used to point to other locations.
 #
-DocumentRoot "/opt/local/apache2/htdocs"
+DocumentRoot "/var/www"
 
 #
 # Each directory to which Apache has access can be configured with respect
