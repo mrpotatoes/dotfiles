@@ -1,0 +1,7 @@
+How to delete a git branch
+
+# Delete the branch locally.
+git branch -D BRANCH-TO-DELETE
+
+# Delete the branch on the remote.
+git push origin :BRANCH-TO-DELETE
