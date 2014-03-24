@@ -1,18 +1,236 @@
-#!/bin/sh
-# Open an application
+#!/usr/bin/env php
 
-# The help text if needed.
-if [[ $1 == "--help" ]]
-	then
-	  manuals 'oo'
-	  exit 0;
-fi
+<?php
 
-# Actual functionality.
-if [ -n "$1" ]
-	then
-	  APP=$@
-    open -a "${APP}.app"
-  else
-    open .
-fi
+## Rename all these variables to oo_app_*
+
+# The application path.
+$app_path = '/Applications';
+
+# The file name.
+$app_cache_file = getenv('DOTFILES') . '/data/oo.cache';
+
+# Application arguments.
+$app_arguments = oo_parse_options($argv);
+
+# Run the commands before anything. 
+oo_run_commands();
+
+# If the file does not exist then we will create it.
+if (!file_exists(oo_get_global_variable('cache_file'))) {
+  $fh = fopen(oo_get_global_variable('cache_file'), 'w');
+  fwrite($fh, '');
+  fclose($fh);
+}
+
+# If the file is empty then we will put stuff in it.
+# Also if we want to rebuild the cache.
+if (filesize(oo_get_global_variable('cache_file')) === 0) {
+  oo_save_apps_array();
+}
+
+# If rebuild otherwise thing
+# print_r($argv);
+if (count($argv)) {
+  oo_do_thing($argv);
+}
+
+###
+ # Save a cache of the file stuff.
+ #
+function oo_do_thing($commandline_args) {
+  array_shift($commandline_args);
+  $apps = oo_get_app_array();
+  $to_open = array();
+
+  # Get all the apps.
+  foreach ($commandline_args as $potential) {
+    # First search for an exact match
+    if (in_array($potential, $apps)) {
+      $to_open[] = $potential;
+    }
+    # Otherwise search for a related match and ask the user for which they want.
+    else {
+      $index = oo_similar_matches($potential, $apps);
+      $to_open[] = $apps[$index];
+    }
+  }
+
+  foreach ($to_open as $app) {
+    shell_exec("open -a {$app}.app");
+  }
+
+  # oo_print_debug($potentials, true);
+}
+
+###
+ # Get similar matches and then do the rest of the UI.
+ #
+function oo_similar_matches($potential, $apps) {
+  $input = preg_quote($potential, '~');
+  $result = preg_grep('~' . $input . '~', $apps);
+  $proper = 0;
+
+  print_r($result);
+
+  while (true) {
+    # oo_print_debug("the line number: " . __LINE__);
+    # What did the use choose in the interface?
+    $chosen_option = array_shift(fgetcsv(STDIN));
+
+    if (array_key_exists($chosen_option, $result)) {
+      $proper = $chosen_option;
+      break;
+    }
+
+    echo "Chose better asshat. \n";
+  }
+
+  return $proper;
+}
+
+###
+ # Get an array of options. Optionally run their commands.
+ #
+function oo_parse_options(&$commandline_args) {
+  $options = array();
+
+  foreach ($commandline_args as $key => $option) {
+    if (strpos($option, '-') === 0) {
+      $options[] = $option;
+      unset($commandline_args[$key]);
+    }
+  }
+
+  $commandline_args = array_values($commandline_args);
+
+  return $options;
+}
+
+###
+ # Run a set of pre-determined commands.
+ #
+function oo_run_commands() {
+  foreach (oo_get_global_variable('arguments') as $arg) {
+    # List all the available apps.
+    if ($arg == '-list') {
+      oo_print_debug(oo_get_app_array());
+    }
+
+    # We want to rebuild the cache so lets do that first.
+    if ($arg == '-rebuild') {
+      oo_save_apps_array();
+    }
+  }
+}
+
+###
+ # Get an array of apps.
+ #
+function oo_get_app_array() {
+  $lines = array();
+  $fp = fopen(oo_get_global_variable('cache_file'), 'r');
+
+  while (!feof($fp)) {
+    # Read each line in one by one.
+    $line = fgets($fp);
+
+    # Clean up each app.
+    $line = str_replace('.app', '', trim($line));
+    $line_small_caps = strtolower($line);
+
+    # Add to array.
+    $lines[] = $line_small_caps;
+  }
+
+  fclose($fp);
+
+  return $lines;
+}
+
+###
+ # Save a cache of the file stuff.
+ #
+function oo_save_apps_array() {
+  $path = oo_get_global_variable('path');
+
+  $objects = new RecursiveIteratorIterator(
+    new RecursiveDirectoryIterator($path), 
+    RecursiveIteratorIterator::SELF_FIRST
+  );
+
+  # Empty the file and start fresh.
+  oo_truncate_file();
+  $fh = fopen(oo_get_global_variable('cache_file'), 'a') or die("can't open file");
+
+  foreach ($objects as $name => $object) {
+    if (pathinfo($object, PATHINFO_EXTENSION) == 'app') {
+      fwrite($fh, $object->getBasename() . "\n");
+    }
+  }
+
+  fclose($fh);
+}
+
+###
+ # Truncate the cache file.
+ #
+function oo_truncate_file() {
+  $fh = fopen(oo_get_global_variable('cache_file'), 'w');
+  fclose($fh);
+}
+
+###
+ # Get a global oo variable.
+ #
+function oo_get_global_variable($var) {
+  return $GLOBALS["app_{$var}"];
+}
+
+###
+ # Print a mixed variable.
+ #
+function oo_print_debug($var, $separator = false) {
+  print_r($var);
+  echo "\n";
+
+  if ($separator) {
+    echo '-----------------------------------------------------';
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
