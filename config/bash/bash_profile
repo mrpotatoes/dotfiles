@@ -9,6 +9,9 @@ export BASH_CONSTS="$HOME/.dotfiles/config/constants"
 export WEBSERVER_CONSTS="$HOME/.dotfiles/config/webserver/paths"
 export BASH_FUNCTIONS="$HOME/.dotfiles/config/bash_functions"
 
+export OO_APPLICATION_PATH="/Applications"
+export OO_CACHE_FILE="${DOTFILES}/data/oo.cache"
+
 # Now do some includes.
 source $DOTFILES_CONFIG/bash_includes
 

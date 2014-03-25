@@ -1,19 +1,21 @@
 #!/usr/bin/env php
-
 <?php
 
-## Rename all these variables to oo_app_*
+// @todo: Rename all these variables to oo_app_*
 
-# The application path.
-$app_path = '/Applications';
+// The application path.
+$app_path = oo_get_enviroment_variable('OO_APPLICATION_PATH');
 
-# The file name.
-$app_cache_file = getenv('DOTFILES') . '/data/oo.cache';
+// The file name.
+$app_cache_file = oo_get_enviroment_variable('OO_CACHE_FILE');
 
-# Application arguments.
+// The flags.
+$app_flags = array();
+
+// Application arguments.
 $app_arguments = oo_parse_options($argv);
 
-# Run the commands before anything. 
+# Run the commands before anything.
 oo_run_commands();
 
 # If the file does not exist then we will create it.
@@ -26,20 +28,40 @@ if (!file_exists(oo_get_global_variable('cache_file'))) {
 # If the file is empty then we will put stuff in it.
 # Also if we want to rebuild the cache.
 if (filesize(oo_get_global_variable('cache_file')) === 0) {
+  echo "The cache file does not exist so I will create one. This will take a moment.\n";
+  echo "Type y + enter when you are ready and I will tell you when we are done.\n";
   oo_save_apps_array();
+  echo "Finished\n\n";
 }
 
 # If rebuild otherwise thing
-# print_r($argv);
-if (count($argv)) {
-  oo_do_thing($argv);
+if (count($app_arguments) > 0) {
+  oo_open_applications($app_arguments);
+}
+else if (count($app_arguments) == 0 && empty($app_flags)) {
+  exec("open .");
+}
+
+/**
+ * Get an enviroment variable.
+ */
+function oo_get_enviroment_variable($variable) {
+  $var = getenv($variable);
+
+  if (!$var) {
+    echo "You need to set the global variable '$variable'\n";
+    echo "To do so put this in your .bash_profile:\n";
+    echo "export $variable=\"\$THE_VALUE_YOU_WANT\"\n\n";
+    exit;
+  }
+
+  return $var;
 }
 
 ###
  # Save a cache of the file stuff.
  #
-function oo_do_thing($commandline_args) {
-  array_shift($commandline_args);
+function oo_open_applications($commandline_args) {
   $apps = oo_get_app_array();
   $to_open = array();
 
@@ -52,15 +74,16 @@ function oo_do_thing($commandline_args) {
     # Otherwise search for a related match and ask the user for which they want.
     else {
       $index = oo_similar_matches($potential, $apps);
+      if (!$index) {
+        continue;
+      }
       $to_open[] = $apps[$index];
     }
   }
 
   foreach ($to_open as $app) {
-    shell_exec("open -a {$app}.app");
+    shell_exec("open -a \"{$app}.app\"");
   }
-
-  # oo_print_debug($potentials, true);
 }
 
 ###
@@ -71,11 +94,22 @@ function oo_similar_matches($potential, $apps) {
   $result = preg_grep('~' . $input . '~', $apps);
   $proper = 0;
 
+  // If a result is not found then we will not continue with normal operations.
+  if (empty($result)) {
+    echo "$potential was not found in the app cache. Perhaps you need to rebuilt. Use the -rebuild flag.";
+    return;
+  }
+
+  // If they typed yes then always use the first one.
+  if (in_array('-y', oo_get_global_variable('flags'))) {
+    return key($result);
+  }
+
+  echo "The choice $potential was not found. Please choose and id from the list\n";
   print_r($result);
 
   while (true) {
-    # oo_print_debug("the line number: " . __LINE__);
-    # What did the use choose in the interface?
+    // What did the use choose in the interface?
     $chosen_option = array_shift(fgetcsv(STDIN));
 
     if (array_key_exists($chosen_option, $result)) {
@@ -83,16 +117,19 @@ function oo_similar_matches($potential, $apps) {
       break;
     }
 
-    echo "Chose better asshat. \n";
+    $ids = implode(', ', array_keys($result));
+    echo "That is not a proper id. Please chose one of the following: $ids.\n";
   }
 
   return $proper;
 }
 
-###
- # Get an array of options. Optionally run their commands.
- #
+/**
+ * Get an array of options. Optionally run their commands.
+ */
 function oo_parse_options(&$commandline_args) {
+  // Pop the first element off the array as it isn't needed.
+  array_shift($commandline_args);
   $options = array();
 
   foreach ($commandline_args as $key => $option) {
@@ -102,18 +139,24 @@ function oo_parse_options(&$commandline_args) {
     }
   }
 
-  $commandline_args = array_values($commandline_args);
+  // Set the global flags variable.
+  oo_set_global_variable('flags', $options);
 
-  return $options;
+  return array_values($commandline_args);
 }
 
-###
- # Run a set of pre-determined commands.
- #
+/**
+ * Run a set of pre-determined commands.
+ */
 function oo_run_commands() {
-  foreach (oo_get_global_variable('arguments') as $arg) {
+  foreach (oo_get_global_variable('flags') as $arg) {
+    if ($arg == '..') {
+      exec ("open ..");
+    }
+
     # List all the available apps.
     if ($arg == '-list') {
+      echo "This should be the list";
       oo_print_debug(oo_get_app_array());
     }
 
@@ -124,9 +167,9 @@ function oo_run_commands() {
   }
 }
 
-###
- # Get an array of apps.
- #
+/**
+ * Get an array of apps.
+ */
 function oo_get_app_array() {
   $lines = array();
   $fp = fopen(oo_get_global_variable('cache_file'), 'r');
@@ -155,7 +198,7 @@ function oo_save_apps_array() {
   $path = oo_get_global_variable('path');
 
   $objects = new RecursiveIteratorIterator(
-    new RecursiveDirectoryIterator($path), 
+    new RecursiveDirectoryIterator($path),
     RecursiveIteratorIterator::SELF_FIRST
   );
 
@@ -187,6 +230,13 @@ function oo_get_global_variable($var) {
   return $GLOBALS["app_{$var}"];
 }
 
+/**
+ * Set a global oo variable.
+ */
+function oo_set_global_variable($var, $value) {
+  $GLOBALS["app_{$var}"] = $value;
+}
+
 ###
  # Print a mixed variable.
  #
@@ -198,39 +248,3 @@ function oo_print_debug($var, $separator = false) {
     echo '-----------------------------------------------------';
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
