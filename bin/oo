@@ -86,9 +86,9 @@ function oo_open_applications($commandline_args) {
   }
 }
 
-###
- # Get similar matches and then do the rest of the UI.
- #
+/**
+ * Get similar matches and then do the rest of the UI.
+ */
 function oo_similar_matches($potential, $apps) {
   $input = preg_quote($potential, '~');
   $result = preg_grep('~' . $input . '~', $apps);
@@ -154,17 +154,30 @@ function oo_run_commands() {
       exec ("open ..");
     }
 
-    # List all the available apps.
+    // List all the available apps.
     if ($arg == '-list') {
       echo "This should be the list";
       oo_print_debug(oo_get_app_array());
     }
 
-    # We want to rebuild the cache so lets do that first.
+    // We want to rebuild the cache so lets do that first.
     if ($arg == '-rebuild') {
       oo_save_apps_array();
     }
+
+    // Show the help.
+    if ($arg == '-help') {
+      oo_show_help();
+    }
   }
+}
+
+/**
+ * Show the help text here
+ */
+function oo_show_help() {
+  // Show help bro.
+  echo "This should be the help but I don't have any yet. I'm terribly sorry.\n";
 }
 
 /**
