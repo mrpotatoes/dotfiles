@@ -47,7 +47,7 @@
 ;; Things that will be applied globally. Can be modified on a per-mode basis.
 (load "global")
 
-(load "php") 
+(load "php")
 (load "plaintext-mode")
 ;(load "lisp")
 ;(load "shift_mark")
@@ -66,8 +66,8 @@
 ;; ASpell
 ;; http://aspell.net/man-html/Creating-an-Individual-Word-List.html
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
-(autoload 'flyspell-delay-command "flyspell" "Delay on command." t) 
-(autoload 'tex-mode-flyspell-verify "flyspell" "" t) 
+(autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
+(autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
 ;; --------------------------------------------------------------------------------
 ;; Setting up some default variables for my emacs.
@@ -122,6 +122,9 @@
 ;; Set the line number mode globally.
 (global-linum-mode t)
 
+;; Set the file to auto revert to disk changes.
+(global-auto-revert-mode t)
+
 ;(yas-global-mode 1)
 
 (setq-default ispell-program-name "aspell")
@@ -146,4 +149,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
