@@ -111,7 +111,7 @@ alias starttomcat="/Applications/Developer/Tomcat/bin/startup.sh"
 alias stoptomcat="/Applications/Developer/Tomcat/bin/shutdown.sh"
 alias clean_xprof="rm -rf /Users/avillanueva/Projects/XHProf-Output/*"
 alias webserver_paths="less ${DOTFILES}/config/webserver/paths"
-alias comms="oo adium; oo limechat"
+alias comms="oo adium"
 
   ## DRUPAL
   alias dru='' # Default Drupal stuff.
