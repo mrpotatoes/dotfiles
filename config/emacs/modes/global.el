@@ -50,6 +50,7 @@
 
 (global-set-key ">" 'my-indent-region)
 (global-set-key "<" 'my-unindent-region)
+(global-set-key (kbd "<backtab>") 'my-unindent-region)
 
 ;; --------------------------------------------------------------------------------
 ;; Highlight region replace

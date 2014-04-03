@@ -41,6 +41,8 @@
 (load "modules");
 (load "project-management")
 (load "source-control")
+(load "ido-setup")
+
 (require 'dirtree)
 
 ;; Modes.
@@ -116,6 +118,10 @@
 ; Use my aliases plz.
 (setq shell-command-switch "-ic")
 
+(setq bcycle-skip-patterns (cons "^#" bcycle-skip-patterns))
+(setq bcycle-skip-patterns (cons "TAGS" bcycle-skip-patterns))
+(setq bcycle-skip-patterns (cons "^files$" bcycle-skip-patterns))
+
 ;; http://www.gnu.org/software/emacs/manual/html_node/emacs/Narrowing.html
 (put 'narrow-to-region 'disabled nil)
 
@@ -149,3 +155,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+

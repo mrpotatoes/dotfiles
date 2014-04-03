@@ -45,4 +45,9 @@
 (define-key my-keys-minor-mode-map (kbd "M-~") 'next-buffer) 
 (define-key my-keys-minor-mode-map (kbd "M-TAB") 'next-buffer)
 
- 
+;; The keystroke combo to toggle a comment on a selected line.
+(global-set-key (kbd "C-/") 'comment-or-uncomment-region-or-line)
+
+
+
+
