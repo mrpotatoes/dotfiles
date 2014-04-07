@@ -18,15 +18,13 @@ if hash git 2>/dev/null;
     git clone git@github.com:fxbois/web-mode.git $MODULE_DIR/webmode
 
     echo "\nDownloading flycheck"
-    # git clone git@github.com:illusori/emacs-flymake.git $MODULE_DIR/flymake
     git clone https://github.com/flycheck/flycheck.git $MODULE_DIR/flycheck
-    
 
     echo "\nDownloading YaSnippet"
     git clone git@github.com:capitaomorte/yasnippet.git $MODULE_DIR/yasnippet
 
     echo "\nDownloading Solarized"
-    git clone git@github.com:sellout/emacs-color-theme-solarized.git $THEMES_DIR/solarized
+    git clone git@github.com:illusori/emacs-color-theme-solarized.git $THEMES_DIR/solarized
 
     echo "\nDownloading Git Gutter"
     git clone git@github.com:syohex/emacs-git-gutter.git $MODULE_DIR/git-gutter
@@ -36,10 +34,6 @@ if hash git 2>/dev/null;
 
     echo "\nDownloading Helm"
     git clone git@github.com:emacs-helm/helm.git $MODULE_DIR/helm
-
-    # Not using gtags anymore.
-    # echo "\nDownloading Helm GTags"
-    # git clone git@github.com:syohex/emacs-helm-gtags.git $MODULE_DIR/helm-gtags
 
     echo "\nDownloading Indicators.el"
     git clone git@github.com:Fuco1/indicators.el.git $MODULE_DIR/indicators
@@ -88,7 +82,10 @@ if hash git 2>/dev/null;
     git clone git@github.com:mrpotatoes/emacs-dirtree.git $MODULE_DIR/dirtree
 
     echo "\nDownloading the Ido Vertical module";
-    git clone git@github.com:gempesaw/ido-vertical-mode.el.git  $MODULE_DIR/ido-vertical-mode
+    git clone git@github.com:gempesaw/ido-vertical-mode.el.git $MODULE_DIR/ido-vertical-mode
+
+    echo "\nDownloading Markdown Mode";
+    git clone http://jblevins.org/git/markdown-mode.git $MODULE_DIR/markdown-mode
 else
   echo "Git does not exist on this system"
   exit;

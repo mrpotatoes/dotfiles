@@ -1,5 +1,10 @@
 ;; http://amitp.blogspot.com/2011/08/emacs-custom-mode-line.html
 
+; (setq sml/theme 'dark)
+; (require 'smart-mode-line)
+; (sml/setup)
+
+
 ;; Mode line setup
 (setq-default
  mode-line-format

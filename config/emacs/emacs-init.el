@@ -37,7 +37,7 @@
 (load "_emacs")
 (load "mode-line")
 (load "indentation")
-(load "company")
+(load "company-setup")
 (load "modules");
 (load "project-management")
 (load "source-control")
@@ -45,13 +45,12 @@
 
 (require 'dirtree)
 
-;; Modes.
 ;; Things that will be applied globally. Can be modified on a per-mode basis.
-(load "global")
-
+(load "all-modes")
 (load "php")
 (load "plaintext-mode")
-;(load "lisp")
+(load "markdown")
+(load "lisp")
 ;(load "shift_mark")
 
 (load "mouse-global")
@@ -60,7 +59,9 @@
 ;(require 'magit)
 ;(require 'yasnippet)
 
+(add-to-list 'custom-theme-load-path "~/.dotfiles/config/emacs/themes/solarized")
 (load-theme 'solarized-dark' t)
+;(setq solarized-use-terminal-theme t)
 
 ;; --------------------------------------------------------------------------------
 ;; Autoloading.
@@ -118,10 +119,6 @@
 ; Use my aliases plz.
 (setq shell-command-switch "-ic")
 
-(setq bcycle-skip-patterns (cons "^#" bcycle-skip-patterns))
-(setq bcycle-skip-patterns (cons "TAGS" bcycle-skip-patterns))
-(setq bcycle-skip-patterns (cons "^files$" bcycle-skip-patterns))
-
 ;; http://www.gnu.org/software/emacs/manual/html_node/emacs/Narrowing.html
 (put 'narrow-to-region 'disabled nil)
 
@@ -140,13 +137,19 @@
 ;(set-face-background 'modeline-inactive "brightblack")
 ;(set-face-foreground 'modeline-inactive "brightcyan")
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(highlight-symbol-idle-delay 0.5)
- '(highlight-symbol-on-navigation-p t)
+ (custom-set-variables
+;  ;; custom-set-variables was added by Custom.
+;  ;; If you edit it by hand, you could mess it up, so be careful.
+;  ;; Your init file should contain only one such instance.
+;  ;; If there is more than one, they won't work right.
+;  '(ansi-color-names-vector ["#262626" "#d70000" "#5f8700" "#af8700" "#0087ff" "#af005f" "#00afaf" "#626262"])
+;  '(background-color "brightblack")
+;  '(background-mode dark)
+;  '(cursor-color "#808080")
+;  '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
+;  '(foreground-color "#808080")
+;  '(highlight-symbol-idle-delay 0.5)
+;  '(highlight-symbol-on-navigation-p t)
 )
 
 (custom-set-faces
@@ -154,6 +157,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ ;'(default ((t (:background "brightblack"))) t)
+)
 
+;(set-face 'background "brightblack")
+(set-face-background 'linum "black")
+(set-face-foreground 'linum "brightgreen")
+
+(setq-default fill-column 80)
 

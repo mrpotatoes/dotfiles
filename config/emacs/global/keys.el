@@ -1,22 +1,37 @@
-;; --------------------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
 ;; Some global settings
 (global-set-key (kbd "M-;")
-     (lambda ()
-       (interactive)
-       (save-excursion
-         (move-beginning-of-line nil)
-         (push-mark (point) t t)
-         (move-end-of-line nil)
-         (comment-dwim nil)
-         (pop-mark)
-         )
-       )
-     )
+  (lambda ()
+    (interactive)
+    (save-excursion
+      (move-beginning-of-line nil)
+      (push-mark (point) t t)
+      (move-end-of-line nil)
+      (comment-dwim nil)
+      (pop-mark))))
 
-;; --------------------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
+;; Toggle prefix map
+(define-prefix-command 'my-toggle-prefix-map) ;; Allow toggling
+(global-set-key (kbd "C-t") 'my-toggle-prefix-map)
+(define-key my-toggle-prefix-map (kbd "C-t") 'transpose-chars)
+(define-key my-toggle-prefix-map (kbd "C-l") 'linum-mode)
+(define-key my-toggle-prefix-map (kbd "C-p") 'show-paren-mode)
+(define-key my-toggle-prefix-map (kbd "C-w") 'whitespace-mode)
+
+;; -----------------------------------------------------------------------------
 ;; Reset some keys.
 (global-set-key (kbd "M-N") 'mc/mark-next-like-this)
 (global-set-key (kbd "M-P") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-n")
+  (lambda ()
+    (interactive)
+    (next-line 5)))
+
+(global-set-key (kbd "C-p")
+  (lambda ()
+    (interactive)
+    (previous-line 5)))
 
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-x C-k") 'kill-region)
@@ -28,7 +43,7 @@
 (define-key minibuffer-local-map (kbd "<C-backspace>") 'backward-delete-word)
 (define-key minibuffer-local-map (kbd "C-q") 'backward-delete-char)
 
-;; --------------------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
 ;; Keyboard shortcuts
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
 
@@ -42,12 +57,8 @@
 (define-key my-keys-minor-mode-map (kbd "ESC p") 'scroll-down-line)
 
 (define-key my-keys-minor-mode-map (kbd "M-`") 'previous-buffer)
-(define-key my-keys-minor-mode-map (kbd "M-~") 'next-buffer) 
+(define-key my-keys-minor-mode-map (kbd "M-~") 'next-buffer)
 (define-key my-keys-minor-mode-map (kbd "M-TAB") 'next-buffer)
 
 ;; The keystroke combo to toggle a comment on a selected line.
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region-or-line)
-
-
-
-
