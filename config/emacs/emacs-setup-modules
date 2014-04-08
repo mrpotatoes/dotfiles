@@ -17,8 +17,10 @@ if hash git 2>/dev/null;
     echo "\nDownloading Webmode"
     git clone git@github.com:fxbois/web-mode.git $MODULE_DIR/webmode
 
-    echo "\nDownloading flycheck"
+    echo "\nDownloading flycheck and deps"
     git clone https://github.com/flycheck/flycheck.git $MODULE_DIR/flycheck
+    git clone git@github.com:rejeep/f.el.git $MODULE_DIR/f
+    git clone git@github.com:magnars/s.el.git $MODULE_DIR/s
 
     echo "\nDownloading YaSnippet"
     git clone git@github.com:capitaomorte/yasnippet.git $MODULE_DIR/yasnippet

@@ -61,9 +61,9 @@
 
 (add-to-list 'custom-theme-load-path "~/.dotfiles/config/emacs/themes/solarized")
 (load-theme 'solarized-dark' t)
-;(setq solarized-use-terminal-theme t)
+(setq solarized-use-terminal-theme t)
 
-;; --------------------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
 ;; Autoloading.
 
 ;; ASpell
@@ -72,7 +72,11 @@
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
-;; --------------------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
+;; I would like to highlight the line that I'm on always.
+(hl-line-mode)
+
+;; -----------------------------------------------------------------------------
 ;; Setting up some default variables for my emacs.
 ;; Line wrapping.
 (set-default 'truncate-lines t)
@@ -131,38 +135,6 @@
 ;(yas-global-mode 1)
 
 (setq-default ispell-program-name "aspell")
-
-;(set-face-background 'modeline "brightblack")
-;(set-face-foreground 'modeline "blue")
-;(set-face-background 'modeline-inactive "brightblack")
-;(set-face-foreground 'modeline-inactive "brightcyan")
-
- (custom-set-variables
-;  ;; custom-set-variables was added by Custom.
-;  ;; If you edit it by hand, you could mess it up, so be careful.
-;  ;; Your init file should contain only one such instance.
-;  ;; If there is more than one, they won't work right.
-;  '(ansi-color-names-vector ["#262626" "#d70000" "#5f8700" "#af8700" "#0087ff" "#af005f" "#00afaf" "#626262"])
-;  '(background-color "brightblack")
-;  '(background-mode dark)
-;  '(cursor-color "#808080")
-;  '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
-;  '(foreground-color "#808080")
-;  '(highlight-symbol-idle-delay 0.5)
-;  '(highlight-symbol-on-navigation-p t)
-)
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- ;'(default ((t (:background "brightblack"))) t)
-)
-
-;(set-face 'background "brightblack")
-(set-face-background 'linum "black")
-(set-face-foreground 'linum "brightgreen")
 
 (setq-default fill-column 80)
 
