@@ -1,18 +1,18 @@
-;; --------------------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
 ;; Other modules to consider.
 ;;    - http://www.emacswiki.org/emacs/PredictiveMode#toc5
 ;;    - http://www.youtube.com/watch?v=rGVVnDxwJYE
 ;;      - This seems even better as it gets function definitions and such.
 ;;    - http://amitp.blogspot.com/2012/10/emacs-helm-for-finding-files.html
-;; --------------------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
 
-;; --------------------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
 ;; Making iTerm 2 work with normal Mac OSX keyboard shortcuts
 ;;    - http://elweb.co/making-iterm-2-work-with-normal-mac-osx-keyboard-shortcuts/
-;; --------------------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
 
-;; Not for myself but for elpa (I think).
-(add-to-list 'load-path "~/.emacs.d/")
+;; I will maintain all deps from now on.
+; (add-to-list 'load-path "~/.emacs.d/")
 
 ;; Add all the directories in this path to the add-to-list
 ;;    - http://www.emacswiki.org/emacs/LoadPath
@@ -37,7 +37,8 @@
 (load "_emacs")
 (load "mode-line")
 (load "indentation")
-(load "company-setup")
+; (load "flynum")
+; (load "company-setup")
 (load "modules");
 (load "project-management")
 (load "source-control")
@@ -57,7 +58,7 @@
 ;(load "haml-mode")
 ;(load "stubs")
 ;(require 'magit)
-;(require 'yasnippet)
+(require 'yasnippet)
 
 (add-to-list 'custom-theme-load-path "~/.dotfiles/config/emacs/themes/solarized")
 (load-theme 'solarized-dark' t)
@@ -73,8 +74,8 @@
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
 ;; -----------------------------------------------------------------------------
-;; I would like to highlight the line that I'm on always.
-(hl-line-mode)
+;; I would like to high light the line that I'm on always.
+(global-hl-line-mode 1)
 
 ;; -----------------------------------------------------------------------------
 ;; Setting up some default variables for my emacs.
@@ -83,6 +84,9 @@
 
 ;; No startup screen.
 (setq inhibit-startup-screen t)
+
+; Delete selected text with whatever.
+(delete-selection-mode 1)
 
 ;; No menu bar.
 (menu-bar-mode -1)
@@ -137,4 +141,20 @@
 (setq-default ispell-program-name "aspell")
 
 (setq-default fill-column 80)
+
+;; ------------------------------------------------------------------------------
+;; Auto complete bullshit.
+(require 'auto-complete)
+(add-to-list 'ac-dictionary-directories "~/.dotfiles/config/emacs/modules/autocomplete/dict")
+(require 'auto-complete-config)
+(ac-config-default)
+
+;; https://github.com/syohex/emacs-ac-etags
+(require 'ac-etags)
+(custom-set-variables '(ac-etags-requires 1))
+(eval-after-load "etags" '(progn (ac-etags-setup)))
+(add-hook 'php-mode-hook 'ac-etags-ac-setup)
+
+;; Color the selection.
+(set-face-attribute 'region nil :background "brightmagenta")
 

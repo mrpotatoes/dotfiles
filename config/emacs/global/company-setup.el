@@ -13,7 +13,8 @@
     company-dabbrev-code
     company-keywords
     company-files 
-    company-dabbrev))
+    company-dabbrev
+))
 
 ;; Keyboard Bindings.
 (global-set-key (kbd "M-r") 'company-complete-common)

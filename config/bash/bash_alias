@@ -53,6 +53,7 @@ alias calc="oo calculator"
 alias ff="oo firefox"
 alias text="oo textedit"
 alias sublime="open -a sublime.app"
+alias irc='irssi'
 
 ## CHEAT-SHEETS
 alias uu="open ~/.dotfiles/useful"

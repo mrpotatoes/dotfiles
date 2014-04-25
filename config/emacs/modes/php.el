@@ -3,7 +3,6 @@
 ;;  - https://github.com/ejmr/php-mode
 ;;  - https://github.com/arnested/php-extras
 ;;  - http://stackoverflow.com/questions/912671/what-is-a-good-setup-for-editing-php-in-emacs
-(require 'php-mode)
 
 ; (setq php-mode-force-pear t)
 
@@ -11,8 +10,9 @@
   '(lambda ()
     ;; Some required modules that we'll need
     (require 'syntax-subword)
-    (require 'flycheck)
     (require 'highlight-symbol)
+    (require 'flycheck)
+    ; (require 'flycheck-tip)
 
     ; Setup some modes.
     (autopair-mode)
@@ -29,6 +29,7 @@
     ;; Flycheck settings.
     (flycheck-mode)
     (setq flycheck-phpcs-standard "drupal")
+    ; (flycheck-tip-use-timer 'verbose)
   ))
 
 ;; Assoicate the PHP mode with these files.
@@ -39,4 +40,4 @@
 (add-to-list 'auto-mode-alist '("\\.test$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.profile$" . php-mode))
 
-
+(autoload 'php-mode "php-mode")
