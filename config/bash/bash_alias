@@ -144,6 +144,7 @@ alias gpom='git push origin master'
 alias gpod='git push origin dev'
 alias gp="git push origin HEAD"
 alias gcam="git commit -am"
+alias grm="git branch -D"
 
 #alias gp='git push'
 #alias gd='git diff'

@@ -29,6 +29,14 @@
 ;; Load the custom modes paths.
 (add-to-list 'load-path "~/.dotfiles/config/emacs/modes")
 
+;; No menu bar.
+(menu-bar-mode -1)
+
+;; -----------------------------------------------------------------------------
+;; Set Interactive Mode for bash.
+(setq shell-file-name "bash")
+(setq shell-command-switch "-ic")
+
 (load "functions")
 (load "keys");
 ;(load "javascript-mode")
@@ -37,7 +45,6 @@
 (load "_emacs")
 (load "mode-line")
 (load "indentation")
-; (load "flynum")
 ; (load "company-setup")
 (load "modules");
 (load "project-management")
@@ -46,19 +53,22 @@
 
 (require 'dirtree)
 
-;; Things that will be applied globally. Can be modified on a per-mode basis.
+;; -----------------------------------------------------------------------------
+;; This is actually an include for the other modes that I've created.
 (load "all-modes")
-(load "php")
-(load "plaintext-mode")
-(load "markdown")
-(load "lisp")
-;(load "shift_mark")
 
 (load "mouse-global")
-;(load "haml-mode")
 ;(load "stubs")
 ;(require 'magit)
+
+;; -----------------------------------------------------------------------------
+;; Yas.
 (require 'yasnippet)
+(yas-global-mode 1)
+(global-set-key (kbd "C-c C-y") 'yas-expand)
+
+; (setq yas-snippet-dirs '("~/.dotfiles/config/emacs/snippets"))
+; (define-key yas-minor-mode-map (kbd "<M TAB>") 'yas-expand)
 
 (add-to-list 'custom-theme-load-path "~/.dotfiles/config/emacs/themes/solarized")
 (load-theme 'solarized-dark' t)
@@ -87,9 +97,6 @@
 
 ; Delete selected text with whatever.
 (delete-selection-mode 1)
-
-;; No menu bar.
-(menu-bar-mode -1)
 
 ;; Set the default tab width to be 2 characters.
 (setq default-tab-width 2)
@@ -142,19 +149,20 @@
 
 (setq-default fill-column 80)
 
-;; ------------------------------------------------------------------------------
-;; Auto complete bullshit.
-(require 'auto-complete)
-(add-to-list 'ac-dictionary-directories "~/.dotfiles/config/emacs/modules/autocomplete/dict")
-(require 'auto-complete-config)
-(ac-config-default)
+; ;; ------------------------------------------------------------------------------
+; ;; Auto complete bullshit.
+; (require 'auto-complete)
+; (add-to-list 'ac-dictionary-directories "~/.dotfiles/config/emacs/modules/autocomplete/dict")
+; (require 'auto-complete-config)
+; (ac-config-default)
 
-;; https://github.com/syohex/emacs-ac-etags
-(require 'ac-etags)
-(custom-set-variables '(ac-etags-requires 1))
-(eval-after-load "etags" '(progn (ac-etags-setup)))
-(add-hook 'php-mode-hook 'ac-etags-ac-setup)
+; ;; https://github.com/syohex/emacs-ac-etags
+; (require 'ac-etags)
+; (custom-set-variables '(ac-etags-requires 1))
+; (eval-after-load "etags" '(progn (ac-etags-setup)))
+; (add-hook 'php-mode-hook 'ac-etags-ac-setup)
 
-;; Color the selection.
-(set-face-attribute 'region nil :background "brightmagenta")
+; ;; Color the selection.
+; (set-face-attribute 'region nil :background "brightmagenta")
+
 

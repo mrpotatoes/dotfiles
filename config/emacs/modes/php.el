@@ -12,12 +12,17 @@
     (require 'syntax-subword)
     (require 'highlight-symbol)
     (require 'flycheck)
+    (require 'yasnippet)
     ; (require 'flycheck-tip)
+    ; (load "flynum")
 
     ; Setup some modes.
     (autopair-mode)
     (highlight-symbol-mode t)
     (syntax-subword-mode t)
+
+    ;; Do Ya Snippet stuff.
+    ; (yas-minor-mode)
 
     ;; Default settings.
     (setq indent-tabs-mode nil)
@@ -27,8 +32,8 @@
     (setq php-mode-force-pear t)
 
     ;; Flycheck settings.
-    (flycheck-mode)
-    (setq flycheck-phpcs-standard "drupal")
+    ; (flycheck-mode)
+    ; (setq flycheck-phpcs-standard "drupal")
     ; (flycheck-tip-use-timer 'verbose)
   ))
 
