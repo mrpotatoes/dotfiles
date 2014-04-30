@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. noargs
+
+less ${DOTFILES}/bin/$1 
