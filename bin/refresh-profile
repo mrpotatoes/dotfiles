@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# Refresh the bash profile if something was changed.
-
-cp "${HOME}/.dotfiles/config/bash_profile" "${HOME}/.bash_profile"

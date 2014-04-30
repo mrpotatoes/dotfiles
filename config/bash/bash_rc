@@ -1,4 +1,5 @@
 #!/bin/sh
+# Hey, you are actually in the .bashrc. Don't forget that.
 
 # Some quick paths to use globally in include (source) files into bash scripts.
 export DOTFILES="$HOME/.dotfiles"
