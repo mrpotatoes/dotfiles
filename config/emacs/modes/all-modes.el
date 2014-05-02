@@ -9,6 +9,7 @@
 (load "plaintext-mode")
 (load "markdown")
 (load "lisp")
+(load "javascript-mode")
 ;(load "haml-mode")
 
 ;; --------------------------------------------------------------------------------
