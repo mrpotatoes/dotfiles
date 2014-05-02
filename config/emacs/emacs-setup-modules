@@ -96,6 +96,9 @@ if hash git 2>/dev/null;
 
     echo "\nDownloading Markdown Mode";
     git clone http://jblevins.org/git/markdown-mode.git $MODULE_DIR/markdown-mode
+
+    echo "\nDownloading JS2 Mode";
+    git clone git@github.com:mooz/js2-mode.git $MODULE_DIR/js2-mode
 else
   echo "Git does not exist on this system"
   exit;
