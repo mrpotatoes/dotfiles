@@ -54,24 +54,6 @@ alias text="oo textedit"
 alias sublime="open -a sublime.app"
 alias irc='irssi'
 
-## CHEAT-SHEETS
-alias uu="open ~/.dotfiles/useful"
-alias uuseful="open ~/.dotfiles/useful"
-alias udrush="open -e ~/.useful/bash/drush.txt"
-#alias useful="open -e ~/.useful/bash/useful-commands.txt"
-alias uarchive="open -e ~/.useful/bash/archive.txt"
-alias ucron="open -e ~/.useful/bash/cron.txt"
-alias udates="open -e ~/.useful/bash/dates.txt"
-alias uemail="open -e ~/.useful/bash/email.txt"
-alias ufile-emacsing="open -e ~/.useful/bash/file-emacsing.txt"
-alias ufile-system="open -e ~/.useful/bash/file-system.txt"
-alias ufiles="open -e ~/.useful/bash/files.txt"
-alias uinternet="open -e ~/.useful/bash/internet.txt"
-alias umisc="open -e ~/.useful/bash/misc.txt"
-alias uregex="open -e ~/.useful/bash/regex.txt"
-alias usystem="open -e ~/.useful/bash/system.txt"
-alias usvn="open ~/.useful/svn/paths.txt"
-
 ### MYSQL
 alias umcli="open -e ~/.useful/mysql/cli.txt"
 alias umcounting="open -e ~/.useful/mysql/counting.txt"
@@ -88,6 +70,7 @@ alias proj="cd ~/Projects"
 alias apps="cd /Applications"
 alias dl="cd ~/Downloads"
 alias desk="cd ~/Desktop"
+alias df="cd ~/.dotfiles"
 
 # OPEN SPECIFIC FOLDERS
 alias odocs="open ~/Documents/"
