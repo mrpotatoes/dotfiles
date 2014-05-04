@@ -86,6 +86,7 @@
 ;; -----------------------------------------------------------------------------
 ;; I would like to high light the line that I'm on always.
 (global-hl-line-mode 1)
+(set-face-background 'region "darkred")
 
 ;; Global URL rendering (and goto capability).
 (define-globalized-minor-mode global-goto-address-mode goto-address-mode goto-address-mode)
