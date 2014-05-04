@@ -87,6 +87,10 @@
 ;; I would like to high light the line that I'm on always.
 (global-hl-line-mode 1)
 
+;; Global URL rendering (and goto capability).
+(define-globalized-minor-mode global-goto-address-mode goto-address-mode goto-address-mode)
+(global-goto-address-mode)
+
 ;; -----------------------------------------------------------------------------
 ;; Setting up some default variables for my emacs.
 ;; Line wrapping.
