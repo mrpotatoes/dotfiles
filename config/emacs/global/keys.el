@@ -38,9 +38,6 @@
 (define-key minibuffer-local-map (kbd "<C-backspace>") 'backward-delete-word)
 (define-key minibuffer-local-map (kbd "C-q") 'backward-delete-char)
 
-;; Expand regions
-(global-set-key (kbd "C-b") 'er/expand-region)
-
 ;; -----------------------------------------------------------------------------
 ;; Keyboard shortcuts
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
@@ -72,6 +69,3 @@
 (define-key my-toggle-prefix-map (kbd "C-w") 'whitespace-mode)
 (define-key my-toggle-prefix-map (kbd "C-f") 'flycheck-mode)
 
-; Keys to cycle.
-(define-key my-keys-minor-mode-map (kbd "M-TAB") 'bcycle-next-buffer)
-(define-key my-keys-minor-mode-map (kbd "M-`") 'bcycle-previous-buffer)

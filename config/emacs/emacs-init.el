@@ -5,7 +5,7 @@
 (require 'cl)
 
 ;; -----------------------------------------------------------------------------
-;; SO I don't have to know which things to load.
+;; So I don't have to know which things to load.
 (let ((default-directory "~/.dotfiles/config/emacs/modules/"))
   (normal-top-level-add-subdirs-to-load-path))
 

@@ -17,6 +17,7 @@
     (require 'flycheck)
     (require 'yasnippet)
     (require 'flycheck-tip)
+    (require 'autopair)
     ;; (load "flynum")
 
     ; Setup some modes.

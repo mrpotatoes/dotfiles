@@ -4,15 +4,14 @@
 ;;  - https://github.com/arnested/php-extras
 ;;  - http://stackoverflow.com/questions/912671/what-is-a-good-setup-for-editing-php-in-emacs
 
-; (setq php-mode-force-pear t)
-
 (add-hook 'php-mode-hook
   '(lambda ()
     ;; Some required modules that we'll need
-    (require 'syntax-subword)
+    ; (require 'syntax-subword)
     (require 'highlight-symbol)
     (require 'flycheck)
     (require 'yasnippet)
+    ; (require 'autopair)
     ; (require 'flycheck-tip)
     ; (load "flynum")
 
@@ -20,9 +19,6 @@
     (autopair-mode)
     (highlight-symbol-mode t)
     (syntax-subword-mode t)
-
-    ;; Do Ya Snippet stuff.
-    ; (yas-minor-mode)
 
     ;; Default settings.
     (setq indent-tabs-mode nil)
@@ -46,3 +42,5 @@
 (add-to-list 'auto-mode-alist '("\\.profile$" . php-mode))
 
 (autoload 'php-mode "php-mode")
+(autoload 'autopair "php-mode")
+
