@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Check if hidden files are visible and store result in a variable.
+USAGE_TEXT="..."
+REQUIRED_ARGUMENT_COUNT=2
+DOMAIN=$1
+KEY=$2
+
+# include the file
+. countargs
+
+# toggle visibility based on variables value
+if [ "$(defaults read $DOMAIN $KEY)" == false ]
+	then
+	  defaults write $DOMAIN $KEY true
+	else
+	  defaults write $DOMAIN $KEY false
+fi
