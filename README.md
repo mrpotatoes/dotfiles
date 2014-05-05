@@ -19,11 +19,11 @@ manuals/
 useful/
 </pre>
 
-** TODO
-* Fix the indentation rules.
-* Make mk project work for me
-* Add back some of my netbeans keybindings that I miss
+## TODO
+* Create a custom mrpotatoes-project.el based, on features, on mk-project.
+* Add back some of my netbeans keybindings that I miss.
 * Perhaps see what's up with the super key on OSX.
 * Figure out profiles
 * Try out C Sub Word. I saw something about this that I'd like to check out.
 * Fix the "MAKEFILE"
+
