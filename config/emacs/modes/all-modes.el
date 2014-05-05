@@ -3,7 +3,7 @@
 ;;    - http://www.emacswiki.org/emacs/HideShow
 ;; May want to consider something that will allow me to do it like org mode. 
 ;;    - https://github.com/shanecelis/hideshow-org/tree/master
-; (require 'hideshow-org)
+;;    - http://www.emacswiki.org/emacs/HideShow
 
 (load "php")
 (load "plaintext-mode")

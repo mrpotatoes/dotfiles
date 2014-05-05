@@ -3,6 +3,7 @@
 ;; 		- http://www.emacswiki.org/emacs/Js2Mode
 ;;		- https://github.com/mooz/js2-mode
 ;;
+;;    http://blog.deadpansincerity.com/2011/05/setting-up-emacs-as-a-javascript-editing-environment-for-fun-and-profit/
 ;;
 ;;   I WANT THIS: https://github.com/azer/emacs.js/
 
