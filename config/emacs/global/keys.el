@@ -1,5 +1,6 @@
-;; Key based stuff in other files.
-(load "keys-toggles")
+;; -----------------------------------------------------------------------------
+;; A file that defines all the keyboard overrides that I use.
+;;
 
 ;; -----------------------------------------------------------------------------
 ;; Some global settings
@@ -59,3 +60,18 @@
 
 ;; The keystroke combo to toggle a comment on a selected line.
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region-or-line)
+
+;; -----------------------------------------------------------------------------
+;; Toggle prefix map
+;;
+(define-prefix-command 'my-toggle-prefix-map) ;; Allow toggling
+(global-set-key (kbd "C-t") 'my-toggle-prefix-map)
+(define-key my-toggle-prefix-map (kbd "C-t") 'transpose-chars)
+(define-key my-toggle-prefix-map (kbd "C-l") 'linum-mode)
+(define-key my-toggle-prefix-map (kbd "C-p") 'show-paren-mode)
+(define-key my-toggle-prefix-map (kbd "C-w") 'whitespace-mode)
+(define-key my-toggle-prefix-map (kbd "C-f") 'flycheck-mode)
+
+; Keys to cycle.
+(define-key my-keys-minor-mode-map (kbd "M-TAB") 'bcycle-next-buffer)
+(define-key my-keys-minor-mode-map (kbd "M-`") 'bcycle-previous-buffer)
