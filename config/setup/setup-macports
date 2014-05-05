@@ -1,0 +1,11 @@
+#! /bin/sh
+
+# Some setup commands for macports.
+#sudo port install bash-completion
+
+#sudo port install wget
+
+#sudo port install emacs
+
+#sudo port install 
+
