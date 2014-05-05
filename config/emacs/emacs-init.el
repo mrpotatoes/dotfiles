@@ -52,6 +52,7 @@
 (load "ido-setup")
 
 (require 'dirtree)
+(require 'expand-region)
 
 ;; -----------------------------------------------------------------------------
 ;; This is actually an include for the other modes that I've created.
