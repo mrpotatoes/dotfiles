@@ -5,7 +5,7 @@
 ;;  - https://github.com/arnested/php-extras
 ;;  - http://stackoverflow.com/questions/912671/what-is-a-good-setup-for-editing-php-in-emacs
 
-(autoload 'php-mode "php-mode" "Major mode for editing php code." t)
+(autoload 'php-mode "php-mode")
 
 (add-hook 'php-mode-hook
   '(lambda ()
@@ -13,9 +13,9 @@
     (require 'highlight-symbol)
     (require 'flycheck)
     (require 'autopair) ;; Add globally?
-    (require 'flycheck-tip)
-    ; (require 'hideshow-org)
-    ;; (require 'flynum)
+    ;; (require 'flycheck-tip)
+    (require 'hideshow-org)
+    ; (require 'flynum)
 
     ; Setup some modes.
     (autopair-mode)
@@ -32,7 +32,8 @@
     ;; Flycheck settings.
     (flycheck-mode)
     (setq flycheck-phpcs-standard "drupal")
-    (flycheck-tip-use-timer 'verbose)
+    ; (flycheck-tip-use-timer 'verbose)
+    (flyspell-prog-mode)
   ))
 
 ;; assoicate the PHP mode with these files.
@@ -42,4 +43,3 @@
 (add-to-list 'auto-mode-alist '("\\.install$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.test$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.profile$" . php-mode))
-

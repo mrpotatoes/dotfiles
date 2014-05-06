@@ -1,7 +1,8 @@
 ;; -----------------------------------------------------------------------------
 ;; The emacs init file.
 ;;
-;; Eventually speed things up: http://tychoish.com/rhizome/decreasing-emacs-start-times/
+;;    - Eventually speed things up: http://tychoish.com/rhizome/decreasing-emacs-start-times/
+;;    - http://steckerhalter.co.vu/steckemacs.html
 (require 'cl)
 
 ;; -----------------------------------------------------------------------------

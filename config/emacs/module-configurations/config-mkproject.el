@@ -35,3 +35,5 @@
 ;  (global-set-key (kbd "C-c p t") 'project-tags)
 )
 
+; etags --language=php $(find . -name "*.inc" -o -name "*.module" -o -name "*.php" -o -name "*.install")
+

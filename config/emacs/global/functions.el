@@ -11,7 +11,7 @@
   "Interactive wrapper for buffer-file-name."
   (interactive)
   (message (buffer-file-name)))
- 
+
 ;; --------------------------------------------------------------------------------
 ;; Select the previous window
 (defun other-window-backward (&optional n)
@@ -34,7 +34,7 @@
 
 ;; --------------------------------------------------------------------------------
 ;; Remove trailing white space.
-;;    - http://ergoemacs.org/emacs/elisp_compact_empty_lines.html
+;;    - http://ergoemacs.org/emacs/elisp_compact_ove-beginning-of-lineempty_lines.html
 (defun xah-clean-whitespace ()
   "Delete trailing whitespace, and replace sequence of newlines into just 2.
    Work on whole buffer, or text selection."
@@ -58,72 +58,55 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; --------------------------------------------------------------------------------
-;; Global Indentation
-(defun add-indentation-spaces ()
-  "add TAB-WIDTH spaces to the beginning of this line"
-  (interactive)
-  (indent-rigidly (line-beginning-position) (line-end-position) (tab-width)))
-  
-(defun remove-indentation-spaces ()
-  "remove TAB-WIDTH spaces from the beginning of this line"
-  (interactive)
-  (indent-rigidly (line-beginning-position) (line-end-position) (- tab-width)))
-
-; (global-set-key (kbd "<tab>") 'add-indentation-spaces)
-; (global-set-key (kbd "<backtab>") 'remove-indentation-spaces)
-; (define-key my-keys-minor-mode-map (kbd "<backtab>") 'remove-indentation-spaces)
-
-;; --------------------------------------------------------------------------------
-;; Indentation
-;;    - http://stackoverflow.com/questions/11623189/how-to-bind-keys-to-indent-unindent-region-in-emacs
-;;    - http://stackoverflow.com/questions/6918134/how-do-i-indent-n-spaces-in-emacs
-;;    - http://stackoverflow.com/questions/2585091/emacs-bulk-indent-for-python
-;;    - http://www.emacswiki.org/emacs/IndentingText
-(defun my-indent-region (N)
-  (interactive "p")
-  (if mark-active
-      (progn (indent-rigidly (min (mark) (point)) (max (mark) (point)) (* N 2))
-             (setq deactivate-mark nil))
-    (self-insert-command N)))
-
-(defun my-unindent-region (N)
-  (interactive "p")
-  (if mark-active
-      (progn (indent-rigidly (min (mark) (point)) (max (mark) (point)) (* N -2))
-             (setq deactivate-mark nil))
-    (self-insert-command N)))
-
-(global-set-key ">" 'my-indent-region)
-(global-set-key "<" 'my-unindent-region)
-
-;; --------------------------------------------------------------------------------
-;; Indentation #3: 
-;;    - Shift the selected region right if distance is postive, left if negative
-(defun shift-region (distance)
-  (let ((mark (mark)))
+;; -----------------------------------------------------------------------------
+;; Duplicate a line or region.
+(defun duplicate-line ()
+  (let ((col (current-column))
+        (l (thing-at-point 'line)))
     (save-excursion
-      (indent-rigidly (region-beginning) (region-end) distance)
-      (push-mark mark t t)
-      ;; Tell the command loop not to deactivate the mark
-      ;; for transient mark mode
-      (setq deactivate-mark nil))))
+      (goto-char (point-at-eol))
+      (forward-char 1)
+      (insert l))
+    (forward-line 1)
+    (move-to-column col)))
 
-(defun shift-right ()
+(defun duplicate-region (beg end)
+  (let ((selection (buffer-substring-no-properties beg end)))
+    (insert selection)))
+
+(defun duplicate ()
   (interactive)
-  (shift-region 2))
+  (if (not (region-active-p))
+      (duplicate-line)
+    (duplicate-region (region-beginning) (region-end))))
 
-(defun shift-left ()
-  (interactive)
-  (shift-region -2))
+(global-set-key (kbd "ESC <down>") 'duplicate)
 
-;; Bind (shift-right) and (shift-left) function to your favorite keys. I use
-;; the following so that Ctrl-Shift-Right Arrow moves selected text one 
-;; column to the right, Ctrl-Shift-Left Arrow moves selected text one
-;; column to the left:
+;;----------------------------------------
+;; Smarter move to beginning
+;;----------------------------------------
+(defun smarter-move-beginning-of-line (arg)
+  "Move point back to indentation of beginning of line.
 
-(global-set-key [C-S-right] 'shift-right)
-(global-set-key [C-S-left] 'shift-left)
+Move point to the first non-whitespace character on this line.
+If point is already there, move to the beginning of the line.
+Effectively toggle between the first non-whitespace character and
+the beginning of the line.
 
-(global-set-key (kbd "<tab>") 'shift-right)
-(global-set-key (kbd "<backtab>") 'shift-right)
+If ARG is not nil or 1, move forward ARG - 1 lines first.  If
+point reaches the beginning or end of the buffer, stop there."
+  (interactive "^p")
+  (setq arg (or arg 1))
+
+  ;; Move lines first
+  (when (/= arg 1)
+    (let ((line-move-visual nil))
+      (forward-line (1- arg))))
+
+  (let ((orig-point (point)))
+    (move-beginning-of-line 1)
+    (when (= orig-point (point))
+      (back-to-indentation))))
+
+;; remap C-a to `smarter-move-beginning-of-line'
+(global-set-key (kbd "C-a") 'smarter-move-beginning-of-line)
