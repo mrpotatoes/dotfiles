@@ -5,20 +5,12 @@ THEMES_DIR=$HOME/.emacs.d/themes
 
 if hash git 2>/dev/null; 
   then
-
     # Check if the directory exists. Then empty it out. Otherwise create it.
+    rm -rf $MODULE_DIR
     mkdir $MODULE_DIR
 
-    echo "\nDownloading autocomplete"
-    git clone git@github.com:auto-complete/auto-complete.git $MODULE_DIR/autocomplete;
-    cd $MODULE_DIR/autocomplete/
-    git submodule init;
-    git submodule update
-    make byte-compile
-    cd $DOTFILES/config/emacs; # Go back to the previous directory.
-
-    echo "\nDownloading company"
-    git clone git@github.com:company-mode/company-mode.git $MODULE_DIR/company;
+    echo "\nDownloading Completion UI"
+    git clone http://www.dr-qubit.org/git/predictive.git $MODULE_DIR/predictive;
 
     echo "\nDownloading autopair";
     git clone git@github.com:capitaomorte/autopair.git $MODULE_DIR/autopair

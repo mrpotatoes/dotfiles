@@ -9,13 +9,12 @@
 
 (add-hook 'php-mode-hook
   '(lambda ()
-    (require 'completion-ui)
     (require 'syntax-subword)
     (require 'highlight-symbol)
     (require 'flycheck)
     (require 'autopair) ;; Add globally?
     ;; (require 'flycheck-tip)
-    (require 'hideshow-org)
+    ; (require 'hideshow-org)
     ; (require 'flynum)
 
     ; Setup some modes.
@@ -31,10 +30,10 @@
     (setq php-mode-force-pear t)
 
     ;; Flycheck settings.
-    (flycheck-mode)
-    (setq flycheck-phpcs-standard "drupal")
+    ; (flycheck-mode)
+    ; (setq flycheck-phpcs-standard "drupal")
     ; (flycheck-tip-use-timer 'verbose)
-    (flyspell-prog-mode)
+    ; (flyspell-prog-mode)
   ))
 
 ;; assoicate the PHP mode with these files.

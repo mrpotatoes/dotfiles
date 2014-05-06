@@ -7,11 +7,11 @@
 
 ;; -----------------------------------------------------------------------------
 ;; So I don't have to know which things to load.
-(let ((default-directory "~/.dotfiles/config/emacs/modules/"))
+(let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
 ;; Load  the theme paths.
-(let ((default-directory "~/.dotfiles/config/emacs/themes/"))
+(let ((default-directory "~/.emacs.d/themes/"))
   (normal-top-level-add-subdirs-to-load-path))
 
 ;; -----------------------------------------------------------------------------
@@ -32,3 +32,7 @@
 ;; Global URL rendering (and goto capability).
 (define-globalized-minor-mode global-goto-address-mode goto-address-mode goto-address-mode)
 (global-goto-address-mode)
+
+(require 'completion-ui)
+
+(fset 'yes-or-no-p 'y-or-n-p)

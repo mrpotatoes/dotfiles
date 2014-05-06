@@ -27,3 +27,7 @@ useful/
 * Try out C Sub Word. I saw something about this that I'd like to check out.
 * Fix the "MAKEFILE"
 
+### Dependancies
+<pre>
+  aspell: https://trac.macports.org/browser/trunk/dports/textproc/aspell/Portfile
+</pre>
