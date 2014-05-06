@@ -38,6 +38,7 @@ alias dotfiles="cd ~/.dotfiles"
 alias emacs="emacs -nw --debug-init"
 alias e="emacs"
 alias eemacs="emacs ~/.emacs"
+alias emacsd="cd ~/.emacs.d/"
 alias estartup="emacs ~/.dotfiles/bin/startup"
 
 alias ep="explode-path"
