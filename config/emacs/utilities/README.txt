@@ -1,1 +1,0 @@
-Small global modules that are used. May be deprecated as it may be arbitrary segregation of modules.

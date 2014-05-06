@@ -42,8 +42,8 @@ if hash git 2>/dev/null;
     echo "\nDownloading Fringe Helper"
     git clone git@github.com:nschum/fringe-helper.el.git $MODULE_DIR/fringe-helper
 
-    echo "\nDownloading Helm"
-    git clone git@github.com:emacs-helm/helm.git $MODULE_DIR/helm
+    # echo "\nDownloading Helm"
+    # git clone git@github.com:emacs-helm/helm.git $MODULE_DIR/helm
 
     echo "\nDownloading Indicators.el"
     git clone git@github.com:Fuco1/indicators.el.git $MODULE_DIR/indicators
@@ -76,7 +76,7 @@ if hash git 2>/dev/null;
     echo "\nDownloading the mk-project module."
     git clone git@github.com:mrpotatoes/mk-project.git $MODULE_DIR/mk-project
 
-    echo "";
+    echo "\nDownloading the highlight-symbol module";
     git clone git@github.com:nschum/highlight-symbol.el.git $MODULE_DIR/highlight-symbol
 
     echo "\nDownloading the hisdeshow-org module";
@@ -99,6 +99,9 @@ if hash git 2>/dev/null;
 
     echo "\nDownloading JS2 Mode";
     git clone git@github.com:mooz/js2-mode.git $MODULE_DIR/js2-mode
+
+    git clone git@github.com:yuutayamada/flycheck-tip.git $MODULE_DIR/flycheck-tip
+    git clone git@github.com:magnars/dash.el.git $MODULE_DIR/dash
 else
   echo "Git does not exist on this system"
   exit;

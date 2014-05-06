@@ -47,7 +47,6 @@
   t " my-keys" 'my-keys-minor-mode-map)
 (my-keys-minor-mode 1)
 
-(define-key my-keys-minor-mode-map (kbd "<backtab>") 'remove-indentation-spaces)
 (define-key my-keys-minor-mode-map (kbd "ESC n") 'scroll-up-line)
 (define-key my-keys-minor-mode-map (kbd "ESC p") 'scroll-down-line)
 
