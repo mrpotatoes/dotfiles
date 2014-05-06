@@ -9,6 +9,7 @@
 
 (add-hook 'php-mode-hook
   '(lambda ()
+    (require 'completion-ui)
     (require 'syntax-subword)
     (require 'highlight-symbol)
     (require 'flycheck)
