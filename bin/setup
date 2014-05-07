@@ -9,46 +9,6 @@ setup_usage() {
 }
 
 # Require a second argument.
-# [[ -z $2 ]] && { setup_usage; exit 1; }
+[[ -z $2 ]] && { setup_usage; exit 0; }
 
 ${HOME}/.dotfiles/config/setup/setup-$1
-
-exit;
-
-# THE ACTUAL PROGRAM ---------------------------------------------------------------------
-case $1 in
-  'iterm' )
-    # Maybe this should be a symlink BUT it has to be tested to make sure that iTerm2
-    # will modify the one in the repo so that it can still be commited.
-    cp $SETUP_DIRECTORY/setup-iterm.plist ~/Library/Preferences/net.sourceforge.iTerm.plist;
-    . $SETUP_DIRECTORY/setup-itermprefs.itermcolors
-    echo "The iterm setup file has been moved. Everything will now look and behave nicely. You now have a hot key drop down console window by pressin ctrl+~" ;;
-
-  # Create a profile symlink so that all changes in the profile can be revision.
-  'profile')
-  ;;
-
-  # Set a symlink to the emacs settings file and packages file.
-  'emacs')
-  ;;
-
-  # Setup the dynamic paths.
-  'paths')
-    $SETUP_DIRECTORY/setup-prompt "These are the extra paths that you can edit to add to the path variable. Eventually I'll add a path variable to custom that people can use. Hit any key to continue."
-    edit $SETUP_DIRECTORY/bash_dynamic_paths;;
-
-  # Run the OS X defaults.
-  'osx-defaults' | 'osx')
-    $SETUP_DIRECTORY/setup-osx-defaults
-    echo "You will need to restart your computer for most of these to take effect";;
-
-  # Do the macport MAMP install cuz mamp blows fishcakes.
-  'MAMP' | 'mamp')
-    # Put the configuration files somewhere it can be easily reached/edited. OR have an
-    # alias that can be used.
-    echo '(Unfinished) Must have MacPorts installed';;
-
-  *)
-    . noargs;;
-
-esac

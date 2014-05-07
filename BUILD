@@ -20,4 +20,5 @@ setup git
 
 # LAST NOTES ---------------------------------------------------------------------------
 clear
-prompt "6. For this all to work close out this session and open a new one.";
+echo "Now kill this session and open up a new one for all the changes to take effect.";
+echo "One last note. If you want a webserver run \"setup webserver\" In order to get apache and PHP and MySQL on your system"
