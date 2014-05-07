@@ -3,21 +3,22 @@
 MODULE_DIR=$HOME/.emacs.d
 THEMES_DIR=$HOME/.emacs.d/themes
 
-if hash git 2>/dev/null; 
+if hash git 2>/dev/null;
   then
     # Check if the directory exists. Then empty it out. Otherwise create it.
     rm -rf $MODULE_DIR
     mkdir $MODULE_DIR
 
-    echo "\nDownloading Completion UI"
-    git clone http://www.dr-qubit.org/git/predictive.git $MODULE_DIR/predictive;
+    echo "\nDownloading Company"
+    # git clone http://www.dr-qubit.org/git/predictive.git $MODULE_DIR/predictive;
+    git clone git@github.com:company-mode/company-mode.git $MODULE_DIR/company;
 
     echo "\nDownloading autopair";
     git clone git@github.com:capitaomorte/autopair.git $MODULE_DIR/autopair
 
     echo "\nDownloading Bcycle"
     git clone git@github.com:mrpotatoes/bcycle.git $MODULE_DIR/bcycle
-   
+
     echo "\nDownloading Webmode"
     git clone git@github.com:fxbois/web-mode.git $MODULE_DIR/webmode
 
@@ -48,7 +49,7 @@ if hash git 2>/dev/null;
 
     echo "\nDownloading the misc modules that I have on my repo"
     git clone git@github.com:mrpotatoes/emacs-modules-mirror.git $MODULE_DIR/emacs-modules-mirror
-    
+
     echo "\nDownloading the php mode module."
     git clone https://github.com/ejmr/php-mode $MODULE_DIR/php-mode
 
