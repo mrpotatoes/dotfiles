@@ -1,0 +1,9 @@
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[user]
+	name = Andric Villanueva
+	email = contact@andricvillanueva.com
+[github]
+	user = mrpotatoes
+	token = ab2c20e857029671f3837148c22a56068c0278ff

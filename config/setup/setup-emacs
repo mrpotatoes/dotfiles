@@ -1,0 +1,8 @@
+#!/bin/sh
+# Setup emacs.
+
+# Setup the .emacs file.
+ln -s ${HOME}/.dotfiles/config/emacs/emacs-init.el ${HOME}/.emacs
+
+# Run the run the emacs modules thing.
+${HOME}/.dotfiles/config/emacs/emacs-setup-modules
