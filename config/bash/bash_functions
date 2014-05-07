@@ -4,7 +4,7 @@
 check_root() {
   if [[ "`whoami`" != "root" ]]; then
     echo "You don't have sufficient priviledges to run this script (try sudo.)"
-    exit 1
+    exit 0
   fi
 }
 
@@ -14,13 +14,13 @@ function sqlup() {
 }
 
 #----------------------------------------------------------------
-# A much easier way to make many files. 
+# A much easier way to make many files.
 function mfile() {
 	touch $2.$1
 }
 
 #----------------------------------------------------------------
-# Set the title of a terminal window. 
+# Set the title of a terminal window.
 function title() {
     echo -ne "\033]0;$1\007";
 }

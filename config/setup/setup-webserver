@@ -1,0 +1,35 @@
+#!/bin/sh
+
+APACHE_DIRECTORY="/opt/local/apache2"
+APACHE_CONF="/opt/local/apache2/conf/httpd.conf"
+APACHE_CONF_HOSTS="/opt/local/apache2/conf/extra/httpd-vhosts.conf"
+APACHE_ERROR="/opt/local/apache2/logs/error_log.log"
+APACHE_ERROR_DIRECTORY="/opt/local/apache2/logs"
+
+MYSQL_DIRECTORY="/opt/local/var/run/mysql5/ "
+MYSQL_CONF=""
+MYSQL_ERROR="/opt/local/var/log/mysql5/"
+
+PHP_DIRECTORY="/opt/local/etc/php5"
+PHP_CONF="/opt/local/etc/php5/php.ini"
+PHP_ERROR="/opt/local/etc/php5/php_error.log"
+
+if [[ "`whoami`" != "root" ]]; then
+  echo "in order to run macports you need to be running as root."
+  exit 1
+fi
+
+if hash port 2>/dev/null;
+  then
+    # Check if the directory exists. Then empty it out. Otherwise create it.
+    echo "Install PHP"
+    echo "Mysql"
+    echo "Apache"
+
+    echo "Make a symlink for php.ini"
+    echo "Make a symlink for httpd.conf"
+    echo "Do the mysql.sock or something ..."
+else
+  echo "Hey, you need macports on this system bro."
+  exit;
+fi
