@@ -11,75 +11,44 @@ setup_usage() {
 # Require a second argument.
 # [[ -z $2 ]] && { setup_usage; exit 1; }
 
-file ${HOME}/.dotfiles/config/setup/setup-$1
+${HOME}/.dotfiles/config/setup/setup-$1
 
 exit;
 
 # THE ACTUAL PROGRAM ---------------------------------------------------------------------
 case $1 in
-  'iterm' ) 
+  'iterm' )
     # Maybe this should be a symlink BUT it has to be tested to make sure that iTerm2
     # will modify the one in the repo so that it can still be commited.
     cp $SETUP_DIRECTORY/setup-iterm.plist ~/Library/Preferences/net.sourceforge.iTerm.plist;
     . $SETUP_DIRECTORY/setup-itermprefs.itermcolors
     echo "The iterm setup file has been moved. Everything will now look and behave nicely. You now have a hot key drop down console window by pressin ctrl+~" ;;
-    
-  'rc')
-  ln -s "${HOME}/.dotfiles/config/.inputrc ${HOME}/.bash_inputrc";;
 
   # Create a profile symlink so that all changes in the profile can be revision.
-  'profile') 
-    ln -s ${HOME}/.dotfiles/config/bash/bash_profile ${HOME}/.bash_profile;
-    ln -s ${HOME}/.dotfiles/config/bash/bash_rc ${HOME}/.bashrc;
-    echo "Updated your .bash_profile and your .bashrc";;
-
-  # Generate the aliases.    
-  'aliases' | 'alias')
-    ${HOME}/.dotfiles/bin/generate-aliases;
-    echo 'Generated any extra aliases that may have been setup.';;
-    
-  # Use the "sexy" prompt
-  'prompt')
-    echo "(Unfinished) Need to learn mastery of AWK/SED in order to get this to work.";;
+  'profile')
+  ;;
 
   # Set a symlink to the emacs settings file and packages file.
-  'emacs-init')
-    echo "Now making a symlink for the .emacs file.";
-    ln -s ${HOME}/.dotfiles/config/emacs/emacs-init.el ${HOME}/.emacs;;
+  'emacs')
+  ;;
 
-  # Runs the script to download all the git repos to the proper place.
-  # Then it will compile everything into bytecode.
-  # Lastly it will move the .emacs file to where it belongs.
-  'emacs-setup')
-    echo "Downloading all the emacs modules from github ..."
-    $SETUP_DIRECTORY/emacs-setup-modules
-    ;;
-
-    #echo "Now compiling the emacs files ..."
-
-    #echo "Now making a symlink for the .emacs file."
-    #ln -s ${HOME}/.dotfiles/config/setup-emacs ${HOME}/.emacs;;
-    
   # Setup the dynamic paths.
   'paths')
     $SETUP_DIRECTORY/setup-prompt "These are the extra paths that you can edit to add to the path variable. Eventually I'll add a path variable to custom that people can use. Hit any key to continue."
     edit $SETUP_DIRECTORY/bash_dynamic_paths;;
 
-  # Run the OS X defaults.    
+  # Run the OS X defaults.
   'osx-defaults' | 'osx')
     $SETUP_DIRECTORY/setup-osx-defaults
     echo "You will need to restart your computer for most of these to take effect";;
-      
+
   # Do the macport MAMP install cuz mamp blows fishcakes.
   'MAMP' | 'mamp')
-    # Put the configuration files somewhere it can be easily reached/edited. OR have an 
+    # Put the configuration files somewhere it can be easily reached/edited. OR have an
     # alias that can be used.
     echo '(Unfinished) Must have MacPorts installed';;
-    
+
   *)
     . noargs;;
 
 esac
-
-#edit $BLCK_FILE
-#edit $DOTFILES/data/hosts

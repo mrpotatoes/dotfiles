@@ -1,2 +1,11 @@
-# https://www.gnu.org/software/bash/manual/html_node/Sample-Init-File.html
+# http://www.linuxfromscratch.org/lfs/view/6.2/chapter07/inputrc.html
+
+# Don't worry about case sensitivity.
 set completion-ignore-case on
+
+# Stop the fucking ringing.
+set bell-style none
+
+# http://superuser.com/questions/357355/how-can-i-get-controlleft-arrow-to-go-back-one-word-in-iterm2
+"\e[1;9D": backward-word
+"\e[1;9C": forward-word
