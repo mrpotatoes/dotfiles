@@ -1,5 +1,5 @@
 ## Andric's Dotfiles
-This is a project that I use to put all my dotfiles on my mac computer. I prefer Mac's so that's what I use. 
+This is a project that I use to put all my dotfiles on my mac computer. I prefer Mac's so that's what I use.
 
 ## Requirements
 ### Git
@@ -30,4 +30,6 @@ useful/
 ### Dependancies
 <pre>
   aspell: https://trac.macports.org/browser/trunk/dports/textproc/aspell/Portfile
+  ctags: https://trac.macports.org/browser/trunk/dports/devel/ctags/Portfile
+  etags: Comes with emacs (My emacs is via macports)
 </pre>
