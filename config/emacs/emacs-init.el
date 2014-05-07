@@ -33,6 +33,3 @@
 (define-globalized-minor-mode global-goto-address-mode goto-address-mode goto-address-mode)
 (global-goto-address-mode)
 
-(require 'completion-ui)
-
-(fset 'yes-or-no-p 'y-or-n-p)
