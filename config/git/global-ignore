@@ -2,4 +2,4 @@
 TAGS
 files
 open-files
-
+*.elc
