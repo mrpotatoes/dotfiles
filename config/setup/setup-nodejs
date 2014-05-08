@@ -1,1 +1,21 @@
 #!/bin/sh
+
+if [[ "`whoami`" != "root" ]]; 
+  then
+    echo "This script uses macports and in order to run macports you need to be running as root."
+    exit 0
+fi
+
+if hash port 2>/dev/null;
+  then
+    echo "Install nodemon through npm"
+    sudo port install nodejs
+    sudo port install npm
+
+    echo "Install nodemon through npm"
+    # http://nodemon.io/
+    npm install -g nodemon
+  else
+  echo "Hey, you need macports on this system bro."
+  exit;
+fi

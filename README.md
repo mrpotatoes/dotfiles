@@ -4,8 +4,8 @@ This is a project that I use to put all my dotfiles on my mac computer. I prefer
 ## REQUIREMENTS
 ### Git
 To "git" stuff.
-### Macports (or some equivalent)
-To install a bunch of useful binaries.
+### Macports
+This is all based on macports and it would be realtivly easy to use homebrew if you're so inclined to run an ACK against port and change it. Or, you could use macports. It isn't that bad (it's quite great).
 **Folder Structure**
 <pre>
 bin/

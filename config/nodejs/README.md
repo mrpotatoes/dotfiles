@@ -1,0 +1,1 @@
+Global NodeJS stuff that I will need for later ons n' stuff.

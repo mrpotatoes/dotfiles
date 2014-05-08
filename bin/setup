@@ -9,6 +9,9 @@ setup_usage() {
 }
 
 # Require a second argument.
-[[ -z $2 ]] && { setup_usage; exit 0; }
+[[ -z $1 ]] && {
+  setup_usage;
+  exit 0;
+}
 
 ${HOME}/.dotfiles/config/setup/setup-$1
