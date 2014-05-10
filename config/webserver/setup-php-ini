@@ -1917,6 +1917,6 @@ ldap.max_links = -1
 ; tab-width: 4
 ; End:
 
-;[xdebug]
+[xdebug]
 zend_extension="/opt/local/lib/php55/extensions/no-debug-non-zts-20121212/xdebug.so"
 xdebug.var_display_max_depth = 10

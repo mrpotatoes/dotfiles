@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Guides
+# http://blog.bobbyallen.me/2013/07/30/installing-php-and-mysql-on-macosx-using-macports-for-development/
+# https://gist.github.com/cordoval/4772066
+
 APACHE_DIRECTORY="/opt/local/apache2"
 APACHE_CONF="/opt/local/apache2/conf/httpd.conf"
 APACHE_CONF_HOSTS="/opt/local/apache2/conf/extra/httpd-vhosts.conf"
@@ -95,6 +99,9 @@ if hash port 2>/dev/null;
 
     rm /opt/local/apache2/conf/extra/httpd-vhosts.conf
     ln -s ${HOME}/.dotfiles/config/webserver/setup-apache-vhosts /opt/local/apache2/conf/extra/httpd-vhosts.conf
+
+    rm /opt/local/apache2/conf/extra/mod_php.conf
+    ln -s ${HOME}/.dotfiles/config/webserver/setup-apache-php /opt/local/apache2/conf/extra/mod_php.conf
 
     # CONFIGURATIONS -----------------------------------------------------------
     echo "Make a symlink for php.ini"
