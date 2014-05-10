@@ -54,19 +54,20 @@ if hash port 2>/dev/null;
     # sudo ln -s /opt/local/apache2/bin/apachectl /www-config/apachectl && \
     # sudo ln -s /opt/local/var/db/php5/ /www-config/php-ini && \
     # sudo ln -s /opt/local/etc/php5/php.ini /www-config/php.ini
+    sudo ln -s ${HOME}/.dotfiles/config/webserver/setup-php-ini /opt/local/etc/php5/php.ini
 
     # MYSQL --------------------------------------------------------------------
+    # http://blog.bobbyallen.me/2013/07/30/installing-php-and-mysql-on-macosx-using-macports-for-development/
     echo "Mysql"
     # INSTALL MYSQL
-    sudo port install mysql5-server
+    sudo port install mysql55 
+    sudo port install mysql55-server;
 
-    # Some other quick resources to use.
-    # http://www.mail-archive.com/macports-users@lists.macosforge.org/msg21646.html
-    # http://davidchristiansblog.blogspot.com/2012/02/mysql-fails-with-shell-init-error.html
+    # Do the inital setup. DO NOT do the one above as that doesn't seem to work.
+    sudo -u _mysql /opt/local/lib/mysql55/bin/mysql_install_db
 
-    # Some notes on starting and stopping
-    #sudo /opt/local/etc/LaunchDaemons/org.macports.mysql5/mysql5.wrapper start
-    #sudo /opt/local/etc/LaunchDaemons/org.macports.mysql5/mysql5.wrapper stop
+    # Setup the permissions yo.
+    sudo chown -R mysql:mysql /opt/local/var/db/mysql55;
 
     # Setup. Do all of this to make sure that it works.
     # http://systems.takizo.com/2008/06/09/mysql5-server-cannot-start-on-apple-mac-leopard/
@@ -74,20 +75,26 @@ if hash port 2>/dev/null;
     #   sudo -u mysql mysql_install_db5
     #   User is _mysql NOT mysql
 
-    # Do the inital setup. DO NOT do the one above as that doesn't seem to work.
-    sudo mysql_install_db5
-
     # Setup the main database
-    sudo chown -R mysql:mysql /opt/local/var/db/mysql5/ 
-    sudo chown -R mysql:mysql /opt/local/var/run/mysql5/ 
-    sudo chown -R mysql:mysql /opt/local/var/log/mysql5/ 
+    sudo chown -R mysql:mysql /opt/local/var/db/mysql55/
+    sudo chown -R mysql:mysql /opt/local/var/run/mysql55/ 
+    sudo chown -R mysql:mysql /opt/local/var/log/mysql55/ 
 
     # This is to create a password for root. Though this is for local this isn't needed.
     mysqladmin -u root password 'root'
 
+    sudo ln -s ${HOME}/.dotfiles/config/webserver/setup-mysql-conf /opt/local/etc/mysql55/macports-default.cnf
+
     # APACHE -------------------------------------------------------------------
     echo "Apache"
     sudo port install apache2
+
+    # Setup the Apache Conf file.
+    rm /opt/local/apache2/conf/httpd.conf
+    ln -s ${HOME}/.dotfiles/config/webserver/setup-apache-conf /opt/local/apache2/conf/httpd.conf
+
+    rm /opt/local/apache2/conf/extra/httpd-vhosts.conf
+    ln -s ${HOME}/.dotfiles/config/webserver/setup-apache-vhosts /opt/local/apache2/conf/extra/httpd-vhosts.conf
 
     # CONFIGURATIONS -----------------------------------------------------------
     echo "Make a symlink for php.ini"

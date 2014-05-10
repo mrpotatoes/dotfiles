@@ -10,14 +10,23 @@ check_root
 case "$1" in
   'st' | 'start' ) 
     apachectl start
+    echo "Apache Started."
+
+    # No need to do anything here. It has it's own output.
     sql start;;
     
   'sp' | 'stop')
     apachectl stop
+    echo "Apache Stopped."
+
+    # No need to do anything here. It has it's own output.
     sql stop;;
 
   'rs' | 'restart')
     apachectl restart
+    echo "Apache Restarted."
+
+    # No need to do anything here. It has it's own output.
     sql stop
     sql start;;
     

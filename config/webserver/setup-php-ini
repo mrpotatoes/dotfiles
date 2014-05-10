@@ -1918,5 +1918,5 @@ ldap.max_links = -1
 ; End:
 
 ;[xdebug]
-;zend_extension="/lib/php54/extensions/no-debug-non-zts-20100525/xdebug.so"
-;xdebug.var_display_max_depth = 10
+zend_extension="/opt/local/lib/php55/extensions/no-debug-non-zts-20121212/xdebug.so"
+xdebug.var_display_max_depth = 10

@@ -495,7 +495,7 @@ SSLRandomSeed startup builtin
 SSLRandomSeed connect builtin
 </IfModule>
 
-ServerName localhost:8008
+ServerName localhost
 
 Include conf/extra/mod_php.conf
 Include conf/extra/httpd-vhosts.conf
