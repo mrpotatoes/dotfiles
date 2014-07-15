@@ -18,15 +18,6 @@
 ;; Reset some keys.
 (global-set-key (kbd "M-N") 'mc/mark-next-like-this)
 (global-set-key (kbd "M-P") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-n")
-  (lambda ()
-    (interactive)
-    (next-line 5)))
-
-(global-set-key (kbd "C-p")
-  (lambda ()
-    (interactive)
-    (previous-line 5)))
 
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-x C-k") 'kill-region)
@@ -67,4 +58,3 @@
 (define-key my-toggle-prefix-map (kbd "C-p") 'show-paren-mode)
 (define-key my-toggle-prefix-map (kbd "C-w") 'whitespace-mode)
 (define-key my-toggle-prefix-map (kbd "C-f") 'flycheck-mode)
-
