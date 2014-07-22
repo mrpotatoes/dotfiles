@@ -89,7 +89,7 @@ alias appsdevel="open /Applications/Developer"
 ## WEB DEVELOPMENT
 alias mamp="cd /Applications/MAMP/"
 alias ehosts="emacs /etc/hosts"
-alias vhosts="emacs ${APACHE_CONF_HOSTS}"
+alias vhosts="sublime ${APACHE_CONF_HOSTS}"
 alias httpdconf="emacs ${APACHE_CONF}"
 alias phperror="emacs ${PHP_ERROR}"
 alias starttomcat="/Applications/Developer/Tomcat/bin/startup.sh"
