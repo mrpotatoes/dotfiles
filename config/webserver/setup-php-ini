@@ -223,7 +223,7 @@ engine = On
 ; Development Value: Off
 ; Production Value: Off
 ; http://php.net/short-open-tag
-short_open_tag = Off
+short_open_tag = On
 
 ; Allow ASP-style <% %> tags.
 ; http://php.net/asp-tags
@@ -462,7 +462,7 @@ max_input_time = 60
 
 ; Maximum amount of memory a script may consume (128MB)
 ; http://php.net/memory-limit
-memory_limit = 512M
+memory_limit = 1024M
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Error handling and logging ;
@@ -737,7 +737,7 @@ auto_globals_jit = On
 
 ; Maximum size of POST data that PHP will accept.
 ; http://php.net/post-max-size
-post_max_size = 8M
+post_max_size = 80M
 
 ; Magic quotes are a preprocessing feature of PHP where PHP will attempt to
 ; escape any character sequences in GET, POST, COOKIE and ENV data which might
@@ -888,7 +888,7 @@ file_uploads = On
 
 ; Maximum allowed size for uploaded files.
 ; http://php.net/upload-max-filesize
-upload_max_filesize = 2M
+upload_max_filesize = 80M
 
 ; Maximum number of files that can be uploaded via a single request
 max_file_uploads = 20
@@ -1005,7 +1005,7 @@ default_socket_timeout = 60
 [Date]
 ; Defines the default timezone used by the date functions
 ; http://php.net/date.timezone
-;date.timezone =
+date.timezone = America/New_York
 
 ; http://php.net/date.default-latitude
 ;date.default_latitude = 31.7667
@@ -1072,7 +1072,7 @@ pdo_mysql.cache_size = 2000
 ; Default socket name for local MySQL connects.  If empty, uses the built-in
 ; MySQL defaults.
 ; http://php.net/pdo_mysql.default-socket
-pdo_mysql.default_socket=/opt/local/var/run/mysql5/mysqld.sock
+pdo_mysql.default_socket=/opt/local/var/run/mysql55/mysqld.sock
 
 [Phar]
 ; http://php.net/phar.readonly
@@ -1917,6 +1917,29 @@ ldap.max_links = -1
 ; tab-width: 4
 ; End:
 
-[xdebug]
-zend_extension="/opt/local/lib/php55/extensions/no-debug-non-zts-20121212/xdebug.so"
+[XDebug]
+;extension=/opt/local/lib/php54/extensions/no-debug-non-zts-20100525/xdebug.so
+zend_extension_ts=/opt/local/lib/php54/extensions/no-debug-non-zts-20100525/xdebug.so
 xdebug.var_display_max_depth = 10
+
+; General config
+;Dumps local variables on exception
+xdebug.show_local_vars=On
+;Dump server variables
+xdebug.dump.SERVER=*
+;Dump global variables
+xdebug.dump_globals=On
+xdebug.collect_params=4;
+
+; Tracing
+xdebug.auto_trace=On
+xdebug.trace_output_dir=/opt/local/php_traces/
+xdebug.show_mem_delta=On
+xdebug.collect_return=On
+
+; Profiler
+xdebug.profiler_enable=1
+xdebug.profiler_output_dir=/opt/local/php_traces
+
+; Debugging. You might need to specify your host with some additional options
+xdebug.remote_enable=1

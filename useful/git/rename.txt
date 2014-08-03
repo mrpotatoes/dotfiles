@@ -5,8 +5,8 @@ http://www.benjaminlhaas.com/blog/locally-and-remotely-renaming-branch-git
 # Rename the branch.
 git branch -m OLD-BRANCH-NAME NEW-BRANCH-NAME
 
-# Delete on remote
-git push origin :OLD-BRANCH-NAME
-
 # Push the new branch up.
 git push origin NEW-BRANCH-NAME
+
+# Delete on remote
+git push origin :OLD-BRANCH-NAME

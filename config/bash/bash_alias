@@ -29,6 +29,7 @@ alias epaths="emacs ~/.dotfiles/config/bash/bash_dynamic_paths"
 alias htdocs="cd /var/www"
 alias www="cd /var/www"
 alias spikes="cd /var/www/spikes"
+alias ospikes="open /var/www/spikes"
 alias pushnight="oo adium; oo mail; oo chrome;"
 alias maven="mvn"
 alias etrash="rm -rf ~/.Trash/*"
@@ -88,7 +89,7 @@ alias appsdevel="open /Applications/Developer"
 ## WEB DEVELOPMENT
 alias mamp="cd /Applications/MAMP/"
 alias ehosts="emacs /etc/hosts"
-alias vhosts="emacs ${APACHE_CONF_HOSTS}"
+alias vhosts="sublime ${APACHE_CONF_HOSTS}"
 alias httpdconf="emacs ${APACHE_CONF}"
 alias phperror="emacs ${PHP_ERROR}"
 alias starttomcat="/Applications/Developer/Tomcat/bin/startup.sh"
@@ -112,6 +113,7 @@ alias ocustom="open ${DOTFILES}/custom"
 alias escripts="open ${DOTFILES}/custom/scripts"
 
 alias lipsum="echo -n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum lacinia egestas. Nullam auctor tortor euismod turpis egestas pretium. Aliquam ullamcorper nulla diam, a fermentum velit vehicula non. Pellentesque egestas enim vitae pellentesque pulvinar. Nam placerat dictum mattis. Nunc non augue molestie, ullamcorper dui eu, interdum nunc. In ac aliquet sapien. Cras viverra luctus nisl, nec iaculis mauris laoreet sed. Etiam eu tortor nec mauris semper accumsan at at turpis.  | pbcopy; echo copied"
+alias mclipsum='echo -n Test 1, 2. Test 1, 2. Test 1, 2, 3, 4. Hello? Hello? Anyone there? Time to read from the metro. Hub docs go after Ronald McDonald. Testing? Testing? All done. | pbcopy; echo mccopied'
 
 ## GET SPECIFIC
 alias ga='git add'
@@ -128,6 +130,8 @@ alias gpod='git push origin dev'
 alias gp="git push origin HEAD"
 alias gcam="git commit -am"
 alias grm="git branch -D"
+alias grmall="git branch | xargs git branch -D"
+alias gdab="git checkout master && git branch | grep -v "master" | xargs git branch -D; git fetch"
 
 #alias gp='git push'
 #alias gd='git diff'

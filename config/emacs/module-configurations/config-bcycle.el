@@ -11,7 +11,8 @@
   (setq bcycle-skip-patterns (cons "^irc\.freenode" bcycle-skip-patterns))
   (setq bcycle-skip-patterns (cons "^#" bcycle-skip-patterns))
   (setq bcycle-skip-patterns (cons "^#" bcycle-skip-patterns))
-  (setq bcycle-skip-patterns (cons "TAGS" bcycle-skip-patterns))
+  (setq bcycle-skip-patterns (cons "^TAGS$" bcycle-skip-patterns))
+  (setq bcycle-skip-patterns (cons "^tags$" bcycle-skip-patterns))
   (setq bcycle-skip-patterns (cons "^files$" bcycle-skip-patterns)))
 
 ; Keys to cycle.
