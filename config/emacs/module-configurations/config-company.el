@@ -10,6 +10,7 @@
 (setq company-backends
   '(company-elisp
     company-ropemacs
+    company-gtags
     company-etags
     company-dabbrev-code
     company-keywords
@@ -19,6 +20,14 @@
 
 ; Keyboard Bindings.
 (global-set-key (kbd "M-r") 'company-complete-common)
+;; --------------------------------------------------------------------------------
+; http://suchang.net/blog/2008-06.html
+; (define-key company-mode-map [(tab)] 'indent-for-tab-command)
+; (define-key company-mode-map [(meta j)] 'company-cycle)
+; (define-key company-mode-map [(meta k)] 'company-cycle-backwards)
+; (define-key company-mode-map [(backtab)] 'company-expand-common)
+; (define-key company-mode-map (kbd "M-SPC") 'company-expand-anything)
+; (define-key company-mode-map [(meta return)] 'company-expand-common) 
 
 (setq company-idle-delay 0.3)
 (setq company-tooltip-limit 20)
@@ -46,3 +55,4 @@
 ;  '(company-tooltip-common-selection
 ;    ((((type x)) (:inherit company-tooltip-selection :weight bold))
 ;     (t (:inherit company-tooltip-selection)))))
+
