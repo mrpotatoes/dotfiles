@@ -3,17 +3,12 @@
 ;;    - 
 ;;    - 
 (require 'projectile)
+(require 'helm-projectile)
 (require 'ack-and-a-half)
+(require 'ggtags)
 
-; (require 'ggtags)
-; (ggtags-mode 1)
+;; To allow the use of gtags.
+(ggtags-mode 1)
 
 ;; Enable the thing
 (projectile-global-mode)
-
-(require 'helm-projectile)
-(global-set-key (kbd "C-c h") 'helm-projectile)
-
-; projectile-tags-command
-
-(require 'helm-etags+)

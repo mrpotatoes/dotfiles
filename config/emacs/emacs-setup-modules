@@ -92,9 +92,12 @@ if hash git 2>/dev/null;
     git clone git@github.com:mooz/js2-mode.git $MODULE_DIR/js2-mode
 
     echo "\nPojectile and dependancies";
-    git clone git@github.com:jhelwig/ack-and-a-half.git $MODULE_DIR/ack-and-a-half
     git clone git@github.com:bbatsov/projectile.git $MODULE_DIR/projectile
+    git clone git@github.com:jhelwig/ack-and-a-half.git $MODULE_DIR/ack-and-a-half    
+    
+    echo "\nHelm";
     git clone git@github.com:emacs-helm/helm.git $MODULE_DIR/helm
+    git clone git@github.com:syohex/emacs-helm-gtags.git $MODULE_DIR/helm-gtags
 else
   echo "Git does not exist on this system"
   exit;

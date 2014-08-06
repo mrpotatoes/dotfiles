@@ -21,6 +21,9 @@ PATHS_TO_JOIN=(
 	# Custom script files used by dotfiles.
 	${HOME}/.dotfiles/bin
 
+	# Adding the cask directory.
+	${HOME}/.dotfiles/bin/cask
+
 	# Where a user added custom environment scripts.
 	${HOME}/.dotfiles/custom/scripts
 
