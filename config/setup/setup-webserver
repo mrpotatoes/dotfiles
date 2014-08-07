@@ -52,6 +52,20 @@ if hash port 2>/dev/null;
       php-xdebug \
       php5-posix
 
+    # XHPROF ----------------------------------------------------------------------
+    #
+    #
+    # 
+    # 
+    # 
+    #                           INSTALL XHPROF PLEASE!
+    # 
+    # 
+    # 
+    # 
+    #
+    # XHPROF ---------------------------------------------------------------------- 
+
     #
     # sudo mkdir /www-config && \
     # cd /www-config && \
