@@ -31,14 +31,36 @@
     ;; list of packages we use straight from official recipes
     '(
       ;; Create recipes for these
-      ; bcycle flycheck-tip emacs-color-theme-solarized emacs-git-gutter
-      ; emacs-helm-gtags
-      ; syntax-subword 
+      ; emacs-color-theme-solarized
+      bcycle
+      flycheck-tip      
+      emacs-git-gutter
+      ggtags
       emacs-modules-mirror 
-      multiple-cursors projectile company-mode autopair web-mode flycheck
-      gist tabulated-list yasnippet indicators magit php-mode expand-region 
-      highlight-symbol hideshow-org jade-mode emacs-dirtree ido-vertical-mode
-      markdown-mode js2-mode projectile ack-and-a-half helm 
+      multiple-cursors
+      projectile
+      company-mode
+      autopair
+      web-mode
+      flycheck
+      gist
+      tabulated-list
+      yasnippet
+      indicators
+      magit
+      php-mode
+      expand-region 
+      highlight-symbol
+      hideshow-org
+      jade-mode
+      emacs-dirtree
+      ido-vertical-mode
+      markdown-mode
+      js2-mode
+      projectile
+      ack-and-a-half
+      helm
+      emacs-helm-gtags
     )
   (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
 

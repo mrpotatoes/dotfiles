@@ -1,6 +1,5 @@
-(:name emacs-helm-gtags
-  :description "Emacs auto-complete backend for geiser"
-  :type github
-  :depends (cl-lib helm helm-files which-func pulse)
-  :pkgname "syohex/emacs-helm-gtags
-  :features emacs-helm-gtags)
+(:name syntax-subword
+       :description "syntax-subword"
+       :website "https://bitbucket.org/jpkotta/syntax-subword"
+       :url "https://bitbucket.org/jpkotta/syntax-subword"
+       :type hg)
