@@ -1,3 +1,4 @@
+<pre>
 The module-configurations page will automatically be included. Any other requires exist in the requires.el in global. Otherwise it is added in the .el for the module in module-configurations.
 
 ;; -----------------------------------------------------------------------------
@@ -20,3 +21,4 @@ https://github.com/arnested/php-extras
 https://github.com/company-mode/company-mode/wiki/Third-Party-Packages
 http://company-mode.github.io/
 http://www.emacswiki.org/emacs/CompanyMode
+</pre>

@@ -1,0 +1,4 @@
+(:name emacs-git-gutter
+       :description "emacs-git-gutter"
+       :type github
+       :pkgname "syohex/emacs-git-gutter")

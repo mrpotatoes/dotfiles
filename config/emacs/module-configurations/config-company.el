@@ -5,12 +5,13 @@
 ;;  - https://github.com/zmyrgel/zf-mode
 ;;  - https://github.com/nsf/gocode/tree/master/emacs-company
 (require 'company)
+(require 'ggtags)
 (add-hook 'after-init-hook 'global-company-mode)
 
 (setq company-backends
   '(company-elisp
     company-ropemacs
-    company-etags
+    company-gtags
     company-dabbrev-code
     company-keywords
     company-files
@@ -18,13 +19,24 @@
 ))
 
 ; Keyboard Bindings.
-(global-set-key (kbd "M-r") 'company-complete-common)
+; (global-set-key (kbd "M-r") 'company-complete-common)
+;; --------------------------------------------------------------------------------
+; http://suchang.net/blog/2008-06.html
+; (define-key company-mode-map [(tab)] 'indent-for-tab-command)
+; (define-key company-mode-map [(meta j)] 'company-cycle)
+; (define-key company-mode-map [(meta k)] 'company-cycle-backwards)
+; (define-key company-mode-map [(backtab)] 'company-expand-common)
+; (define-key company-mode-map (kbd "M-SPC") 'company-expand-anything)
+; (define-key company-mode-map [(meta return)] 'company-expand-common) 
 
 (setq company-idle-delay 0.3)
 (setq company-tooltip-limit 20)
 (setq company-minimum-prefix-length 2)
 (setq company-echo-delay 0)
 (setq company-auto-complete nil)
+
+; (define-key company-mode-map (kbd "C-n") 'company-cycle)
+; (define-key company-mode-map [(meta k)] 'company-cycle-backwards)
 
 (global-company-mode 1)
 
@@ -46,3 +58,7 @@
 ;  '(company-tooltip-common-selection
 ;    ((((type x)) (:inherit company-tooltip-selection :weight bold))
 ;     (t (:inherit company-tooltip-selection)))))
+
+
+
+

@@ -3,6 +3,7 @@
 ;;
 ;;    - Eventually speed things up: http://tychoish.com/rhizome/decreasing-emacs-start-times/
 ;;    - http://steckerhalter.co.vu/steckemacs.html
+;;    - https://github.com/ghoseb/dotemacs
 (require 'cl)
 
 ;; -----------------------------------------------------------------------------
@@ -32,4 +33,3 @@
 ;; Global URL rendering (and goto capability).
 (define-globalized-minor-mode global-goto-address-mode goto-address-mode goto-address-mode)
 (global-goto-address-mode)
-

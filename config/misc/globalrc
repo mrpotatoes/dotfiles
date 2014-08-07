@@ -1,0 +1,19 @@
+# The command to run
+# 
+# gtags  --gtagsconf=$HOME/.dotfiles/config/misc/globalrc --gtagslabel=drupal
+# 
+# http://stuff.mit.edu/afs/athena/system/i386_deb50/os/usr/share/doc/global/examples/gtags.conf
+#
+
+drupal8:\
+  :langmap=php\:.php.module.inc.profile.install:skip=/core/modules/system/system.api.php,tags,TAGS,.git/,*\~
+drupal7:\
+  :langmap=php\:.php.module.inc.profile.install:skip=/modules/system/system.api.php,tags,TAGS,.git/,*\~
+drupal6:\
+  :langmap=php\:.php.module.inc.profile.install:skip=tags,TAGS,.git/,*\~
+drupal6:\
+  :langmap=php\:.php.module.inc.profile.install:skip=tags,TAGS,.git/,*\~
+drupal5:\
+  :langmap=php\:.php.module.inc.profile.install:skip=tags,TAGS,.git/,*\~
+drupal:\
+  :langmap=php\:.php.module.inc.profile.install:skip=tags,TAGS,.git/,*~
