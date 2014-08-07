@@ -1,0 +1,6 @@
+(:name emacs-helm-gtags
+  :description "Emacs auto-complete backend for geiser"
+  :type github
+  :depends (cl-lib helm helm-files which-func pulse)
+  :pkgname "syohex/emacs-helm-gtags
+  :features emacs-helm-gtags)
