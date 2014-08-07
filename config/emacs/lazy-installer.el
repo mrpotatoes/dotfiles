@@ -1,5 +1,9 @@
 ;; So the idea is that you copy/paste this code into your *scratch* buffer,
-;; hit C-j, and you have a working el-get.
+;; hit C-j, and you have a working el-get. Instead we open this file and do the 
+;; same thing.
+;; 
+;; Once this is done close it out (C-x-c) and restart emacs.
+;; 
 (url-retrieve
  "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
  (lambda (s)
