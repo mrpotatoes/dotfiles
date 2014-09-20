@@ -1,4 +1,0 @@
-(:name ggtags
-       :description "ggtags"
-       :type github
-       :pkgname "leoliu/ggtags")

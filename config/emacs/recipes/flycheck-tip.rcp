@@ -1,4 +1,0 @@
-(:name flycheck-tip
-       :description "flycheck-tip"
-       :type github
-       :pkgname "yuutayamada/flycheck-tip")
