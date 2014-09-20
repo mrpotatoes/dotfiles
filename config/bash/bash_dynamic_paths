@@ -22,7 +22,7 @@ PATHS_TO_JOIN=(
 	${HOME}/.dotfiles/bin
 
 	# Adding the cask directory.
-	${HOME}/.dotfiles/bin/cask
+	${HOME}/.dotfiles/bin/cask/bin
 
 	# Where a user added custom environment scripts.
 	${HOME}/.dotfiles/custom/scripts
