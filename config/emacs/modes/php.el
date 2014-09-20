@@ -23,11 +23,13 @@
     (syntax-subword-mode t)
 
     ;; Default settings.
+    (setq tab-always-indent t)
     (setq indent-tabs-mode nil)
     (setq tab-width 2)
     (setq c-basic-offset 2)
     (setq c-default-style "bsd" c-basic-offset 2)
     (setq php-mode-force-pear t)
+    ; (setq php-enable-drupal-coding-style t)
 
     ;; Flycheck settings.
     ; (flycheck-mode)
@@ -43,3 +45,14 @@
 (add-to-list 'auto-mode-alist '("\\.install$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.test$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.profile$" . php-mode))
+
+
+(global-set-key (kbd "TAB") 'my-command) ; same as Ctrl+i
+(global-set-key (kbd "<tab>") 'my-command)
+
+;; example of a function that just insert a tab char
+(defun insert-tab-char ()
+  "insert a tab char. (ASCII 9, \t)"
+  (interactive)
+  (insert "\t")
+)
