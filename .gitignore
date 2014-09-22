@@ -9,6 +9,8 @@ custom/scripts/*
 custom/other/!nada.txt
 custom/scripts/!nada.txt
 
+bin/cask/tmp
+
 .DS_Store
 
 GPATH
