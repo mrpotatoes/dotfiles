@@ -1,4 +1,0 @@
-(:name emacs-modules-mirror
-       :description "Major mode for editing Ruby files"
-       :type github
-       :pkgname "mrpotatoes/emacs-modules-mirror")

@@ -17,3 +17,4 @@ drupal5:\
   :langmap=php\:.php.module.inc.profile.install:skip=tags,TAGS,.git/,*\~
 drupal:\
   :langmap=php\:.php.module.inc.profile.install:skip=tags,TAGS,.git/,*~
+  :skip=sites/all:

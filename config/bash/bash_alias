@@ -132,6 +132,7 @@ alias gcam="git commit -am"
 alias grm="git branch -D"
 alias grmall="git branch | xargs git branch -D"
 alias gdab="git checkout master && git branch | grep -v "master" | xargs git branch -D; git fetch"
+alias gw="git describe --tags"
 
 #alias gp='git push'
 #alias gd='git diff'

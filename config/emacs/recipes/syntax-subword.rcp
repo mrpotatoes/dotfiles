@@ -1,5 +1,0 @@
-(:name syntax-subword
-       :description "syntax-subword"
-       :website "https://bitbucket.org/jpkotta/syntax-subword"
-       :url "https://bitbucket.org/jpkotta/syntax-subword"
-       :type hg)

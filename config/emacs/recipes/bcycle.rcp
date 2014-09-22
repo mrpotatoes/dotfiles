@@ -1,4 +1,0 @@
-(:name bcycle
-       :description "bcycle"
-       :type github
-       :pkgname "mrpotatoes/bcycle")
