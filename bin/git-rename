@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# Get the current branch.
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD);
+
+# Bail on master/HEAD branches.
+if [[ $CURRENT_BRANCH == "master" ]] || [[ $CURRENT_BRANCH == "HEAD" ]]
+  then
+    echo "Not going to rename the master or head branch. Sorry."
+    exit 0
+fi
+
+# Ask what they want to rename it to.
+echo "Rename the current branch \"$CURRENT_BRANCH\" to: "
+read NEW_BRANCH
+echo ""
+
+# Replace all bad chars.
+CLEANED_CURRENT_BRANCH=$(echo $NEW_BRANCH | sed 's/[^a-zA-Z0-9]/-/g')
+
+# A cool way to read in a single character.
+read -p "The branch name will be $CLEANED_CURRENT_BRANCH. Is this okay? [y/n]" -n 1
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; 
+  then
+    # Rename the branch.
+    git branch -m $CURRENT_BRANCH $CLEANED_CURRENT_BRANCH
+
+    # Push the new branch up.
+    git push origin $CLEANED_CURRENT_BRANCH
+
+    # Delete on remote
+    git push origin :$CURRENT_BRANCH
+  else
+    echo "I'm sorry I couldn't help."
+fi
+

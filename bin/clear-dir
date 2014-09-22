@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# A way to delete everything in this the directory which this script was called.
+
+echo "Are you sure you wish to continue? [y/n]"
+echo ""
+echo "If you do then all these types of files will be deleted:"
+echo "        .git"
+echo "        .gitignore"
+echo "        .DS_Store"
+echo "        .htaccess"
+echo "        .projectile"
+echo "        and everything else within this directory."
+echo ""
+echo "y/n"
+read CONTINUE
+
+if [[ $CONTINUE != "y" ]] && [[ $CONTINUE != "Y" ]]
+then
+  echo "Bailing"
+  exit 0
+fi
+
+# Actually do the deleting.
+sudo rm -rf * .[^.] .??*
+
+# Clear the screen so that we don't have this garbage on the screen.
+clear
+
+# Tell them everything went swimmingly.
+echo "HORRAY! All was deleted. Rejoice!"
+echo ""
