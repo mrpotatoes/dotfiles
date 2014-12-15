@@ -2,4 +2,5 @@
 
 . noargs
 
-git diff $1 | less
+clear 
+git diff $1 
