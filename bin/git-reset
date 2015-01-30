@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Resets index to former commit; replace '56e05fced' with your commit code
+
+. noargs
+
+git reset $1
+
+# Moves pointer back to previous HEAD
+git reset --soft HEAD@{1} 
+
+# Do the commit
+git commit -m "Revert to ${1}"
+
+# Updates working copy to reflect the new commit
+git reset --hard 
