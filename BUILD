@@ -17,7 +17,6 @@ setup profile
 setup emacs
 setup git
 
-
 # LAST NOTES ---------------------------------------------------------------------------
 clear
 echo "Now kill this session and open up a new one for all the changes to take effect.";

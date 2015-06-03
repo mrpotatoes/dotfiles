@@ -66,6 +66,8 @@ alias ummisc="open -e ~/.useful/mysql/misc.txt"
 alias umcheats="open -e ~/.useful/mysql/mysql-cheatsheet.txt"
 alias umpermissions="open -e ~/.useful/mysql/permissions.txt"
 alias umsubselects="open -e ~/.useful/mysql/subselects.txt"
+alias mesql="mysql -uroot -proot"
+alias medump="mysqldump -uroot -proot"
 
 # GOTO SPECIFIC FOLDERS
 alias docs="cd ~/Documents"
