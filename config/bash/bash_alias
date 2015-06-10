@@ -22,6 +22,7 @@ alias syncdown="sh .scripts/sync-settings-down.sh"
 # GENERAL ALIASES
 alias l="ls -aGl"
 alias lsd="ls -l | egrep '^d'"
+alias mkdir="mkdir -p"
 alias ..="cdup"
 alias ebash="e ~/.bashrc"
 alias ealias="emacs ~/.dotfiles/config/bash/bash_alias"
