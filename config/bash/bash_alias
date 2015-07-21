@@ -141,6 +141,9 @@ alias grmall="git branch | xargs git branch -D"
 alias gdab="git checkout master && git branch | grep -v "master" | xargs git branch -D; git fetch"
 alias gw="git describe --tags"
 
+# http://bit.ly/1gLPpFu
+alias gig="git ls-files -v|grep '^h'"
+
 #alias gp='git push'
 #alias gd='git diff'
 #alias gdc='git diff --cached'
