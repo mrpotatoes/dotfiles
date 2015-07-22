@@ -52,6 +52,7 @@ alias makeemacs="curl -fsSkL http://bit.ly/1vT08Qr | sh; curl -fsSkL http://bit.
 alias arhive="tar -zcvf"
 alias unarchive="tar -zxvf"
 alias size="du -sh"
+alias ack="ack -i"
 
 ## APPS
 alias calc="oo calculator"
@@ -89,7 +90,6 @@ alias odl="open ~/Downloads/"
 alias odesk="open ~/Desktop/"
 alias oproj="open ~/Projects"
 alias ohtdocs="open /var/www"
-#alias ohtdocs="open ~/Projects/Web-Applications"
 alias appsdevel="open /Applications/Developer"
 
 ## WEB DEVELOPMENT
@@ -105,10 +105,11 @@ alias webserver_paths="less ${DOTFILES}/config/webserver/paths"
 alias comms="oo adium"
 alias memcache="memcached -d"
 
-  ## DRUPAL
-  alias dru='' # Default Drupal stuff.
-  alias en='drush en -y'
-  alias dis='drush dis -y'
+## DRUPAL
+alias dru='' # Default Drupal stuff.
+alias en='drush en -y'
+alias dis='drush dis -y'
+alias cc='drush cc all'
 
 # GENERATED & CUSTOM ALIASES
 source $HOME/.dotfiles/data/generated-aliases
@@ -141,12 +142,11 @@ alias grmall="git branch | xargs git branch -D"
 alias gdab="git checkout master && git branch | grep -v "master" | xargs git branch -D; git fetch"
 alias gw="git describe --tags"
 
-# http://bit.ly/1gLPpFu
+# Temporarilly ignore files.
+# http://bit.ly/1MoJCCO && http://bit.ly/1gLPpFu
+alias git-unchanged="git update-index --assume-unchanged"
+alias git-nounchanged="git update-index --no-assume-unchanged"
 alias gig="git ls-files -v|grep '^h'"
-
-#alias gp='git push'
-#alias gd='git diff'
-#alias gdc='git diff --cached'
 
 if [ -f $HOME/.dotfiles/bin/git-completion.bash ]; then
    source $HOME/.dotfiles/bin/git-completion.bash
@@ -162,5 +162,3 @@ if [ -f $HOME/.dotfiles/bin/git-completion.bash ]; then
    __git_complete gcl _git_clone
    __git_complete gco _git_checkout
 fi
-
-alias ack-5.12="ack"
