@@ -1,0 +1,1 @@
+sudo port install weechat +aspell +debug +doc +lua +perl +python +ruby +scheme +tls

@@ -1,1 +1,4 @@
 https://github.com/paddykontschak/irssi-notifier.git
+
+
+Make an installer for the config file. Most likely will be a symlink

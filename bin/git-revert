@@ -1,0 +1,10 @@
+#!/bin/sh
+
+. noargs
+
+git reset $1
+git reset --soft HEAD@{1}
+git commit -m "Revert to {$1}"
+git reset --hard
+
+echo "Now push me to head."
