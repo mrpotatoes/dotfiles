@@ -40,13 +40,14 @@ alias dotfiles="cd ~/.dotfiles"
 alias ep="explode-path"
 
 ## EMACS
-alias emacs="emacs -nw --debug-init"
 alias e="emacs"
+alias emacs="emacs -nw --debug-init"
 alias myemacs="cd ~/.my-emacs"
 alias eemacs="emacs ~/.emacs"
 alias emacsd="cd ~/.emacs.d/"
 alias estartup="emacs ~/.dotfiles/bin/startup"
 alias makeemacs="curl -fsSkL http://bit.ly/1vT08Qr | sh; curl -fsSkL http://bit.ly/1vT0836 | sh"
+alias myemacs-clearelc="find .my-emacs/ -name "*.elc" -exec rm {} \;"
 
 ## CONVENIENCE
 alias arhive="tar -zcvf"
@@ -130,7 +131,7 @@ alias gf='git fetch'
 alias gl='git log'
 alias gs='git status'
 alias gb='git branch'
-alias gc='git commit'
+alias gc='git commit -m'
 alias gcl='git clone'
 alias gco='git checkout'
 alias gpom='git push origin master'

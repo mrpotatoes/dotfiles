@@ -12,8 +12,8 @@ PATHS_TO_JOIN=(
   # These are Mac Ports specific paths.
 	/opt/local/bin
 	/opt/local/sbin
-	/opt/local/apache2/bin
-	/opt/local/lib/mysql55/bin
+	# /opt/local/apache2/bin
+	# /opt/local/lib/mysql55/bin
 
 	# This is for selenium on my local.
 	/Applications/Internet/Firefox.app/Contents/MacOS

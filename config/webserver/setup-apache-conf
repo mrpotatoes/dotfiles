@@ -499,3 +499,7 @@ ServerName localhost
 
 Include conf/extra/mod_php.conf
 Include conf/extra/httpd-vhosts.conf
+
+<FilesMatch ".(jpg|png|gif)$">
+    ErrorDocument 500 "http://placehold.it/500x500"
+</FilesMatch>
