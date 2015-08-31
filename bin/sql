@@ -9,10 +9,10 @@ check_root
 # THE ACTUAL PROGRAM ---------------------------------------------------------------------
 case "$1" in
   'st' | 'start' ) 
-    sudo /opt/local/share/mysql55/support-files/mysql.server start;;
+    sudo mysql.server start;;
     
   'sp' | 'stop')
-    sudo /opt/local/share/mysql55/support-files/mysql.server stop;;
+    sudo mysql.server stop;;
 
   'rs' | 'restart')
     echo "(FIX ME)";;

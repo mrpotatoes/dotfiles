@@ -1,0 +1,62 @@
+#
+# Use name-based virtual hosting.
+#
+NameVirtualHost *:80
+ 
+#
+# Set up permissions for VirtualHosts in ~/Sites
+#
+<Directory "${USERHOME}/Sites">
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+</Directory>
+ 
+# For http://localhost in the users' Sites folder
+<VirtualHost _default_:80>
+    ServerName localhost
+    DocumentRoot "${USERHOME}/Sites"
+</VirtualHost>
+ 
+#
+# VirtualHosts
+#
+ 
+## Manual VirtualHost template
+#<VirtualHost *:80>
+#  ServerName project.site
+#  CustomLog "${USERHOME}/Sites/logs/project.dev-access_log" combined
+#  ErrorLog "${USERHOME}/Sites/logs/project.dev-error_log"
+#  DocumentRoot "${USERHOME}/Sites/project.dev"
+#</VirtualHost>
+ 
+#
+# Automatic VirtualHosts
+# A directory at ${USERHOME}/Sites/webroot can be accessed at http://webroot.dev
+# In Drupal, uncomment the line with: RewriteBase /
+ 
+# This log format will display the per-virtual-host as the first field followed by a typical log line
+LogFormat "%V %h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combinedmassvhost
+ 
+# Auto-VirtualHosts with .site
+<VirtualHost *:80>
+  ServerName site
+  ServerAlias *.site
+ 
+  CustomLog "${USERHOME}/Sites/logs/dev-access_log" combinedmassvhost
+  ErrorLog "${USERHOME}/Sites/logs/dev-error_log"
+ 
+  VirtualDocumentRoot ${USERHOME}/Sites/%-2+
+</VirtualHost>
+ 
+# Auto-VirtualHosts with xip.io
+<VirtualHost *:80>
+  ServerName xip
+  ServerAlias *.xip.io
+ 
+  CustomLog "${USERHOME}/Sites/logs/dev-access_log" combinedmassvhost
+  ErrorLog "${USERHOME}/Sites/logs/dev-error_log"
+ 
+  VirtualDocumentRoot ${USERHOME}/Sites/%-7+
+</VirtualHost>
