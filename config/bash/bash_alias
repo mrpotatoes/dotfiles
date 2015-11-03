@@ -31,7 +31,6 @@ alias htdocs="cd /var/www"
 alias www="cd /var/www"
 alias spikes="cd /var/www/spikes"
 alias ospikes="open /var/www/spikes"
-alias pushnight="oo adium; oo mail; oo chrome;"
 alias maven="mvn"
 alias etrash="rm -rf ~/.Trash/*"
 alias am="oo \"activity monitor\""
@@ -142,6 +141,8 @@ alias grm="git branch -D"
 alias grmall="git branch | xargs git branch -D"
 alias gdab="git checkout master && git branch | grep -v "master" | xargs git branch -D; git fetch"
 alias gw="git describe --tags"
+alias gig="git update-index --assume-unchanged"
+
 
 # Temporarilly ignore files.
 # http://bit.ly/1MoJCCO && http://bit.ly/1gLPpFu

@@ -223,7 +223,7 @@ engine = On
 ; Development Value: Off
 ; Production Value: Off
 ; http://php.net/short-open-tag
-short_open_tag = On
+short_open_tag = Off
 
 ; Allow ASP-style <% %> tags.
 ; http://php.net/asp-tags
@@ -441,7 +441,7 @@ expose_php = On
 ; Maximum execution time of each script, in seconds
 ; http://php.net/max-execution-time
 ; Note: This directive is hardcoded to 0 for the CLI SAPI
-max_execution_time = 30
+max_execution_time = 300
 
 ; Maximum amount of time each script may spend parsing request data. It's a good
 ; idea to limit this time on productions servers in order to eliminate unexpectedly
@@ -451,7 +451,7 @@ max_execution_time = 30
 ; Development Value: 60 (60 seconds)
 ; Production Value: 60 (60 seconds)
 ; http://php.net/max-input-time
-max_input_time = 60
+max_input_time = 600
 
 ; Maximum input variable nesting level
 ; http://php.net/max-input-nesting-level
@@ -462,7 +462,7 @@ max_input_time = 60
 
 ; Maximum amount of memory a script may consume (128MB)
 ; http://php.net/memory-limit
-memory_limit = 128M
+memory_limit = 256M
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Error handling and logging ;
@@ -640,7 +640,7 @@ html_errors = On
 ; empty.
 ; http://php.net/error-log
 ; Example:
-error_log = "/opt/local/etc/php5/php_error.log"
+;error_log = php_errors.log
 ; Log errors to syslog (Event Log on NT, not valid in Windows 95).
 ;error_log = syslog
 
@@ -737,7 +737,7 @@ auto_globals_jit = On
 
 ; Maximum size of POST data that PHP will accept.
 ; http://php.net/post-max-size
-post_max_size = 80M
+post_max_size = 200M
 
 ; Magic quotes are a preprocessing feature of PHP where PHP will attempt to
 ; escape any character sequences in GET, POST, COOKIE and ENV data which might
@@ -888,7 +888,7 @@ file_uploads = On
 
 ; Maximum allowed size for uploaded files.
 ; http://php.net/upload-max-filesize
-upload_max_filesize = 80M
+upload_max_filesize = 100M
 
 ; Maximum number of files that can be uploaded via a single request
 max_file_uploads = 20
@@ -916,7 +916,7 @@ allow_url_include = Off
 
 ; Default timeout for socket based streams (seconds)
 ; http://php.net/default-socket-timeout
-default_socket_timeout = 60
+default_socket_timeout = 600
 
 ; If your scripts have to deal with files from Macintosh systems,
 ; or you are running on a Mac and need to deal with files from
@@ -998,8 +998,6 @@ default_socket_timeout = 60
 ;extension=php_xsl.dll
 ;extension=php_zip.dll
 
-extension=xhprof.so
-
 ;;;;;;;;;;;;;;;;;;;
 ; Module Settings ;
 ;;;;;;;;;;;;;;;;;;;
@@ -1007,7 +1005,7 @@ extension=xhprof.so
 [Date]
 ; Defines the default timezone used by the date functions
 ; http://php.net/date.timezone
-date.timezone = America/New_York
+date.timezone = "America/New_York"
 
 ; http://php.net/date.default-latitude
 ;date.default_latitude = 31.7667
@@ -1074,7 +1072,7 @@ pdo_mysql.cache_size = 2000
 ; Default socket name for local MySQL connects.  If empty, uses the built-in
 ; MySQL defaults.
 ; http://php.net/pdo_mysql.default-socket
-pdo_mysql.default_socket=/opt/local/var/run/mysql55/mysqld.sock
+pdo_mysql.default_socket=
 
 [Phar]
 ; http://php.net/phar.readonly
@@ -1918,30 +1916,3 @@ ldap.max_links = -1
 ; Local Variables:
 ; tab-width: 4
 ; End:
-
-[XDebug]
-;extension=/opt/local/lib/php54/extensions/no-debug-non-zts-20100525/xdebug.so
-zend_extension_ts=/opt/local/lib/php54/extensions/no-debug-non-zts-20100525/xdebug.so
-xdebug.var_display_max_depth = 10
-
-; General config
-;Dumps local variables on exception
-xdebug.show_local_vars=On
-;Dump server variables
-xdebug.dump.SERVER=*
-;Dump global variables
-xdebug.dump_globals=On
-xdebug.collect_params=4;
-
-; Tracing
-xdebug.auto_trace=On
-xdebug.trace_output_dir=/opt/local/php_traces/
-xdebug.show_mem_delta=On
-xdebug.collect_return=On
-
-; Profiler
-xdebug.profiler_enable=1
-xdebug.profiler_output_dir=/opt/local/php_traces
-
-; Debugging. You might need to specify your host with some additional options
-xdebug.remote_enable=1

@@ -33,3 +33,4 @@ sql_mode = NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 # My custom changes.
 max_allowed_packet = 2G
 innodb_file_per_table = 1
+pid-file = /usr/local/var/mysql/avillanueva.pid

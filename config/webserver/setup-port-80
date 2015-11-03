@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Make this a file that I can just go ahead and symlink (or copy).
+# Take a look at the port-80.plist file.
+
 # RUN WITH PORT 80
 # You may notice that httpd.conf is running Apache on port 8080, but the above
 # are using port 80. The next two commands will create and load a firewall rule 
@@ -10,27 +13,7 @@
 # /Library/LaunchDaemons/co.echo.httpdfwd.plist as root, and owned by root, 
 # since it needs elevated privileges.
 
-sudo bash -c 'export TAB=$'"'"'\t'"'"'
-cat > /Library/LaunchDaemons/co.echo.httpdfwd.plist <<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-${TAB}<key>Label</key>
-${TAB}<string>co.echo.httpdfwd</string>
-${TAB}<key>ProgramArguments</key>
-${TAB}<array>
-${TAB}${TAB}<string>sh</string>
-${TAB}${TAB}<string>-c</string>
-${TAB}${TAB}<string>ipfw add fwd 127.0.0.1,8080 tcp from any to me dst-port 80 in &amp;&amp; sysctl -w net.inet.ip.forwarding=1</string>
-${TAB}</array>
-${TAB}<key>RunAtLoad</key>
-${TAB}<true/>
-${TAB}<key>UserName</key>
-${TAB}<string>root</string>
-</dict>
-</plist>
-EOF';
+ln -s port-80.plist /Library/LaunchDaemons/co.echo.httpdfwd.plist
 
 # This file will be loaded on login and set up the 80->8080 port forward, but we
 # can load it manually now so we don't need to log out and back in.

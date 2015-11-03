@@ -41,3 +41,7 @@ function file_ext() {
 md () {
     mkdir -p "$@" && cd "$@";
 }
+
+function site() {
+    cd /var/www/current/sites/$1
+}

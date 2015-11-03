@@ -8,6 +8,7 @@ PATHS_TO_JOIN=(
   # System level paths.
 	/usr/local/bin
 	/usr/local/sbin
+	/usr/local/opt/php53/bin
 
   # These are Mac Ports specific paths.
 	/opt/local/bin

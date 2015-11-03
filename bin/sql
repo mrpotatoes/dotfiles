@@ -4,16 +4,17 @@
 
 # Make sure they are allowed to do what they need to do.
 . ${HOME}/.dotfiles/config/bash/bash_functions
-check_root
+# check_root
 
 # THE ACTUAL PROGRAM ---------------------------------------------------------------------
 case "$1" in
   'st' | 'start' ) 
-    sudo mysql.server start;;
+    mysql.server start;;
     
   'sp' | 'stop')
-    sudo mysql.server stop;;
+    mysql.server stop;;
 
   'rs' | 'restart')
-    echo "(FIX ME)";;
+    mysql.server stop
+    mysql.server start;;
 esac
