@@ -1,0 +1,19 @@
+#!/bin/sh
+# Rebuild the source code.
+
+# The source URL for the git repo.
+SOURCE_GIT_URL="$(git config --get remote.origin.url)"
+
+# @see http://stackoverflow.com/a/9333006
+# If parameter is unset or null, the expansion of word is substituted. 
+# Otherwise, the value of parameter is substituted.
+BRANCH="${1:-master}"
+
+# Remove all hidden files.
+rm -rf .git .gitignore .DS_Store *
+
+# Clone it here.
+git clone $SOURCE_GIT_URL .
+
+# Checkout the master branch (j.i.c.)
+git checkout $BRANCH
