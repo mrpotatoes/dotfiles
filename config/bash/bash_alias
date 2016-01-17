@@ -11,7 +11,7 @@ else # OS X `ls`
 fi
 
 # INCLUDE THE WEBSERVER CONSTANTS FOR USE ELSEWHERE.
-. $WEBSERVER_CONSTS
+# . $WEBSERVER_CONSTS
 
 # http://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 
