@@ -2,3 +2,5 @@
 .#*
 .tern-port
 *.elc
+nbproject/
+.tern-project

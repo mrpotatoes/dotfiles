@@ -81,6 +81,8 @@ alias dl="cd ~/Downloads"
 alias desk="cd ~/Desktop"
 alias df="cd ~/.dotfiles"
 
+alias readdssh="ssh-add ~/.ssh/id_rsa"
+
 # OPEN SPECIFIC FOLDERS
 alias odocs="open ~/Documents/"
 alias omusic="open ~/Music/"
@@ -98,11 +100,8 @@ alias ehosts="emacs /etc/hosts"
 alias vhosts="sublime ${APACHE_CONF_HOSTS}"
 alias httpdconf="emacs ${APACHE_CONF}"
 alias phperror="emacs ${PHP_ERROR}"
-alias starttomcat="/Applications/Developer/Tomcat/bin/startup.sh"
-alias stoptomcat="/Applications/Developer/Tomcat/bin/shutdown.sh"
 alias clean_xprof="rm -rf /Users/avillanueva/Projects/XHProf-Output/*"
 alias webserver_paths="less ${DOTFILES}/config/webserver/paths"
-alias comms="oo adium"
 alias memcache="memcached -d"
 
 ## DRUPAL

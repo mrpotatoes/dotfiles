@@ -1,4 +1,4 @@
 #!/bin/sh
 # Setup git stuff.
 
-git config --global core.excludesfile ${HOME}/.dotfiles/config/misc/global-ignore
+git config --global core.excludesfile ${HOME}/.dotfiles/config/git/global-ignore
