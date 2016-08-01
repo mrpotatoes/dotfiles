@@ -111,8 +111,8 @@ alias dis='drush dis -y'
 alias cc='drush cc all'
 
 # GENERATED & CUSTOM ALIASES
-source $HOME/.dotfiles/data/generated-aliases
-source $HOME/.dotfiles/custom/other/custom-aliases
+# source $HOME/.dotfiles/data/generated-aliases
+# source $HOME/.dotfiles/custom/other/custom-aliases
 
 # WORKING WITH CUSTOM STUFF
 alias ecalias="emacs ~/.custom/other/custom-aliases"
