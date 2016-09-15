@@ -49,7 +49,7 @@ alias makeemacs="curl -fsSkL http://bit.ly/1vT08Qr | sh; curl -fsSkL http://bit.
 alias myemacs-clearelc="find .my-emacs/ -name "*.elc" -exec rm {} \;"
 
 ## CONVENIENCE
-alias arhive="tar -zcvf"
+alias archive="tar -zcvf"
 alias unarchive="tar -zxvf"
 alias size="du -sh"
 alias ack="ack -i"
@@ -112,7 +112,7 @@ alias cc='drush cc all'
 
 # GENERATED & CUSTOM ALIASES
 # source $HOME/.dotfiles/data/generated-aliases
-# source $HOME/.dotfiles/custom/other/custom-aliases
+source $HOME/.dotfiles/custom/other/custom-aliases
 
 # WORKING WITH CUSTOM STUFF
 alias ecalias="emacs ~/.custom/other/custom-aliases"
@@ -140,7 +140,7 @@ alias grm="git branch -D"
 alias grmall="git branch | xargs git branch -D"
 alias gdab="git checkout master && git branch | grep -v "master" | xargs git branch -D; git fetch"
 alias gw="git describe --tags"
-alias grs='git-rebuild-source'
+alias grs='sudo git-rebuild-source'
 
 # Temporarilly ignore files.
 # http://bit.ly/1MoJCCO && http://bit.ly/1gLPpFu

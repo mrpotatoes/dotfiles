@@ -10,7 +10,7 @@ SOURCE_GIT_URL="$(git config --get remote.origin.url)"
 BRANCH="${1:-master}"
 
 # Remove all hidden files.
-rm -rf .git .gitignore .DS_Store *
+rm -rf .[^.] .??* *
 
 # Clone it here.
 git clone $SOURCE_GIT_URL .
