@@ -26,7 +26,7 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 export FIGNORE=DS_Store #Ignore the DS Store files when using bash.
 export TERM=xterm-256color
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home"
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 # Add tab completion for `defaults read|write NSGlobalDomain`
 # You could just use `-g` instead, but I like being explicit
