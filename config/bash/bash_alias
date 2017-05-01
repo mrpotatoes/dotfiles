@@ -122,7 +122,7 @@ alias escripts="open ${DOTFILES}/custom/scripts"
 alias lipsum="echo -n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum lacinia egestas. Nullam auctor tortor euismod turpis egestas pretium. Aliquam ullamcorper nulla diam, a fermentum velit vehicula non. Pellentesque egestas enim vitae pellentesque pulvinar. Nam placerat dictum mattis. Nunc non augue molestie, ullamcorper dui eu, interdum nunc. In ac aliquet sapien. Cras viverra luctus nisl, nec iaculis mauris laoreet sed. Etiam eu tortor nec mauris semper accumsan at at turpis.  | pbcopy; echo copied"
 alias mclipsum='echo -n Test 1, 2. Test 1, 2. Test 1, 2, 3, 4. Hello? Hello? Anyone there? Time to read from the metro. Hub docs go after Ronald McDonald. Testing? Testing? All done. | pbcopy; echo mccopied'
 
-## GET SPECIFIC
+## GIT SPECIFIC
 alias ga='git add'
 alias gpl='git pull'
 alias gf='git fetch --tags'
@@ -141,6 +141,7 @@ alias grmall="git branch | xargs git branch -D"
 alias gdab="git checkout master && git branch | grep -v "master" | xargs git branch -D; git fetch"
 alias gw="git describe --tags"
 alias grs='sudo git-rebuild-source'
+alias grmm='git branch -D master'
 
 # Temporarilly ignore files.
 # http://bit.ly/1MoJCCO && http://bit.ly/1gLPpFu
