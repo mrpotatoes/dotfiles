@@ -37,6 +37,7 @@ alias am="oo \"activity monitor\""
 alias dotf="cd ~/.dotfiles"
 alias dotfiles="cd ~/.dotfiles"
 alias ep="explode-path"
+alias cpwd="pwd | pbcopy"
 
 ## EMACS
 alias e="emacs"
