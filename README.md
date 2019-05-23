@@ -46,9 +46,4 @@ For futher options (other setups) run setup and it will give you the rest of the
 * Fix the "MAKEFILE"
 * Add terminial notifier by default
   * https://github.com/julienXX/terminal-notifier
-  * https://github.com/chbrown/osx-notifier
-* Do the home brew stuff in here by default
-  * https://echo.co/blog/os-x-109-local-development-environment-apache-php-and-mysql-homebrew
-
-  
-  
+  * https://github.com/chbrown/osx-notifier  

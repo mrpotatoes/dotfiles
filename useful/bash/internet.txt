@@ -1,5 +1,3 @@
-# REMOTE COPY :: SERVER > LOCAL
-scp villanua@php-mysql-p:~/contactmgr.sql .
 scp -r villanua@php-mysql-d:/var/www/html/branches .
 
 # REMOTE COPY :: LOCAL -> SERVER

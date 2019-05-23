@@ -1,5 +1,0 @@
-Copy a region of text:
-
-C-SPC or C-@
-
-M-x -> set mark

@@ -1,14 +1,9 @@
 #!/bin/bash
 
 PATHS_TO_JOIN=(
-  # MAMP path overrides.
-	#/Applications/Mamp/Library/bin
-	#/Applications/MAMP/bin/php/php5.3.6/bin
-
   # System level paths.
 	/usr/local/bin
 	/usr/local/sbin
-	/usr/local/opt/php53/bin
 
   # These are Mac Ports specific paths.
 	/opt/local/bin

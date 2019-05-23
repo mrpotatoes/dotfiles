@@ -97,10 +97,6 @@ alias appsdevel="open /Applications/Developer"
 
 ## WEB DEVELOPMENT
 alias mamp="cd /Applications/MAMP/"
-alias ehosts="emacs /etc/hosts"
-alias vhosts="sublime ${APACHE_CONF_HOSTS}"
-alias httpdconf="emacs ${APACHE_CONF}"
-alias phperror="emacs ${PHP_ERROR}"
 alias clean_xprof="rm -rf /Users/avillanueva/Projects/XHProf-Output/*"
 alias webserver_paths="less ${DOTFILES}/config/webserver/paths"
 alias memcache="memcached -d"
@@ -116,7 +112,6 @@ alias cc='drush cc all'
 source $HOME/.dotfiles/custom/other/custom-aliases
 
 # WORKING WITH CUSTOM STUFF
-alias ecalias="emacs ~/.custom/other/custom-aliases"
 alias ocustom="open ${DOTFILES}/custom"
 alias escripts="open ${DOTFILES}/custom/scripts"
 
