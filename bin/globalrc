@@ -1,8 +1,0 @@
-#!/bin/bash
-
-. noargs
-
-GLOBAL_RC=$DOTFILES/config/globalrcedit 
-TARGET=$1
-
-gtags -v --gtagsconf=$GLOBAL_RC --gtagslabel=$TARGET
