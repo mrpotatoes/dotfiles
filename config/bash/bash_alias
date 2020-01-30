@@ -38,6 +38,7 @@ alias dotf="cd ~/.dotfiles"
 alias dotfiles="cd ~/.dotfiles"
 alias ep="explode-path"
 alias cpwd="pwd | pbcopy"
+alias ntab="open . -a iterm"
 
 ## EMACS
 alias e="emacs"
