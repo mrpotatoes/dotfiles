@@ -1,3 +1,6 @@
-#!/bin/sh
+#!/bin/bash 
 
-mkdir -p "$(dirname "$1")" && touch "$1" ;
+for i; do 
+  mkdir -p "$(dirname "$i")" && touch "$i"
+  echo "created:" $i
+done
