@@ -1,0 +1,5 @@
+#!/bin/sh
+
+CURR_DIR=$(pwd)
+
+echo "cd \"$CURR_DIR\"" | pbcopy
