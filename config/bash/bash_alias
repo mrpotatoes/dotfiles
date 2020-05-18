@@ -23,9 +23,9 @@ alias syncup="sh .scripts/sync-settings-up.sh"
 alias syncdown="sh .scripts/sync-settings-down.sh"
 
 # GENERAL ALIASES
-alias l="exa --long --header --git"
-alias la="exa -a --long --header --git"
-alias lsd="exa -la | egrep '^d'"
+alias l="ls -aGl"
+alias la="ls -la"
+alias lsd="ls -la | egrep '^d'"
 
 alias mkdir="mkdir -p"
 alias ..="cdup"
