@@ -2,4 +2,4 @@
 
 CURR_DIR=$(pwd)
 
-echo "cd \"$CURR_DIR\"" | pbcopy
+echo "cd \"$CURR_DIR\"; clear" | pbcopy
