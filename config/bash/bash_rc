@@ -19,14 +19,15 @@ export OO_CACHE_FILE="${DOTFILES}/data/oo.cache"
 # ENVIROMENT VARIABLES
 export PATH="$JOINED_PATHS:$PATH"
 export EDITOR=vim
-export JAVA_HOME="/Library/Java/Home/"
 export CATALINA_HOME=/Applications/Developer/Tomcat
 export HISTTIMEFORMAT="[%h/%d - %H:%M:%S] "
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 export FIGNORE=DS_Store #Ignore the DS Store files when using bash.
 export TERM=xterm-256color
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
+# FUCKING JAVA
+export JAVA_HOME=$(/usr/libexec/java_home -v11)
 
 # Add tab completion for `defaults read|write NSGlobalDomain`
 # You could just use `-g` instead, but I like being explicit

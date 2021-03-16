@@ -5,6 +5,6 @@
 
 #
 # Example:
-# $ delete_files .DS_Store
-# $ delete_files .svn
+# $ delete-files .DS_Store
+# $ delete-files .svn
 find . -name "$1" -exec rm -rf '{}' \;
