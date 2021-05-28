@@ -16,7 +16,9 @@ read NEW_BRANCH
 echo ""
 
 # Replace all bad chars.
-CLEANED_CURRENT_BRANCH=$(echo $NEW_BRANCH | sed 's/[^a-zA-Z0-9]/-/g')
+CLEANED_CURRENT_BRANCH=$(echo $NEW_BRANCH | sed 's/[^a-zA-Z0-9\/]/-/g')
+
+echo $CLEANED_CURRENT_BRANCH
 
 # A cool way to read in a single character.
 read -p "The branch name will be $CLEANED_CURRENT_BRANCH. Is this okay? [y/n]" -n 1
