@@ -1,6 +1,9 @@
 #!/bin/sh
 # Hey, you are actually in the .bashrc. Don't forget that.
 
+# Disable the zsh warning in new terminals.
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Some quick paths to use globally in include (source) files into bash scripts.
 export DOTFILES="$HOME/.dotfiles"
 export DOTFILES_CONFIG="$HOME/.dotfiles/config/bash"
