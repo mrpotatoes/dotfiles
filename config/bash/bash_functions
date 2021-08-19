@@ -1,5 +1,33 @@
 #!/bin/sh
 
+# Use IF check to determine if using SEXY_PROMPT or not.
+function parse_git_branch {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo " ("${ref#refs/heads/}")"
+}
+
+# Determine if the repo has stuff that needs to change.
+function parse_git_dirty {
+  # First if is based on: http://stackoverflow.com/a/2180378
+  if git ls-files >& /dev/null;
+    then
+      [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]] && echo " *"
+  fi
+}
+
+cdup() {
+  if [[ $# -eq 0 ]]
+  then
+    cd ..
+
+  else
+    for (( c=1; c<=$1; c++ ))
+      do
+        cd ..
+      done
+  fi
+}
+
 # Check if the user is the root user. Otherwise the user will have to use sudo to call it.
 check_root() {
   if [[ "`whoami`" != "root" ]]; then

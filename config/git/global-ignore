@@ -4,3 +4,4 @@
 *.elc
 nbproject/
 .tern-project
+.vscode/
