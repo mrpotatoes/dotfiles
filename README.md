@@ -29,11 +29,10 @@ useful/
 ### INSTALL
 #### Directions
 * Install the dependancies from above.
-* Run the BUILD file. You may need to give that file permissions. As well as everything in the bin directory.
+* ~Run the BUILD file. You may need to give that file permissions. As well as everything in the bin directory.~
 
 #### What it does
-* Installs emacs.
-* Installs
+* ~Installs emacs~
 
 For futher options (other setups) run setup and it will give you the rest of the options such as webserver and some smart OSX Defaults for example.
 
