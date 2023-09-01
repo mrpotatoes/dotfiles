@@ -44,6 +44,7 @@ alias dotfiles="cd ~/.dotfiles"
 alias ep="explode-path"
 alias projects="cd ~/Projects"
 alias scratch="cd ~/Projects/scratch"
+alias dashes="echo \"-------------------------------------------------\" | tr -d '\n' | pbcopy"
 
 ## EMACS
 alias e="emacs"
