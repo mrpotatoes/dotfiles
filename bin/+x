@@ -1,5 +1,5 @@
 #!/bin/sh
-# Hide file by putting a dot in front
+# `chmod` some stuff 😬
 
 . noargs
 

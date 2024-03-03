@@ -1,1 +1,0 @@
-git checkout -b DE1030-STEM tags/ROCK

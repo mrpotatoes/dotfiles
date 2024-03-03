@@ -1,1 +1,0 @@
-Run the setup program to install things.

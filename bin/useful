@@ -19,7 +19,7 @@ USEFUL_FILE="$USEFUL_DIRECTORY/$2.txt"
 # Do the work.
 if [ -f $USEFUL_FILE ]
   then
-    less $USEFUL_FILE
+    less open https://tech.libresinn.com/cheatsheets/dotfiles/$2
   else
     echo "These are not the droids you are looking for."
 fi

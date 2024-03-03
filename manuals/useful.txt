@@ -1,8 +1,0 @@
-Purpose
-
-Examples
-  useful bash archive
-    -> Opens up $DOTFILES/useful/bash/archive.txt
-    
-    useful bash file-editing
-    -> Opens up $DOTFILES/useful/bash/archive.txt

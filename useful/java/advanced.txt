@@ -1,7 +1,0 @@
-## Inner class
-
-## Exception handling
-
-## Logging
-
-## Garbage collection
