@@ -1,0 +1,47 @@
+#!/bin/sh
+# Rename all file extensions in directory to a different one
+
+clear
+
+ORIGINAL=$1
+NEW=$2
+BACKUP_DIR="./backup"
+
+function backup_folder {
+  rm -rf $BACKUP_DIR
+  mkdir $BACKUP_DIR
+  cp *.$ORIGINAL $BACKUP_DIR
+}
+
+function rename_files {
+  for file in *.$ORIGINAL; do
+    mv -- "$file" "${file%.$ORIGINAL}.$NEW"
+  done
+}
+
+echo "Backup files to be renamed? [y/n]"
+ 
+# Wait for the user to press a key
+read -s -n 1 key
+
+case $key in
+  y|Y)
+    echo "Archive of backup created, backup directory deleted"
+    backup_folder
+    tar -cf backup.tar.gz $BACKUP_DIR
+
+    rename_files
+    ;;
+  n|N)
+    echo ""
+    backup_folder
+    rename_files
+    exit 1
+    ;;
+  *)
+    echo "Invalid input. Please press 'y' or 'n'."
+    exit 1
+    ;;
+esac
+
+echo "Renamed files from <FILE>.$ORIGINAL to <FILE>.$NEW"

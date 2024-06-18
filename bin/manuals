@@ -8,5 +8,6 @@ if [ ! -f $FILE ]
   then
     echo "There is no manual for this command\n"
   else
-    less $FILE
+    # less $FILE
+    open https://tech.libresinn.com/cheatsheets/dotfiles/$MANUAL
 fi
