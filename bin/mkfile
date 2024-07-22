@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 for i; do 
   mkdir -p "$(dirname "$i")" && touch "$i"

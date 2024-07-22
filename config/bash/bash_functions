@@ -46,12 +46,6 @@ function sqlup() {
 }
 
 #----------------------------------------------------------------
-# A much easier way to make many files.
-function mfile() {
-	touch $2.$1
-}
-
-#----------------------------------------------------------------
 # Set the title of a terminal window.
 function title() {
     echo -ne "\033]0;$1\007";
