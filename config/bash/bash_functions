@@ -1,5 +1,9 @@
 #!/bin/sh
 
+youtube() {
+  yt-dlp $1
+}
+
 # Use IF check to determine if using SEXY_PROMPT or not.
 function parse_git_branch {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
