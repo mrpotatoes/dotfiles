@@ -10,12 +10,13 @@ WORKING_DIRECTORY=${PWD##*/}
 # shell functions and shell arrays, timing using SECONDS, and more!
 # Written by Wayne Pollock, Tampa FL 1996
 
-echo "This build script will setup your term, osx, bash profile, Emacs and git."
+echo "This build script will setup your term, osx, bash profile and git."
 setup iterm
 setup osx
 setup profile
-setup emacs
 setup git
+setup brew
+setup node
 
 # LAST NOTES ---------------------------------------------------------------------------
 clear

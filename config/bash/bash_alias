@@ -29,32 +29,11 @@ alias lsd="ls -la | egrep '^d'"
 
 alias mkdir="mkdir -p"
 alias ..="cdup"
-alias ebash="e ~/.bashrc"
-alias ealias="emacs ~/.dotfiles/config/bash/bash_alias"
-alias epaths="emacs ~/.dotfiles/config/bash/bash_dynamic_paths"
-alias htdocs="cd /var/www"
-alias www="cd /var/www"
-alias spikes="cd /var/www/spikes"
-alias ospikes="open /var/www/spikes"
-alias maven="mvn"
-alias etrash="rm -rf ~/.Trash/*"
-alias am="oo \"activity monitor\""
-alias dotf="cd ~/.dotfiles"
-alias dotfiles="cd ~/.dotfiles"
+alias df="cd ~/.dotfiles"
 alias ep="explode-path"
 alias projects="cd ~/Projects"
 alias scratch="cd ~/Projects/scratch"
 alias dashes="echo \"-------------------------------------------------\" | tr -d '\n' | pbcopy"
-
-## EMACS
-alias e="emacs"
-alias emacs="emacs -nw --debug-init"
-alias myemacs="cd ~/.my-emacs"
-alias eemacs="emacs ~/.emacs"
-alias emacsd="cd ~/.emacs.d/"
-alias estartup="emacs ~/.dotfiles/bin/startup"
-alias makeemacs="curl -fsSkL http://bit.ly/1vT08Qr | sh; curl -fsSkL http://bit.ly/1vT0836 | sh"
-alias myemacs-clearelc="find .my-emacs/ -name "*.elc" -exec rm {} \;"
 
 ## CONVENIENCE
 alias archive="tar -zcvf"
@@ -63,74 +42,30 @@ alias size="du -sh"
 alias ack="ack -i"
 alias pmd="${HOME}/.dotfiles/bin/pmd/bin/run.sh pmd"
 
-## APPS
-alias calc="oo calculator"
-alias ff="oo firefox"
-alias text="oo textedit"
-alias sublime="open -a sublime.app"
-alias irc='irssi'
-
-### MYSQL
-alias umcli="open -e ~/.useful/mysql/cli.txt"
-alias umcounting="open -e ~/.useful/mysql/counting.txt"
-alias ummisc="open -e ~/.useful/mysql/misc.txt"
-alias umcheats="open -e ~/.useful/mysql/mysql-cheatsheet.txt"
-alias umpermissions="open -e ~/.useful/mysql/permissions.txt"
-alias umsubselects="open -e ~/.useful/mysql/subselects.txt"
-alias mesql="mysql -uroot -proot"
-alias medump="mysqldump -uroot -proot"
-
 # GOTO SPECIFIC FOLDERS
 alias docs="cd ~/Documents"
-alias music="cd ~/Music"
-alias pics="cd ~/Pictures"
 alias proj="cd ~/Projects"
 alias apps="cd /Applications"
 alias dl="cd ~/Downloads"
 alias desk="cd ~/Desktop"
-alias df="cd ~/.dotfiles"
 
-# SSH nonsense.
+# SSH.
 alias readdssh="ssh-add ~/.ssh/id_rsa"
 
 # OPEN SPECIFIC FOLDERS
 alias odocs="open ~/Documents/"
-alias omusic="open ~/Music/"
-alias opics="open ~/Pictures/"
-alias oapps="open /Applications/"
 alias odl="open ~/Downloads/"
 alias odesk="open ~/Desktop/"
 alias oproj="open ~/Projects"
-alias ohtdocs="open /var/www"
-alias appsdevel="open /Applications/Developer"
 
 ## WEB DEVELOPMENT
-alias mamp="cd /Applications/MAMP/"
-alias ehosts="emacs /etc/hosts"
-alias vhosts="sublime ${APACHE_CONF_HOSTS}"
-alias httpdconf="emacs ${APACHE_CONF}"
-alias phperror="emacs ${PHP_ERROR}"
-alias webserver_paths="less ${DOTFILES}/config/webserver/paths"
-alias memcache="memcached -d"
+alias ehosts="vim /etc/hosts"
 alias rmraf="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +; npm i"
-
-## DRUPAL
-alias dru='' # Default Drupal stuff.
-alias en='drush en -y'
-alias dis='drush dis -y'
-alias cc='drush cc all'
-
-# GENERATED & CUSTOM ALIASES
-# source $HOME/.dotfiles/data/generated-aliases
-source $HOME/.dotfiles/custom/other/custom-aliases
-
-# WORKING WITH CUSTOM STUFF
-alias ecalias="emacs ~/.custom/other/custom-aliases"
-alias ocustom="open ${DOTFILES}/custom"
-alias escripts="open ${DOTFILES}/custom/scripts"
-
 alias lipsum="echo -n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum lacinia egestas. Nullam auctor tortor euismod turpis egestas pretium. Aliquam ullamcorper nulla diam, a fermentum velit vehicula non. Pellentesque egestas enim vitae pellentesque pulvinar. Nam placerat dictum mattis. Nunc non augue molestie, ullamcorper dui eu, interdum nunc. In ac aliquet sapien. Cras viverra luctus nisl, nec iaculis mauris laoreet sed. Etiam eu tortor nec mauris semper accumsan at at turpis.  | pbcopy; echo copied"
 alias mclipsum='echo -n Test 1, 2. Test 1, 2. Test 1, 2, 3, 4. Hello? Hello? Anyone there? Time to read from the metro. Hub docs go after Ronald McDonald. Testing? Testing? All done. | pbcopy; echo mccopied'
+
+# GENERATED & CUSTOM ALIASES
+source $HOME/.dotfiles/custom/other/custom-aliases
 
 # DOCKER SPECIFIC
 alias docker-service="docker service ls --format \"{{.ID}}: [{{.Replicas}}] {{.Name}}\""

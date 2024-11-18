@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # http://www.linuxfromscratch.org/lfs/view/6.2/chapter07/inputrc.html
 
 # Don't worry about case sensitivity.

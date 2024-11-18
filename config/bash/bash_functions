@@ -40,34 +40,28 @@ check_root() {
   fi
 }
 
-function sqlup() {
-	PASS="root"
-	mysql -uroot -p"$PASS" $1 < $2
-}
-
 #----------------------------------------------------------------
 # Set the title of a terminal window.
 function title() {
-    echo -ne "\033]0;$1\007";
+  echo -ne "\033]0;$1\007";
 }
 
 #----------------------------------------------------------------
 # Rename a file's extension
 function file_ext() {
-    file=$1
-    new_ext=$2
-    new_basename="${file%.*}"
-    #newfile "extension: ${file##*.}"
-    new_file=${new_basename}.${new_ext}
-    mv ${file} ${new_file}
+  file=$1
+  new_ext=$2
+  new_basename="${file%.*}"
+  new_file=${new_basename}.${new_ext}
+  mv ${file} ${new_file}
 }
 
 #----------------------------------------------------------------
 # Create a directory and automagically cd into it.
 md () {
-    mkdir -p "$@" && cd "$@";
+  mkdir -p "$@" && cd "$@";
 }
 
 function site() {
-    cd /var/www/current/sites/$1
+  cd /var/www/current/sites/$1
 }

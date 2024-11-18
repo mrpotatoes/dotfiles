@@ -1,48 +1,103 @@
-## ANDRIC'S DOTFILES
-This is a project that I use to put all my dotfiles on my mac computer. I prefer Mac's so that's what I use.
+## Anahi's dotfiles
+This is a project that I use to put all my dotfiles on my [Mac] computer. With just the few requirements I have below I should be able to install a complete useable system for myself in one swoop (that takes forever to run of course.)
 
-## REQUIREMENTS
-### Git
-To "git" stuff.
-### Macports
-This is all based on macports and it would be realtivly easy to use homebrew if you're so inclined to run an ACK against port and change it. Or, you could use macports. It isn't that bad (it's quite great).
-**Folder Structure**
-<pre>
+### Folder Structure
+```
 bin/
 config/
 custom/
   other/
   scripts/
-data/
-  hosts/
-manuals/
-useful/
-</pre>
+```
 
-## DEPENDANCIES
-<pre>
-  aspell: https://trac.macports.org/browser/trunk/dports/textproc/aspell/Portfile
-  ctags: https://trac.macports.org/browser/trunk/dports/devel/ctags/Portfile
-  etags: Comes with emacs (My emacs is via macports)
-</pre>
+## Requirements
+- `git`
+- `brew`
+- `node`
+- `nvm`
+- ~~`macports`~~
 
-### INSTALL
+### Install
 #### Directions
-* Install the dependancies from above.
-* ~Run the BUILD file. You may need to give that file permissions. As well as everything in the bin directory.~
+[**`NOTE`**]: Under construction
 
-#### What it does
-* ~Installs emacs~
-
-For futher options (other setups) run setup and it will give you the rest of the options such as webserver and some smart OSX Defaults for example.
+1. Clone `https://github.com/mrpotatoes/dotfiles.git`
+2. Install node
 
 ## TODO
-* Create a custom mrpotatoes-project.el based, on features, on mk-project.
-* Add back some of my netbeans keybindings that I miss.
-* Perhaps see what's up with the super key on OSX.
-* Figure out profiles
-* Try out C Sub Word. I saw something about this that I'd like to check out.
-* Fix the "MAKEFILE"
-* Add terminial notifier by default
-  * https://github.com/julienXX/terminal-notifier
-  * https://github.com/chbrown/osx-notifier  
+### General
+- [ ] Ability to use `zsh` or other shells
+- [ ] Remove `macports` dependancies. Use `brew` instead. Removes an install step
+- [ ] Any binaries that I've manually pulled in remove and use `brew` to install them instead
+- [ ] Create an archive in case I delete stuff that I'd like to still have
+  - [ ] Make sure that they're marked accordingly
+- [ ] Write an `nvm` wrapper to update all `nvm` installed `node` versions
+  - [ ] Run `NVM_UPDATE` update installing new `node`
+    - [ ] Installs all global packages again
+  - [ ] A command to update global packages for every node version installed
+- [ ] Delete the `./config/misc/` directory
+
+### `./lib`
+Still thinking about this 🤔
+
+- [ ] Create a `./lib` directory to keep all node scripts
+- [ ] So I can install the node scripts as a packagef
+
+### `./data`
+- [ ] Create a `./data` directory
+- [ ] Will contain
+  - [ ] `local-scripts`
+  - [ ] Up to date package files (`YAML`)
+  - [ ] Profile or settings data (ie iterm, vscode)
+
+### Binaries / Scripts
+- [ ] Convert all scripts to use `node` instead of `bash` scripts so that they can be used on other shells
+- [ ] Delete
+  - [ ] `ack`
+  - [ ] `add-custom`
+  - [ ] `bin-edit`
+  - [ ] `dotf-bin`
+  - [ ] `dotf-lsregister`
+  - [ ] `hashmap`
+  - [ ] `hide`
+  - [ ] `manuals`
+  - [ ] `peak`
+  - [ ] `search`
+  - [ ] `setup`
+  - [ ] `show_hidden`
+  - [ ] `unhide`
+- [ ] Nest the binaries so that they're cleaner to look at
+- [ ] Rename these so they're cleaner when I do my updated CLI
+- [ ] Confirm all the scripts work as intended
+
+### `./config/*`
+- [ ] Move all aliases, functions etc from elsewhere into `./git`
+- [ ] Move `./misc/git-config` into `./.git`
+- [ ] See what bash items can be generalized.
+- [ ] Rename `./iterm` directory to `./macos`
+  - [ ] `iterm2` configuration should exist here
+  - [ ] 
+
+### `./config/git`
+- [ ] Move `git-completion-bash` into here
+
+### Installation
+- [ ] Dependencaies should be held in `JSON`/`YAML` for upgrading n' whatever else
+- [ ] Create a `./system` folder at the root
+  - [ ] Contains `INSTALL`, `UPDATE` and `DELETE`
+- [ ] Rename `BUILD` to `INSTALL`
+- [ ] Updates
+  - [ ] Not just for binaries but should also update the config files with appropriate versions n' stuff
+- [ ] Write it in `node`
+- [ ] The `UPDATE` script should update `custom_aliases` also
+- [ ] Allow for different shell types
+  - If all scripts will primarilly be `node` then I'm not sure if this task is important
+- [ ] Rename the custom directory to something better
+- [ ] move `source $HOME/.dotfiles/custom/other/custom-aliases` to a smarter place
+
+### Optional
+- [ ] Create a script that generates the `./custom` directory so I don't have to include it in the repo
+- [ ] Add terminial notifier
+  - https://github.com/julienXX/terminal-notifier
+  - https://github.com/chbrown/osx-notifier 
+- [ ] Autocomplete, pleaaaaaaazzzzzzzzeeeeeeee!!!!

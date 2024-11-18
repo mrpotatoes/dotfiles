@@ -1,18 +1,7 @@
-tmp/*
-data/*
-
-config/emacs/modules/*
+.DS_Store
 
 custom/other/*
 custom/scripts/*
 
 custom/other/!nada.txt
 custom/scripts/!nada.txt
-
-bin/cask/tmp
-
-.DS_Store
-
-GPATH
-GRTAGS
-GTAGS

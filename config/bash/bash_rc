@@ -12,10 +12,7 @@ export DOTFILES_BIN="$HOME/.dotfiles/bin"
 export DOTFILES_CUSTOM="$HOME/.dotfiles/custom"
 export BASH_CONSTS="$HOME/.dotfiles/config/constants"
 export BASH_FUNCTIONS="$HOME/.dotfiles/config/bash_functions"
-export OO_APPLICATION_PATH="/Applications"
-export OO_CACHE_FILE="${DOTFILES}/data/oo.cache"
 export EDITOR=vim
-export CATALINA_HOME=/Applications/Developer/Tomcat
 export HISTTIMEFORMAT="[%h/%d - %H:%M:%S] "
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
@@ -46,4 +43,3 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-

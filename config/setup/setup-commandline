@@ -1,0 +1,26 @@
+#! /bin/sh
+# Install core commandline binaries
+# 
+# These are core items. Node stuff will be handled in it's own setup file.
+
+brew install ack
+brew install curl
+brew install ffmpeg
+brew install imagemagick
+brew install ncurses
+brew install ripme
+brew install rust
+brew install sqlite
+brew install tree
+brew install watch
+brew install webp
+brew install wget
+brew install yt-dlp
+
+# Node
+brew install nvm
+brew install pnpm
+brew install yarn
+brew install lerna
+
+# commandline tools
