@@ -27,7 +27,7 @@ custom/
 ## TODO
 ### General
 - [ ] Ability to use `zsh` or other shells
-- [ ] Remove `macports` dependancies. Use `brew` instead. Removes an install step
+- [x] Remove `macports` dependancies. Use `brew` instead. Removes an install step
 - [ ] Any binaries that I've manually pulled in remove and use `brew` to install them instead
 - [ ] Create an archive in case I delete stuff that I'd like to still have
   - [ ] Make sure that they're marked accordingly
@@ -36,6 +36,7 @@ custom/
     - [ ] Installs all global packages again
   - [ ] A command to update global packages for every node version installed
 - [ ] Delete the `./config/misc/` directory
+- [ ] Convert the scripts to node so that I can use them anywhere
 
 ### `./lib`
 Still thinking about this 🤔

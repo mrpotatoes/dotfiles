@@ -63,6 +63,7 @@ alias ehosts="vim /etc/hosts"
 alias rmraf="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +; npm i"
 alias lipsum="echo -n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum lacinia egestas. Nullam auctor tortor euismod turpis egestas pretium. Aliquam ullamcorper nulla diam, a fermentum velit vehicula non. Pellentesque egestas enim vitae pellentesque pulvinar. Nam placerat dictum mattis. Nunc non augue molestie, ullamcorper dui eu, interdum nunc. In ac aliquet sapien. Cras viverra luctus nisl, nec iaculis mauris laoreet sed. Etiam eu tortor nec mauris semper accumsan at at turpis.  | pbcopy; echo copied"
 alias mclipsum='echo -n Test 1, 2. Test 1, 2. Test 1, 2, 3, 4. Hello? Hello? Anyone there? Time to read from the metro. Hub docs go after Ronald McDonald. Testing? Testing? All done. | pbcopy; echo mccopied'
+alias py="python3"
 
 # GENERATED & CUSTOM ALIASES
 source $HOME/.dotfiles/custom/other/custom-aliases
@@ -71,6 +72,8 @@ source $HOME/.dotfiles/custom/other/custom-aliases
 alias docker-service="docker service ls --format \"{{.ID}}: [{{.Replicas}}] {{.Name}}\""
 alias ds="docker service ls --format \"{{.ID}}: [{{.Replicas}}] {{.Name}}\""
 alias drm="docker service rm"
+alias dka="docker stop $(docker ps -aq); docker rm $(docker ps -aq); docker rmi $(docker images -aq);"
+alias da="clear; docker images -a; echo \"\"; docker ps -a"
 
 ## GIT SPECIFIC
 alias ga='git add'
